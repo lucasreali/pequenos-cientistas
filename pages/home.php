@@ -11,10 +11,23 @@ require_once "../router/routes.php";
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../assets/styles/style.css">
     <title>Pequenos cientistas</title>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <a href="/login">login</a>
+    <header>
+        <nav>
+            <img src="../assets/images/logo.svg" alt="">
+            <div class="menu-wrapper">
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/contato">Contato</a></li>
+                    <li><a href="/sobre">Sobre nós</a></li>
+                </ul>
+
+                <a href="/login">Login</a>
+            </div>
+        </nav>
+    </header>
 </body>
 </html>
