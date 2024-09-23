@@ -17,8 +17,8 @@ require_once "../router/routes.php";
 <body>
     <header>
         <nav>
-            <img src="../assets/images/logo.svg" alt="">
-            <div class="menu-wrapper">
+            <a href="/"><img src="../assets/images/logo.svg" alt=""></a>
+            <div class="menu-wrapper container">
                 <ul>
                     <li><a href="/">Inicio</a></li>
                     <li><a href="/contato">Contato</a></li>
