@@ -1,21 +1,29 @@
+body {
+    background-image: url('../images/children01.png');
+    background-size: cover;
+}
+
 section {
+    background-color: #bcd3e8b0;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 4fr;
     align-items: center;
+    backdrop-filter: blur(10px);
 }
 
 .form-login {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
 }
 
 .form-login form {
     height: 900px;
     width: 700px;
-    margin-left: 200px;
     background-color: var(--white);
     border-radius: 10px;
     padding: 50px;
+    box-shadow: 0 0 15px #17404d70;
 }
 
 .form-login form a img {
@@ -47,3 +55,10 @@ section {
     padding: 10px;
 
 }
+
+.img-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

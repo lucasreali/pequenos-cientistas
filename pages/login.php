@@ -13,7 +13,7 @@
 <body>
 <section>
     <div class="form-login">
-        <form name="form" action="" method="post">
+        <form name="form" action="../actions/login.php" method="post">
             <a href="/"><img src="../assets/images/Arrow%20left-circle.svg" alt="voltar para a pagina inicial"></a>
             <h3>Obrigado por fazer parte dos</h3>
             <h1>Pequenos Cientistas</h1>
@@ -28,11 +28,17 @@
                 <input type="password" name="password" placeholder="Digite aqui">
             </div>
 
+            <a href="/">Esqueci minha senha</a>
 
+            <button type="submit">Entrar</button>
+
+            <p>Não tem conta? <a href="/">Clique aqui</a></p>
 
         </form>
     </div>
-    <div class="img-login"></div>
+    <div class="img-login">
+        <img src="../assets/images/logo-completa.svg" alt="">
+    </div>
 </section>
 </body>
 </html>
