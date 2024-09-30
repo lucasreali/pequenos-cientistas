@@ -1,8 +1,4 @@
 <?php
-require_once "../router/routes.php";
-
-
-
 
 ?><!doctype html>
 <html lang="pt-br">
@@ -29,5 +25,9 @@ require_once "../router/routes.php";
             </div>
         </nav>
     </header>
+
+<section class="hub">
+
+</section>
 </body>
 </html>
