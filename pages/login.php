@@ -28,7 +28,7 @@
                 <input type="password" name="password" placeholder="Digite aqui">
             </div>
 
-            <a href="/">Esqueci minha senha</a>
+            <p class="fgt-passw"><a href="/">Esqueci minha senha</a></p>
 
             <button type="submit">Entrar</button>
 

@@ -2,6 +2,7 @@
 
 :root {
     --light-blue: #D3DFEA;
+    --dark-blue: #322A57;
     --black-txt: #232323;
     --white: #FFFCF6;
 }
@@ -11,7 +12,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: gabarito;
+    font-family: gabarito, serif;
     list-style: none;
 }
 
