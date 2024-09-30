@@ -3,6 +3,7 @@
 :root {
     --light-blue: #D3DFEA;
     --black-txt: #232323;
+    --white: #FFFCF6;
 }
 
 
@@ -17,6 +18,10 @@
 .container {
     max-width: 1000px;
     margin: 0 auto;
+}
+
+section {
+    height: 100vh;
 }
 
 header {
