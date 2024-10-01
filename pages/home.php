@@ -5,14 +5,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<<<<<<< HEAD
     <link rel="stylesheet" href="../assets/styles/home.css">
-=======
+
     <link rel="shortcut icon" href="../assets/images/logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="../assets/styles/style.css">
     <link rel="stylesheet" href="../assets/styles/home.css">
 
->>>>>>> edfee7d69489f9f3542dbeaf965fe3bb04b3642f
     <title>Pequenos cientistas</title>
 </head>
 <body>
