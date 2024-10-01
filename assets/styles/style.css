@@ -39,15 +39,35 @@ nav {
     align-items: center;
 }
 
-nav img {
+nav > a {
     height: 60px;
     width: 60px;
     margin-left: 20px;
 }
 
-nav a {
-    color: black;
+nav .menu-wrapper a {
+    font-size: 18px;
+    position: relative;
+    color: var(--black-txt);
     text-decoration: none;
+    padding: 5px 0;
+}
+
+nav .menu-wrapper a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    height: 2px;
+    background-color: black;
+    transform: translateX(-50%);
+    transition: width 0.3s ease, left 0.3s ease;
+    width: 0;
+}
+
+nav .menu-wrapper a:hover::after {
+    width: 100%;
+    left: 50%;
 }
 
 .menu-wrapper {
