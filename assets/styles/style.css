@@ -1,3 +1,9 @@
+/*
+
+    TUDO QUE FOR EM COMUM COM OUTRAS PAGINAS ESCREVER AQUI
+
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap');
 
 :root {
@@ -26,6 +32,8 @@ section {
 }
 
 header {
+    top: 0;
+    position: fixed;
     background-color: var(--light-blue);
     width: 100%;
     height: 100px;
