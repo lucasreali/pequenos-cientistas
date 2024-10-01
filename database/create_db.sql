@@ -2,73 +2,67 @@ drop database if exists pequenos_cientistas;
 create database if not exists pequenos_cientistas;
 use pequenos_cientistas;
 
--- Tabela: responsável
 create table if not exists responsavel
 (
     id            int auto_increment primary key,
     name          varchar(50) not null,
     cpf           char(11) not null unique,
     email         varchar(50) not null unique,
-    password      varchar(255) not null,  -- Encrypt the password
+    password      varchar(255) not null,
     phone         varchar(15)
 );
 
--- Tabela: aluno
 create table if not exists aluno
 (
     id            int auto_increment primary key,
     name          varchar(50) not null,
     cpf           char(11) not null unique,
     email         varchar(50) not null unique,
-    password      varchar(255) not null,  -- Encrypt the password
+    password      varchar(255) not null,
     phone         varchar(15),
     age           int not null
 );
 
--- Tabela: professor
 create table if not exists professor
 (
     id            int auto_increment primary key,
     name          varchar(50) not null,
     cpf           char(11) not null unique,
     email         varchar(50) not null unique,
-    password      varchar(255) not null,  -- Encrypt the password
-    subject       varchar(50) not null,   -- Subject the professor teaches
-    experience    text                    -- Description of experience
+    password      varchar(255) not null,
+    subject       varchar(50) not null,   
+    experience    text                    
 );
 
--- Tabela: aula
 create table if not exists aula
 (
     id            int auto_increment primary key,
     title         varchar(100) not null,
     description   text,
-    professor_id  int not null,  -- Foreign key to professor
+    professor_id  int not null,
     created_at    timestamp default current_timestamp,
     foreign key (professor_id) references professor(id)
 );
 
--- Tabela: vídeo
 create table if not exists video
 (
     id            int auto_increment primary key,
     url           varchar(255) not null,
     title         varchar(100) not null,
     description   text,
-    restriction_age int not null,  -- Age restriction for the video
-    aula_id       int not null,    -- Foreign key to aula
+    restriction_age int not null,  
+    aula_id       int not null,
     foreign key (aula_id) references aula(id)
 );
 
--- Tabela: experimento
 create table if not exists experimento
 (
     id            int auto_increment primary key,
     title         varchar(100) not null,
     description   text not null,
-    materials     text not null,         -- List of materials required
-    steps         text not null,         -- Steps to complete the experiment
-    professor_id  int not null,          -- Foreign key to professor
+    materials     text not null,    
+    steps         text not null,    
+    professor_id  int not null,  
     foreign key (professor_id) references professor(id)
 );
 
@@ -78,54 +72,50 @@ create table if not exists noticia
     id            int auto_increment primary key,
     title         varchar(100) not null,
     content       text not null,
-    source        varchar(100) not null,  -- Source of the news (e.g., website, journal)
+    source        varchar(100) not null, 
     published_at  date not null
 );
 
--- Tabela: progresso_aluno (relacionamento aluno - aula)
 create table if not exists progresso_aluno
 (
     id            int auto_increment primary key,
-    student_id    int not null,         -- Foreign key to aluno
-    lesson_id     int not null,         -- Foreign key to aula
-    progress      decimal(5,2) not null, -- Progress as a percentage (0-100)
-    completed     boolean default false, -- If the lesson has been completed
-    start_date    date,                 -- Date when the lesson was started
-    end_date      date,                 -- Date when the lesson was completed
+    student_id    int not null,     
+    lesson_id     int not null,      
+    progress      decimal(5,2) not null,
+    completed     boolean default false, 
+    start_date    date,            
+    end_date      date,            
     foreign key (student_id) references aluno(id),
     foreign key (lesson_id) references aula(id)
 );
 
--- Tabela: filtro_conteudo (para os responsáveis controlarem o conteúdo)
 create table if not exists filtro_conteudo
 (
     id            int auto_increment primary key,
-    responsavel_id int not null,          -- Foreign key to responsavel
-    student_id    int not null,           -- Foreign key to aluno
-    age_limit     int not null,           -- Age limit for content
+    responsavel_id int not null,
+    student_id    int not null,
+    age_limit     int not null,
     foreign key (responsavel_id) references responsavel(id),
     foreign key (student_id) references aluno(id)
 );
 
--- Tabela: admin
 create table if not exists admin
 (
     id            int auto_increment primary key,
     name          varchar(50) not null,
     cpf           char(11) not null unique,
     email         varchar(50) not null unique,
-    password      varchar(255) not null,  -- Encrypt the password
+    password      varchar(255) not null, 
     phone         varchar(15),
-    created_by    int,  -- Admin that created this admin
+    created_by    int,  
     created_at    timestamp default current_timestamp,
     foreign key (created_by) references admin(id)
 );
 
--- Tabela: permissao_admin (Permissões de administração)
 create table if not exists permissao_admin
 (
-    admin_id      int not null,           -- Foreign key to admin
-    permission    varchar(50) not null,   -- Permission type (e.g., 'edit_content', 'manage_users')
+    admin_id      int not null, 
+    permission    varchar(50) not null,
     granted_at    timestamp default current_timestamp,
     primary key (admin_id, permission),
     foreign key (admin_id) references admin(id)
@@ -135,45 +125,42 @@ create table if not exists permissao_admin
 create table if not exists ranking
 (
     id            int auto_increment primary key,
-    student_id    int not null,           -- Foreign key to aluno
-    xp            int not null,           -- Experience points (XP)
-    level         int not null,           -- Current level of the student
-    position      int not null,           -- Position in the ranking
+    student_id    int not null,
+    xp            int not null,
+    level         int not null,
+    position      int not null,
     foreign key (student_id) references aluno(id)
 );
 
--- Tabela: relatorio_responsavel
 create table if not exists relatorio_responsavel
 (
     id            int auto_increment primary key,
-    responsavel_id int not null,          -- Foreign key to responsavel
-    student_id    int not null,           -- Foreign key to aluno
-    rank_position int not null,           -- Student's position in the ranking
-    xp_earned     int not null,           -- Total XP earned in the report period
+    responsavel_id int not null,
+    student_id    int not null,
+    rank_position int not null,
+    xp_earned     int not null,
     generated_at  timestamp default current_timestamp,
     foreign key (responsavel_id) references responsavel(id),
     foreign key (student_id) references aluno(id)
 );
 
--- Tabela: suporte
 create table if not exists suporte
 (
     id            int auto_increment primary key,
-    user_id       int not null,           -- Foreign key to either aluno, professor, or admin
-    user_type     varchar(50) not null,   -- User type (e.g., 'student', 'professor', 'admin')
-    issue         text not null,          -- Support issue description
-    status        varchar(20) default 'open',  -- Status of the support request
+    user_id       int not null,
+    user_type     varchar(50) not null,
+    issue         text not null,
+    status        varchar(20) default 'open',
     created_at    timestamp default current_timestamp
 );
 
--- Tabela: chat
 create table if not exists chat
 (
     id            int auto_increment primary key,
-    sender_id     int not null,           -- User ID of the sender
-    sender_type   varchar(50) not null,   -- User type (student, professor, responsavel)
-    receiver_id   int not null,           -- User ID of the receiver
-    receiver_type varchar(50) not null,   -- User type of the receiver
-    message       text not null,          -- Message content
+    sender_id     int not null,
+    sender_type   varchar(50) not null,
+    receiver_id   int not null,
+    receiver_type varchar(50) not null,
+    message       text not null,
     sent_at       timestamp default current_timestamp
 );

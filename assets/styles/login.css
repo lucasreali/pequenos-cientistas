@@ -1,0 +1,105 @@
+body {
+    background-image: url('../images/children01.png');
+    background-size: cover;
+}
+
+section {
+    background-color: #bcd3e8b0;
+    display: grid;
+    grid-template-columns: 3fr 4fr;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+.form-login {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.form-login form {
+    height: 800px;
+    width: 700px;
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 50px;
+    box-shadow: 0 0 15px #17404d70;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-login form a img {
+    display: inline-block;
+    transition: all 200ms linear;
+}
+
+.form-login form a img:hover {
+    transform: scale(1.05);
+}
+
+.form-login form h3 {
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+.form-login form h1 {
+    font-size: 54px;
+    margin-bottom: 80px;
+}
+
+.form-login form .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-login form .input-wrapper label {
+    font-size: 24px;
+    margin-block: 40px 10px;
+}
+
+.form-login form .input-wrapper input[type="email"],
+.form-login form .input-wrapper input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f2f2f2;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.form-login form .fgt-passw {
+    text-align: right;
+    margin-top: 30px;
+}
+
+.form-login form button {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    border: none;
+    background-color: var(--light-blue);
+    font-size: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 100ms ease;
+}
+
+.form-login form button:hover {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    scale: 1.01;
+}
+
+.form-login form p {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.img-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
