@@ -29,6 +29,7 @@ section {
 }
 
 .form-login form a img {
+    display: inline-block;
     transition: all 200ms linear;
 }
 
