@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap');
 
 :root {
@@ -121,4 +122,18 @@ p{
 .menu-wrapper ul {
     display: flex;
     gap: 50px;
+=======
+.hub {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 100px;
+}
+
+.hub-img {
+
+}
+
+.hub-info {
+
+>>>>>>> edfee7d69489f9f3542dbeaf965fe3bb04b3642f
 }
