@@ -1,132 +1,38 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap');
-
-:root {
-    --light-blue: #D3DFEA;
-    --dark-blue: #322A57;
-    --black-txt: #232323;
-    --white: #FFFCF6;
+.hub {
+    /* Aqui vai dividir a seção em duas partes igual*/
+    padding-top: 100px; /* Esse padding move os elementos para baixo para não ficarem atrás da navbar */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: gabarito, serif;
-    list-style: none;
-}
-
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-section {
-    height: 100vh;
-}
-
-header {
-    background-color: var(--light-blue);
-    width: 100%;
-    height: 100px;
-    box-shadow: 0 0 15px #00000080;
-}
-
-nav {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-
-nav img {
-    height: 60px;
-    width: 60px;
-    margin-left: 20px;
-}
-
-nav a {
-    color: black;
-    text-decoration: none;
-}
-
-ul li {
-    position: relative;
-    margin-right: 20px;
-    text-decoration: none;
-    padding: 10px 20px ;
-    
-    position: relative;
-}
-ul li a::after{
-    content: " ";
-    position: absolute;
-    width: 0%;
-    height: 3px;
-    background-color: #322A57;
-    transition: 0.5s ease-in-out ;
-    bottom: 0;
-    left: 0;
-}
-
-ul li a:hover::after{
-    width: 100%;
-}
-
-a {
-    position: relative;
-    text-decoration: none;
-    padding: 10px 5px ;
-    position: relative;
-}
-a::after{
-    content: " ";
-    position: absolute;
-    width: 0%;
-    height: 3px;
-    background-color: #322A57;
-    transition: 0.5s ease-in-out ;
-    bottom: 0;
-    left: 0;
-}
-
- a:hover::after{
-    width: 100%;
-}
 
 .hub-info{
-  
-    margin-left: auto;
-    margin-top: -630px;
+    margin-left: auto; /* Isso aq n entendi */
+    margin-top: -630px; /* Como o ajuste ja foi feito em cima esse margin é desnecessário */
     justify-content: flex-end;
     align-items: flex-start;
     height: 100vh;
-    width: 50%;
     
 
 }
 h1{
     text-align: center;
-    margin:100px;
-    margin-top: 0px;
     font-size: 26px;
     padding: 30px;
 }
 
 p{
     text-align: justify;
-    margin: 20%;
-    margin-top: -140px;
+    margin: -140px 20% 20%; /* Evita usar margin pra centralizar as coisas, usa display */
     font-size:20px;
     padding: 30px;
 }
 
 
-
 button {
-    margin: 370px;
-    margin-top: 10px;
+    margin: 10px 370px 370px; /* Evita usar margin pra centralizar as coisas, usa display*/
     padding: 10px 20px;
     border-radius: 10px;
     display: inline-block;
@@ -139,11 +45,7 @@ button {
     box-shadow:0 0 10px #00000080;
     transition: all .3s ease-out;
     transition-property: all;
-
-    
 }
-
-
 
 button:hover {
     background-color: #0000003f;
@@ -152,15 +54,3 @@ button:hover {
     transform: scale(1.0) translateY(-3px);
 }
 
-
-.menu-wrapper {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.menu-wrapper ul {
-    display: flex;
-    gap: 50px;
-}
