@@ -15,7 +15,7 @@
     <div class="form-login">
         <form name="form" action="../actions/login.php" method="post">
             <div class="box-size">
-                <a href="/"><img src="../assets/images/Arrow%20left-circle.svg" alt="voltar para a pagina inicial"></a>
+                <a href="/"><img src="../assets/images/arrow-left-circle.svg" alt="voltar para a pagina inicial"></a>
             </div>
             <h3>Obrigado por fazer parte dos</h3>
             <h1>Pequenos Cientistas</h1>
@@ -34,7 +34,7 @@
 
             <button type="submit">Entrar</button>
 
-            <p>Não tem conta? <a href="/">Clique aqui</a></p>
+            <p>Não tem conta? <a href="/quemevoce">Clique aqui</a></p>
 
         </form>
     </div>

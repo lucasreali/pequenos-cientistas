@@ -1,6 +1,6 @@
-drop database if exists pequenos_cientistas;
-create database if not exists pequenos_cientistas;
-use pequenos_cientistas;
+drop database if exists pequenos_cientistas01;
+create database if not exists pequenos_cientistas01;
+use pequenos_cientistas01;
 
 create table if not exists responsavel
 (
