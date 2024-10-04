@@ -45,6 +45,12 @@ button {
     box-shadow:0 0 10px #00000080;
     transition: all .3s ease-out;
     transition-property: all;
+<<<<<<< Updated upstream
+=======
+    
+
+    
+>>>>>>> Stashed changes
 }
 
 button:hover {
