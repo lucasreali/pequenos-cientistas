@@ -1,12 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap');
 
+:root {
+    --light-blue: #78B5CD;
+    --dark-blue: #342E52;
+    --black-txt: #232323;
+    --white: #FFF9EC;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: gabarito, serif;
     text-decoration: none;
-    color: #232323;
+    color: var(--black-txt);
 }
 
 body {
@@ -15,77 +22,95 @@ body {
 }
 
 section {
-    height: 100vh;
     background-color: #bcd3e8b0;
     backdrop-filter: blur(10px);
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
-main {
-    background-color: #f2f2f2;
-    padding: 50px;
-    height: 700px;
-    width: 1400px;
-    box-shadow: 0 0 10px #00000080;
-    border-radius: 10px;
-}
-
-.usertype-wrapper {
-    display: flex;
-}
-
-main .usertype-wrapper > h1 {
-    margin-left: 30px;
-    font-size: 40px;
-}
-
-main .usertype-wrapper > a {
-    transition: all 200ms ease-in-out;
-}
-
-main .usertype-wrapper > a:hover {
-    scale: 1.05;
-}
-
-main > a img:hover {
-    scale: 1.05;
+.bg-white {
+    position: fixed;
+    background-color: var(--white);
+    height: 800px;
+    width: 100%;
+    z-index: -1;
+    padding: 50px 100px;
 }
 
 .users-box {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin-top: 50px;
-}
-
-
-.users-box .user {
-    background: #79C7FF;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    margin: 0 20px;
-    padding: 30px;
-    transition: all 300ms ease-in-out;
-    border-radius: 10px;
 }
 
-.users-box .user:hover {
+.user {
+    background-color: var(--light-blue);
+    padding: 50px;
+    height: 100vh;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    box-shadow: 0 0 15px #00000080;
+    transition: all 200ms ease-in;
+
+}
+
+.user:hover {
     scale: 1.01;
-    box-shadow: 0 0 5px #00000080;
+    z-index: 2;
 }
 
-.users-box .user button {
-    font-size: 20px;
-    padding: 10px 20px;
-    background-color: #322A57;
-    cursor: pointer;
-    color: #f2f2f2;
-    border: none;
-    border-radius: 10px;
+.user h2 {
+    font-size: 50px;
 }
+
+.user img {
+    width: 350px;
+    height: 350px;
+}
+
+.user p {
+    font-size: 20px;
+    text-align: center;
+}
+
+.user button {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    font-size: 20px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.user button:hover {
+    scale: 1.05;
+}
+
+.aluno {
+    z-index: 1;
+    background-color: var(--dark-blue);
+}
+
+.aluno > * {
+    color: var(--white);
+}
+
+.aluno button {
+    background-color: var(--white);
+    color: var(--black-txt);
+}
+
+
+
+
 
 

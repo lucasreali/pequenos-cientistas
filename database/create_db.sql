@@ -1,6 +1,6 @@
-drop database if exists pequenos_cientistas01;
-create database if not exists pequenos_cientistas01;
-use pequenos_cientistas01;
+drop database if exists pequenos_cientistas;
+create database if not exists pequenos_cientistas;
+use pequenos_cientistas;
 
 create table if not exists responsavel
 (
@@ -66,7 +66,6 @@ create table if not exists experimento
     foreign key (professor_id) references professor(id)
 );
 
--- Tabela: notícia
 create table if not exists noticia
 (
     id            int auto_increment primary key,
@@ -121,7 +120,6 @@ create table if not exists permissao_admin
     foreign key (admin_id) references admin(id)
 );
 
--- Tabela: ranking
 create table if not exists ranking
 (
     id            int auto_increment primary key,

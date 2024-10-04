@@ -18,7 +18,7 @@
                 <a href="/"><img src="../assets/images/arrow-left-circle.svg" alt="voltar para a pagina inicial"></a>
             </div>
             <h3>Obrigado por fazer parte dos</h3>
-            <h1>Pequenos Cientistas</h1>
+            <h1>Pequenos Cientistas!</h1>
 
             <div class="input-wrapper">
                 <label for="email">E-mail:</label>
