@@ -9,8 +9,7 @@
 
 
 .hub-info{
-    margin-left: auto; /* Isso aq n entendi */
-    margin-top: -630px; /* Como o ajuste ja foi feito em cima esse margin é desnecessário */
+
     justify-content: flex-end;
     align-items: flex-start;
     height: 100vh;
@@ -20,26 +19,25 @@
 h1{
     text-align: center;
     font-size: 26px;
-    padding: 30px;
+    padding: 70px;
 }
 
 p{
     text-align: justify;
-    margin: -140px 20% 20%; /* Evita usar margin pra centralizar as coisas, usa display */
     font-size:20px;
-    padding: 30px;
+   padding: 0 100px;
 }
 
 
 button {
-    margin: 10px 370px 370px; /* Evita usar margin pra centralizar as coisas, usa display*/
-    padding: 10px 20px;
-    border-radius: 10px;
-    display: inline-block;
+    margin: 20px 330px 370px; /* Evita usar margin pra centralizar as coisas, usa display*/
+    margin-top: 70px;
     font-weight: bold;
-    width: 23%;
+    border-radius: 7px;
+    display: inline-block;
+    width: 30%;
+    padding: 1.4%;
     background-color: var(--light-blue);
-    color: black;
     border: none;
     cursor: pointer;
     box-shadow:0 0 10px #00000080;
@@ -52,11 +50,18 @@ button {
     
 >>>>>>> Stashed changes
 }
-
+button a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}
 button:hover {
     background-color: #0000003f;
-    transition: all .3s ease-out;
-    transition-property: all;
     transform: scale(1.0) translateY(-3px);
 }
 
+.img-kid{
+    position: relative;
+    top: -380px;
+    left: 1150px;
+}
