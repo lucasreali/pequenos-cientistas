@@ -21,6 +21,7 @@
     box-sizing: border-box;
     font-family: gabarito, serif;
     list-style: none;
+    text-decoration: none;
 }
 
 .container {
