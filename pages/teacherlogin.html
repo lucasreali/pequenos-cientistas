@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professor</title>
+    <link rel="shortcut icon" href="../assets/images/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/styles/style.css">
+    <link rel="stylesheet" href="../assets/styles/teacherlogin.css">
+    
+</head>
+<body>
+    <section>
+        <div class="form-login">
+            <form name="form" action="../actions/login.php" method="post">
+                <div class="box-size">
+                    <a href="../pages/home.html"><img src="../assets/images/arrow-left-circle.svg" alt="voltar para a pagina inicial"></a>
+                </div>
+
+                <div class="teacher-foto">
+                    <img src="../assets/images/professor-ico.svg" alt="">
+                </div>
+
+
+
+                <h1>Pequenos Cientistas!</h1>
+                
+                
+                <div class="input-wrapper">
+                    <label for="name">Nome Completo:</label>
+                    <input type="text" id="name" name="name" placeholder="Digite seu nome completo">
+                </div>  
+                
+                <div class="input-wrapper">
+                    <label for="email">E-mail Institucional:</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail institucional">
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" placeholder="Crie uma senha">
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="confirm-password">Confirmar Senha:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirme sua senha">
+                </div>
+                   
+    
+                <div class="input-wrapper">
+                    <label for="teaching-area">Área de Ensino:</label>
+                    <input type="text" id="teaching-area" name="teaching-area" placeholder="Ex: Matemática, Ciências">
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="education-level">Nível de Ensino:</label>
+                    <input type="text" id="education-level" name="education-level" placeholder="Ex: Ensino Fundamental, Médio">
+                </div>
+                    
+
+
+                <div class="checkbox">
+                    <input type="checkbox" id="terms" name="terms">
+                    <label for="terms">Aceito os <a href="#">termos e condições</a></label>
+                </div>
+
+                <button type="submit">Quero fazer parte</button>
+    
+    
+            </form>
+        </div>
+    </section>
+            <div class="img-login">
+            <img src="../assets/images/logo-completa.svg" alt="">
+        </div>
+    
+</body>
+</html>

@@ -22,7 +22,7 @@ body {
 }
 
 section {
-    background-color: #bcd3e8b0;
+    background-color: var;
     backdrop-filter: blur(10px);
     height: 100vh;
     display: flex;
@@ -108,9 +108,16 @@ section {
     background-color: var(--white);
     color: var(--black-txt);
 }
+button{
+    transition: all .3s ease-out;
+    transition-property: all;
+}
+  
 
-
-
+button:hover{ 
+    background-color: #0000003f;
+    transform: scale(1.0) translateY(-3px);
+}
 
 
 
