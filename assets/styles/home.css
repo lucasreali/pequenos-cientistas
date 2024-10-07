@@ -52,4 +52,10 @@
 /*Mexi no codigo*/
 
 
-
+.kids{
+    display: flex;
+    margin-left: 800px;
+    margin-top: 300px;
+    align-items: center;
+    
+}

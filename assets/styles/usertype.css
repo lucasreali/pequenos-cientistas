@@ -15,11 +15,14 @@
     font-family: gabarito, serif;
     text-decoration: none;
     color: var(--black-txt);
+    
 }
 
 body {
     background-image: url('../images/children01.png');
     background-size: cover;
+    
+    
 }
 
 section {
@@ -30,6 +33,7 @@ section {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    
 }
 
 .bg-white {
