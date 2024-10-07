@@ -1,67 +1,61 @@
-
 .hub {
-    /* Aqui vai dividir a seção em duas partes igual*/
-    padding-top: 100px; /* Esse padding move os elementos para baixo para não ficarem atrás da navbar */
+    padding-top: 100px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 4fr;
 }
 
-
-
-.hub-info{
-
-    justify-content: flex-end;
-    align-items: flex-start;
-    height: 100vh;
-    
-
-}
-h1{
-    text-align: center;
-    font-size: 26px;
-    padding: 70px;
+.img-hub {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-p{
+.img-hub img {
+    height: 800px;
+} /*Mexi no codigo*/
+
+.hub-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-right: 150px;
+}
+
+.hub-info h1 {
+    font-size: 48px;
+    align-self: flex-start;
+}
+
+.hub-info p {
+    font-size: 32px;
     text-align: justify;
-    font-size:20px;
-   padding: 0 100px;
+    margin-block: 30px 100px;
 }
 
-
-button {
-    margin: 20px 330px 370px; /* Evita usar margin pra centralizar as coisas, usa display*/
-    margin-top: 70px;
-    font-weight: bold;
-    border-radius: 7px;
-    display: inline-block;
-    width: 30%;
-    padding: 1.4%;
-    background-color: var(--light-blue);
+.hub-info button {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    box-shadow: 0 0 10px #00000080;
+    font-size: 20px;
+    padding: 15px 25px;
+    border-radius: 10px;
     border: none;
+    transition: all 300ms ease;
     cursor: pointer;
-    box-shadow:0 0 10px #00000080;
-    transition: all .3s ease-out;
-    transition-property: all;
-<<<<<<< Updated upstream
-=======
-    
-
-    
->>>>>>> Stashed changes
-}
-button a {
-    text-decoration: none;
-    color: black;
-    font-size: 15px;
-}
-button:hover {
-    background-color: #0000003f;
-    transform: scale(1.0) translateY(-3px);
 }
 
-.img-kid{
-    position: relative;
-    top: -380px;
-    left: 1150px;
+.hub-info button:hover {
+    scale: 1.05;
+}
+
+/*Mexi no codigo*/
+
+
+.kids{
+    display: flex;
+    margin-left: 800px;
+    margin-top: 300px;
+    align-items: center;
+    
 }
