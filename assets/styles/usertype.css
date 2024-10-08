@@ -43,12 +43,14 @@ section {
     width: 100%;
     z-index: -1;
     padding: 50px 100px;
+    
 }
 
 .users-box {
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 .user {
@@ -63,6 +65,7 @@ section {
     gap: 50px;
     box-shadow: 0 0 15px #00000080;
     transition: all 200ms ease-in;
+    
 
 }
 
@@ -120,7 +123,6 @@ button{
   
 
 button:hover{ 
-    background-color: #0000003f;
     transform: scale(1.0) translateY(-3px);
 }
 

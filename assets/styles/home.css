@@ -28,7 +28,7 @@
 }
 
 .hub-info p {
-    font-size: 32px;
+    font-size: 28px;
     text-align: justify;
     margin-block: 30px 100px;
 }
@@ -54,8 +54,9 @@
 
 .kids{
     display: flex;
-    margin-left: 800px;
+    margin-left: 1000px;
     margin-top: 300px;
     align-items: center;
     
 }
+

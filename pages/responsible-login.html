@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/images/logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="../assets/styles/style.css">
-    <link rel="stylesheet" href="../assets/styles/teacher-login.css">
+    <link rel="stylesheet" href="../assets/styles/responsible-login.css">
     <title>Cadastro Professor(a)</title>
 
 </head>
@@ -20,7 +20,7 @@
                     </div>
                     
                     <div class="img-teacher">
-                        <img src="../assets/images/professor-ico.svg" alt="professorimg" width="100px" height="100px">
+                        <img src="../assets/images/pai-e-filha-ico.svg" alt="professorimg" width="100px" height="100px">
                     </div>
 
                     <h1>Faça seu cadastro</h1>
@@ -29,10 +29,15 @@
                         <label for="name">Nome Completo:</label>
                         <input type="name" name="name" placeholder="Digite aqui">
                     </div>
-        
+
                     <div class="input-wrapper">
                         <label for="email">Email:</label>
                         <input type="email" name="email" placeholder="Digite aqui">
+                    </div>
+
+                    <div class="input-wrapper">
+                        <label for="phone">Telefone:</label>
+                        <input type="phone" name="phone" placeholder="Digite aqui">
                     </div>
 
                     <div class="input-wrapper">
@@ -50,14 +55,7 @@
                         <input type="password" name="password" placeholder="Digite aqui">
                     </div>
 
-                    
-                    <select name="input-wrapper" required="required">
-                        <option value="">Selecione sua disciplina</option>
-                        <option value="bio">Biologia</option>
-                        <option value="qui">Química</option>
-                        <option value="fis">Física</option>
-                        <option value="astro">Astronomia</option>
-                    </select>
+
                 
         
                     <button type="submit">Cadastrar</button>
