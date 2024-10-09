@@ -1,15 +1,18 @@
+
 body {
     background-image: url('../images/children01.png');
     background-size: cover;
 }
 
 section {
+    padding-top: 50px;
     background-color: #bcd3e8b0;
     backdrop-filter: blur(10px);
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .box-contato .voltar {
@@ -23,8 +26,10 @@ section {
     gap: 20px;
 }
 
-.box-contato .voltar h1 {
+ h1 {
     font-size: 40px;
+    text-align: start;
+    width: 100%;
 }
 
 .box-contato {
@@ -87,13 +92,13 @@ form button:hover {
 
 .info-contato {
     position: fixed;
-    top: 50%;
-    left: 50%;
+    top: calc(50% + 50px);
+    left: calc(40px + 50%);
     translate: 0 -50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: #202020;
+    background-color: var(--dark-blue);
     width: 50%;
     border-radius: 10px 0 0 10px;
     height: 600px;

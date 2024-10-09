@@ -19,6 +19,7 @@ section {
 }
 
 header {
+    z-index: 999;
     top: 0;
     position: fixed;
     background-color: var(--light-blue);
