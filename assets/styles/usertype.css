@@ -116,6 +116,7 @@ section {
     background-color: var(--white);
     color: var(--black-txt);
 }
+<<<<<<< HEAD
 button{
     transition: all .3s ease-out;
     transition-property: all;
@@ -127,4 +128,6 @@ button:hover{
 }
 
 
+=======
+>>>>>>> 9193d87 (add singup.php)
 

@@ -17,6 +17,18 @@ section {
     backdrop-filter: blur(10px);
 }
 
+.header {
+    display: flex;
+    flex-direction: column;
+}
+
+.header > img {
+    height: 50px; 
+    position: fixed; 
+    align-self: flex-end;
+    translate: 0 -40px;
+}
+
 .form-login {
     display: flex;
     align-items: center;
@@ -109,3 +121,28 @@ section {
     justify-content: center;
 }
 
+/* TODO: PORTABILIDADE */
+
+  /* Celular */
+@media only screen and (max-width: 550px) {
+
+    .form-login {
+        max-width: 100vw;
+        height: 100vh;
+    }
+
+    .form-login form h1 {
+        font-size: 42px;
+    margin-bottom: 40px;
+    }
+
+
+    .img-login {
+        display: none;
+    }
+}
+  
+  /* Tablets */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+}
