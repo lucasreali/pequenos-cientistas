@@ -30,15 +30,15 @@ h1{
 }
 
 .form-login form {
-    height: 120vh;
-    width: 700px;
+    height: 850px;
+    width: 550px;
     background-color: var(--dark-blue);
     padding: 50px;
     box-shadow: 0 0 15px #17404d70;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     margin-left: 180px;
+    margin-top: -140px;
 }
 
 
@@ -50,7 +50,6 @@ h1{
 }
 
 
-
 .form-login form    {
     font-size: 28px;
     justify-content: center;
@@ -60,6 +59,7 @@ h1{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+ 
 }
 
 .form-login form .input-wrapper, .select label {
@@ -71,14 +71,14 @@ h1{
 .form-login form .input-wrapper input[type="name"],
 .form-login form .input-wrapper input[type="email"],
 .form-login form .input-wrapper input[type="mensagem"] {
-    width: 100%;
-    padding: 9px;
+    width: 80%;
+    padding: 15px;
     font-size: 18px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
     background-color: #f2f2f2;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    
+
 }
 
 .input-wrapper{
@@ -90,6 +90,7 @@ h1{
 
 
 .form-login form button {
+    width: 80%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
     border: none;
@@ -112,7 +113,7 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
-
+    height: ;
 }
 
 
@@ -125,9 +126,9 @@ h1{
  
 
  input, textarea {
-    width: 100%;
+    width: 80%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-top: 5px;
 }
