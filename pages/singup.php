@@ -17,7 +17,7 @@ $usertype = $_POST['usertype'];
 <body>
 <section>
     <div class="form-login">
-        <form name="form" action="../actions/login.php" method="post">
+        <form name="form" action="../actions/singup.php" method="post">
             <div class="box-size">
                 <a href="/quemevoce"><img src="../assets/images/arrow-left-circle.svg" alt="voltar para a pagina inicial"></a>
             </div>
@@ -27,14 +27,20 @@ $usertype = $_POST['usertype'];
                     <h1>Pequenos Cientistas!</h1>
                 </div>
 
+
+            <div class="input-wrapper">
+                <label for="email">Name:</label>
+                <input type="text" name="name" placeholder="Digite aqui" required>
+            </div>
+
             <div class="input-wrapper">
                 <label for="email">E-mail:</label>
-                <input type="email" name="email" placeholder="Digite aqui">
+                <input type="email" name="email" placeholder="Digite aqui" required>
             </div>
 
             <div class="input-wrapper">
                 <label for="password">Password:</label>
-                <input type="password" name="password" placeholder="Digite aqui">
+                <input type="password" name="password" placeholder="Digite aqui" required>
             </div>
 
             <p class="fgt-passw"><a href="/">Esqueci minha senha</a></p>

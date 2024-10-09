@@ -77,7 +77,8 @@ section {
 }
 
 .form-login form .input-wrapper input[type="email"],
-.form-login form .input-wrapper input[type="password"] {
+.form-login form .input-wrapper input[type="password"],
+.form-login form .input-wrapper input[type="text"]{
     width: 100%;
     padding: 10px;
     font-size: 18px;
