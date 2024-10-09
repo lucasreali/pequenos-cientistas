@@ -1,133 +1,129 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     background-image: url('../images/children01.png');
     background-size: cover;
 }
 
 section {
-    background-color: #0000005c;
-    display: grid;
-    grid-template-columns: 3fr 14fr;
-    align-items: center;
+    background-color: #bcd3e8b0;
     backdrop-filter: blur(10px);
-}
-h1{
-    margin-top: -200px;
-    text-align: center  ;
-    color: var(--white);
-}
-
-.form-login {
+    height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    
-}
-
-.form-login form {
-    height: 850px;
-    width: 550px;
-    padding: 50px;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 0 15px #17404d70;
-    display: flex;
-    flex-direction: column;
-    margin-left: 180px;
-    margin-top: -30px;
-}
-
-
-
-
-.form-login form a img {
-    display: inline-block;
-
-}
-
-
-.form-login form    {
-    font-size: 28px;
     justify-content: center;
 }
 
-.form-login form .input-wrapper {
+.box-contato .voltar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 60px;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    gap: 20px;
+}
+
+.box-contato .voltar h1 {
+    font-size: 40px;
+}
+
+.box-contato {
+    width: 1200px;
+    height: 100vh;
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: center;
+    gap: 30px;
+    padding: 50px;
+    box-shadow: 0 0 15px #00000080;
+}
+
+.message {
+    padding-top: 50px;
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
- 
+    align-items: center;
+    justify-content: center;
 }
 
-.form-login form .input-wrapper, .select label {
-    font-size: 20px;
-    margin-block: 20px 20px;
-
+.message form {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
 }
 
-.form-login form .input-wrapper input[type="name"],
-.form-login form .input-wrapper input[type="email"],
-.form-login form .input-wrapper input[type="mensagem"] {
-    width: 80%;
-    padding: 15px;
+.message form textarea{
+    padding: 10px;
     font-size: 18px;
-    border-radius: 10px;
+    border-radius: 5px;
     border: none;
     background-color: #f2f2f2;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-
+    height: 200px;
+    width: 100%;
 }
 
-.input-wrapper{
-    color: white;
-}
-
-
-
-
-
-.form-login form button {
-    width: 80%;
+form button {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
+    border-radius: 5px;
     border: none;
     background-color: var(--light-blue);
     font-size: 20px;
-    margin-top: 20px;
+    margin-top: 50px;
     padding: 10px;
+    width: 100%;
     cursor: pointer;
     transition: all 100ms ease;
 }
 
-.form-login form button:hover {
+form button:hover {
     background-color: var(--dark-blue);
     color: var(--white);
     scale: 1.01;
 }
 
-
-.img-login {
+.info-contato {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: 0 -50%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-
+    background: #202020;
+    width: 50%;
+    border-radius: 10px 0 0 10px;
+    height: 600px;
+    box-shadow: 0 0 15px #000000;
+    z-index: 1;
+    padding: 50px;
 }
 
+.box-contato h2{
+    color: var(--white);
+    align-self: flex-start;
+    font-size: 30px;
+    top: 0;
+}
 
+.info-contato ul {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 20px;
+}
 
+.info-contato ul li p {
+    color: var(--white);
+    text-align: justify;
+}
 
- .box-size{
-    transform: translateY(-170px); 
-
- }
- 
-
- input, textarea {
-    width: 80%;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 5px;
+.info-contato ul li h3 {
+    color: var(--white);
+    font-style: italic;
+    font-size: 26px;
 }

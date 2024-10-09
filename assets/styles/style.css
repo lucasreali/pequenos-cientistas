@@ -5,16 +5,6 @@
 
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap');
-
-:root {
-    --light-blue: #78B5CD;
-    --dark-blue: #342E52;
-    --black-txt: #232323;
-    --white: #FFFCF6;
-}
-
-
 * {
     margin: 0;
     padding: 0;
@@ -22,11 +12,6 @@
     font-family: gabarito, serif;
     list-style: none;
     text-decoration: none;
-}
-
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
 }
 
 section {
