@@ -11,7 +11,7 @@ body {
 }
 
 section {
-    background-color: #bcd3e8b0;
+    background-color: #0000005c;
     display: grid;
     grid-template-columns: 3fr 4fr;
     align-items: center;
