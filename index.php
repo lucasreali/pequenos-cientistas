@@ -1,6 +1,10 @@
 <?php
+require_once "routes.php";
+require_once "database/connection.php";
+require_once "controllers/alunoController.php";
 
-require_once "router/routes.php";
+$db = new Database();
+$conn = $db->connect();
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 

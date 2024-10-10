@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -32,9 +32,6 @@
     <section>
 
         <div class="box-contato">
-
-
-
             <div class="message">
 
                 <h1>Contato:</h1>
@@ -57,9 +54,6 @@
             </div>
 
             <div class="info-contato">
-
-
-
 
                 <h2>Informações para contato:</h2>
 
@@ -94,9 +88,7 @@
 
 
                 </ul>
-
             </div>
-
         </div>
 
     </section>

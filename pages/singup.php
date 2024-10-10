@@ -1,6 +1,10 @@
 <?php
 $usertype = $_POST['usertype'];
 
+if (!isset($usertype))
+{
+    header('Location: /');
+}
 
 ?><!doctype html>
 <html lang="pt-br">
@@ -17,7 +21,10 @@ $usertype = $_POST['usertype'];
 <body>
 <section>
     <div class="form-login">
-        <form name="form" action="../actions/singup.php" method="post">
+        <form name="form" action="../controllers/<?= $usertype?>Controller.php" method="post">
+            <input type="hidden" name="$crud_form" value="create">
+            <input type="hidden" name="$usertype" value="<?= $usertype ?>">
+
             <div class="box-size">
                 <a href="/quemevoce"><img src="../assets/images/arrow-left-circle.svg" alt="voltar para a pagina inicial"></a>
             </div>
@@ -43,9 +50,7 @@ $usertype = $_POST['usertype'];
                 <input type="password" name="password" placeholder="Digite aqui" required>
             </div>
 
-            <p class="fgt-passw"><a href="/">Esqueci minha senha</a></p>
-
-            <button type="submit">Proximo</button>
+            <button type="submit" style="margin-top: 50px;">Proximo</button>
 
             <p>Ja possui conto? <a href="/login">Clique aqui</a></p>
 
