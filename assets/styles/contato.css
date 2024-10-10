@@ -107,11 +107,28 @@ form button:hover {
     padding: 50px;
 }
 
+
+
+
+
+ .box-size{
+    transform: translateY(-150px); 
+
+ }
+ 
+
+ input, textarea {
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 5px;
+ }
 .box-contato h2{
     color: var(--white);
     align-self: flex-start;
     font-size: 30px;
     top: 0;
+
 }
 
 .info-contato ul {
