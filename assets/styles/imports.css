@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap');
+
+:root {
+    --light-blue: #78B5CD;
+    --dark-blue: #342E52;
+    --black-txt: #232323;
+    --white: #FFFCF6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gabarito', sans-serif;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.input-wrapper {
+    width: 100%;
+}
+
+form .input-wrapper input[type="email"],
+form .input-wrapper input[type="password"],
+form .input-wrapper input[type="text"]{
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f2f2f2;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+form .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form .input-wrapper label {
+    font-size: 24px;
+    margin-block: 40px 10px;
+}
+
+.user-wrapper {
+    display: flex;
+    gap: 20px;
+}
