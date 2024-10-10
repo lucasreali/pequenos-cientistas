@@ -14,30 +14,29 @@ if (!isset($usertype))
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="../assets/images/logo.svg" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/styles/imports.css">
-    <link rel="stylesheet" href="../assets/styles/login.css">
-    <title>Login</title>
+    <link rel="shortcut icon" href="assets/images/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="assets/styles/imports.css">
+    <link rel="stylesheet" href="assets/styles/login.css">
+    <title>SingUp</title>
 </head>
 <body>
 <section>
     <div class="form-login">
-        <form name="form" action="../controllers/<?= $usertype?>Controller.php" method="post">
-            <input type="hidden" name="$crud_form" value="create">
-            <input type="hidden" name="$usertype" value="<?= $usertype ?>">
+        <form name="form" action="/informationsingup"  method="post">
+            <input type="hidden" name="usertype" value="<?= $usertype ?>">
 
             <div class="box-size">
-                <a href="/quemevoce"><img src="../assets/images/arrow-left-circle.svg" alt="voltar para a pagina inicial"></a>
+                <a href="/quemevoce"><img src="assets/images/arrow-left-circle.svg" alt="voltar para a pagina inicial"></a>
             </div>
                 <div class="header">
-                    <img src="../assets/images/<?= $usertype ?>-ico.svg" alt="<?= $usertype ?> icone">
+                    <img src="assets/images/<?= $usertype ?>-ico.svg" alt="<?= $usertype ?> icone">
                     <h3>Obrigado por querer fazer parte dos</h3>
                     <h1>Pequenos Cientistas!</h1>
                 </div>
 
 
             <div class="input-wrapper">
-                <label for="email">Name:</label>
+                <label for="name">Name:</label>
                 <input type="text" name="name" placeholder="Digite aqui" required>
             </div>
 

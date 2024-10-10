@@ -5,17 +5,17 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="../assets/images/logo.svg" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/styles/imports.css">
-    <link rel="stylesheet" href="../assets/styles/style.css">
-    <link rel="stylesheet" href="../assets/styles/home.css">
+    <link rel="shortcut icon" href="assets/images/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="assets/styles/imports.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="assets/styles/home.css">
 
     <title>Pequenos cientistas</title>
 </head>
 <body>
 <header>
     <nav>
-        <a href="/"><img src="../assets/images/logo.svg" alt=""></a>
+        <a href="/"><img src="assets/images/logo.svg" alt=""></a>
         <div class="menu-wrapper container">
             <ul>
                 <li><a href="/">Inicio</a></li>
@@ -30,7 +30,7 @@
 
 <section class="hub">
     <div class="img-hub"> <!-- LADO ESQUEDO DA PAGINA -->
-        <img src="../assets/images/logo-completa.svg" alt="">
+        <img src="assets/images/logo-completa.svg" alt="">
     </div>
 
     <div class="hub-info">  <!-- LADO DIREITO DA PAGINA -->
@@ -41,7 +41,7 @@
 
        
 
-        <a class="buttom" href="../pages/usertype.html"><button>Faça parte desse projeto</button></a>
+        <a class="buttom" href="/quemevoce"><button>Faça parte desse projeto</button></a>
 
     </div>
 

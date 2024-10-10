@@ -14,12 +14,14 @@ create table if not exists responsavel
 
 create table if not exists aluno
 (
-    id        int auto_increment primary key,
-    name      varchar(50)  not null,
-    cpf       char(11)     not null unique,
-    email     varchar(50)  not null unique,
-    password  varchar(255) not null,
-    date_born date         not null
+    id             int auto_increment primary key,
+    name           varchar(50)  not null,
+    cpf            char(11)     not null unique,
+    email          varchar(50)  not null unique,
+    password       varchar(255) not null,
+    id_responsavel int          not null,
+    date_born      date         not null,
+    foreign key (id_responsavel) references responsavel (id)
 );
 
 create table if not exists professor

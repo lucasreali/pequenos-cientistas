@@ -6,5 +6,6 @@ $routes = [
     '/sobre' => 'pages/sobre.php',
     '/contato' => 'pages/contato.php',
     '/quemevoce' => 'pages/usertype-page.html',
-    '/singup' => 'pages/singup.php'
+    '/singup' => 'pages/singup.php',
+    '/informationsingup'=> 'pages/singup_second.php',
 ];
