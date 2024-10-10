@@ -3,7 +3,8 @@ $usertype = $_POST['usertype'];
 
 if (!isset($usertype))
 {
-    header('Location: /');
+    header('Location: /quemevoce');
+    exit();
 }
 
 ?><!doctype html>

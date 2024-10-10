@@ -32,6 +32,7 @@ class alunoController {
 }
 
 $crud_type = $_POST['crud_type'];
+$conn = new Database();
 $aluno = new alunoController($conn);
 
 
