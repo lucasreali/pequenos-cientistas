@@ -6,6 +6,7 @@ class alunoController
 
     public function __construct($conn)
     {
+        session_start();
         $this->conn = $conn;
     }
 
@@ -47,6 +48,33 @@ class alunoController
 
         $stmt = null;
     }
+
+    public function login($email, $password)
+{
+    $sql = "SELECT id, email, password FROM " . $this->table_name . " WHERE email = :email";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+    
+    try {
+        $stmt->execute();
+        $info_user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($info_user && password_verify($password, $info_user['password'])) {
+            $_SESSION['aluno_id'] = $info_user['id'];
+            $_SESSION['aluno_email'] = $info_user['email'];
+
+            header("Location: /aluno_page");
+            exit();
+        } else {
+            echo "<script>alert('Email ou senha incorretos');</script>";
+        }
+    } catch (PDOException $e) {
+        echo "<script>alert('Erro: " . $e->getMessage() . "');</script>";
+    }
+
+    $stmt = null; // Fecha o statement
+}
+
 }
 
 // Criação da conexão
