@@ -8,4 +8,5 @@ $routes = [
     '/quemevoce' => 'pages/usertype-page.html',
     '/singup' => 'pages/singup.php',
     '/informationsingup'=> 'pages/singup_second.php',
+    '/aluno_page'=> 'pages/aluno_page.php',
 ];

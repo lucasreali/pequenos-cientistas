@@ -13,7 +13,9 @@
 <body>
 <section>
     <div class="form-login">
-        <form name="form" action="contollers/authController" method="post">
+        <form name="form" action="controllers/AuthController.php" method="post">
+            <input type="hidden" name="case" value="login">
+
             <div class="box-size">
                 <a href="/"><img src="assets/images/arrow-left-circle.svg" alt="voltar para a pagina inicial"></a>
             </div>

@@ -82,7 +82,7 @@ $db = new Database();
 $conn = $db->connect();
 
 $crud_type = $_POST['crud_type'];
-$aluno = new alunoController($conn);
+$aluno = new AlunoController($conn);
 
 switch ($crud_type) {
     case 'create':
