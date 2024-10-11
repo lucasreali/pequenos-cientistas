@@ -1,10 +1,9 @@
 <?php
-$name = $_POST['name'];
-$email = $_POST['email'];
-$password = $_POST['password'];
-$usertype = $_POST['usertype'];
+$cpf = $_POST['CPF'];
+$phone = $_POST['Telefone'];
+$area = $_POST['Área Disciplinar'];
 
-if (!isset($name) || !isset($email) || !isset($password) || !isset($usertype)) {
+if (!isset($cpf) || !isset($phone) || !isset($area) ) {
     header('location: /quemevoce');
 }
 
@@ -17,18 +16,18 @@ if (!isset($name) || !isset($email) || !isset($password) || !isset($usertype)) {
     <link rel="shortcut icon" href="assets/images/logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="assets/styles/imports.css">
     <link rel="stylesheet" href="assets/styles/login.css">
-    <title>Aluno</title>
+    <title>Professor</title>
 </head>
 
 <body>
     <section>
         <div class="form-login">
-            <form name="form" method="post" action="controllers/<?= ucfirst($usertype) ?>Controller.php">
+            <form name="form" method="post" action="controllers/<?= $usertype ?>Controller.php">
                 <input type="hidden" name="crud_type" value="create">
                 <input type="hidden" name="usertype" value="<?= $usertype ?>">
-                <input type="hidden" name="name" value="<?= $name ?>">
-                <input type="hidden" name="email" value="<?= $email ?>">
-                <input type="hidden" name="password" value="<?= $password ?>">
+                <input type="hidden" name="CPF" value="<?= $cpf ?>">
+                <input type="hidden" name="Telefone" value="<?= $phone ?>">
+                <input type="hidden" name="Área Disciplinar" value="<?= $area ?>">
 
                 <div class="box-size">
                     <a href="/quemevoce"><img src="assets/images/arrow-left-circle.svg"
@@ -46,16 +45,16 @@ if (!isset($name) || !isset($email) || !isset($password) || !isset($usertype)) {
                         <input type="number" name="cpf" placeholder="Digite aqui" required>
                     </div>
                 <?php
-                if ($usertype == 'aluno') {
+                if ($usertype == 'professor') {
                     echo '
                     <div class="input-wrapper">
-                        <label for="emailresponsavel">Email do responsável:</label>
-                        <input type="email" name="emailresponsavel" placeholder="Digite aqui" required>
+                        <label for="email">email:</label>
+                        <input type="email" name="email" placeholder="Digite aqui" required>
                     </div>
 
                     <div class="input-wrapper">
-                        <label for="cpf">Data de nascimento:</label>
-                        <input type="date" name="dateborn" placeholder="Digite aqui" required>
+                        <label for="phone">Telefone:</label>
+                        <input type="number" name="phone" placeholder="Digite aqui" required>
                     </div>
                     ';
                 }
@@ -63,7 +62,7 @@ if (!isset($name) || !isset($email) || !isset($password) || !isset($usertype)) {
 
                 <button type="submit" style="margin-top: 50px;">Proximo</button>
 
-                <p>Ja possui conto? <a href="/login">Clique aqui</a></p>
+                <p>Já possui conta? <a href="/login">Clique aqui</a></p>
 
             </form>
         </div>
