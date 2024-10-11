@@ -17,7 +17,7 @@ if (!isset($name) || !isset($email) || !isset($password) || !isset($usertype)) {
     <link rel="shortcut icon" href="assets/images/logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="assets/styles/imports.css">
     <link rel="stylesheet" href="assets/styles/login.css">
-    <title>Document</title>
+    <title>Aluno</title>
 </head>
 
 <body>
