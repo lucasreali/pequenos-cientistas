@@ -164,3 +164,9 @@ create table if not exists chat
     sent_at       timestamp default current_timestamp
 );
 
+create table if not exists users
+{
+    id int auto_increment primary key,
+    email varchar(255) unique not null,
+    user_type enum('professor', 'aluno', 'responsavel', 'adimin') not null
+}

@@ -1,5 +1,5 @@
 <?php
-class alunoController
+class AlunoController
 {
     private $conn;
     private $table_name = 'aluno';
@@ -72,12 +72,11 @@ class alunoController
         echo "<script>alert('Erro: " . $e->getMessage() . "');</script>";
     }
 
-    $stmt = null; // Fecha o statement
+    $stmt = null; 
 }
 
 }
 
-// Criação da conexão
 require_once '../database/connection.php';
 $db = new Database();
 $conn = $db->connect();
@@ -94,7 +93,9 @@ switch ($crud_type) {
         $date_born = $_POST['dateborn'];
         $email_responsavel = $_POST['emailresponsavel'];
 
-
         $aluno->createAluno($name, $cpf, $email, $password, $date_born, $email_responsavel);
         break;
+    
+    case 'login':
+
 }

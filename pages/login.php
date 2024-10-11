@@ -13,7 +13,7 @@
 <body>
 <section>
     <div class="form-login">
-        <form name="form" action="actions/login.php" method="post">
+        <form name="form" action="contollers/authController" method="post">
             <div class="box-size">
                 <a href="/"><img src="assets/images/arrow-left-circle.svg" alt="voltar para a pagina inicial"></a>
             </div>

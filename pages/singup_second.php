@@ -23,7 +23,7 @@ if (!isset($name) || !isset($email) || !isset($password) || !isset($usertype)) {
 <body>
     <section>
         <div class="form-login">
-            <form name="form" method="post" action="controllers/<?= $usertype ?>Controller.php">
+            <form name="form" method="post" action="controllers/<?= ucfirst($usertype) ?>Controller.php">
                 <input type="hidden" name="crud_type" value="create">
                 <input type="hidden" name="usertype" value="<?= $usertype ?>">
                 <input type="hidden" name="name" value="<?= $name ?>">
