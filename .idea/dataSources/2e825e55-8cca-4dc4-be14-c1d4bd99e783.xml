@@ -1066,7 +1066,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="290" parent="1" name="pequenos_cientistas">
-      <LastIntrospectionLocalTimestamp>2024-10-11.21:51:08</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-10-11.22:35:02</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="291" parent="1" name="performance_schema">

@@ -2,7 +2,6 @@
 class AlunoController
 {
     private $conn;
-    private $table_name = 'aluno';
 
     public function __construct($conn)
     {
@@ -10,7 +9,7 @@ class AlunoController
         $this->conn = $conn;
     }
 
-    public function createAluno($name, $cpf, $email, $password, $date_born, $email_responsavel): void
+    public function create($name, $cpf, $email, $password, $date_born, $email_responsavel): void
     {
         $sql = 'SELECT id FROM responsavel WHERE email = :email';
         $stmt = $this->conn->prepare($sql);
@@ -25,8 +24,10 @@ class AlunoController
             return;
         }
 
-        $sql = 'INSERT INTO ' . $this->table_name . " (name, cpf, email, password, date_born, id_responsavel) 
-                VALUES (:name, :cpf, :email, :password, :date_born, :id_responsavel)";
+        $sql = "INSERT INTO aluno (name, cpf, email, password, date_born, id_responsavel) 
+                VALUES (:name, :cpf, :email, :password, :date_born, :id_responsavel);";
+        
+        $sql .= "INSERT INTO users (email, user_type) VALUES (:email, 'aluno')";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":name", $name, PDO::PARAM_STR);
@@ -49,32 +50,6 @@ class AlunoController
         $stmt = null;
     }
 
-    public function login($email, $password)
-{
-    $sql = "SELECT id, email, password FROM " . $this->table_name . " WHERE email = :email";
-    $stmt = $this->conn->prepare($sql);
-    $stmt->bindParam(":email", $email, PDO::PARAM_STR);
-    
-    try {
-        $stmt->execute();
-        $info_user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($info_user && password_verify($password, $info_user['password'])) {
-            $_SESSION['aluno_id'] = $info_user['id'];
-            $_SESSION['aluno_email'] = $info_user['email'];
-
-            header("Location: /aluno_page");
-            exit();
-        } else {
-            echo "<script>alert('Email ou senha incorretos');</script>";
-        }
-    } catch (PDOException $e) {
-        echo "<script>alert('Erro: " . $e->getMessage() . "');</script>";
-    }
-
-    $stmt = null; 
-}
-
 }
 
 require_once '../database/connection.php';
@@ -93,9 +68,9 @@ switch ($crud_type) {
         $date_born = $_POST['dateborn'];
         $email_responsavel = $_POST['emailresponsavel'];
 
-        $aluno->createAluno($name, $cpf, $email, $password, $date_born, $email_responsavel);
+        $aluno->create($name, $cpf, $email, $password, $date_born, $email_responsavel);
         break;
-    
+
     case 'login':
 
 }
