@@ -11,5 +11,7 @@
 </head>
 <body>
     <h1>Pagina não encontrada</h1>
+
+    <a href="/">Voltar a pagina inicial</a>
 </body>
 </html>

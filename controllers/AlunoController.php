@@ -20,7 +20,10 @@ class AlunoController
         $id_responsavel = $responsavel ? $responsavel['id'] : null;
 
         if ($id_responsavel === null) {
-            echo '<script>alert("Erro: responsável não encontrado");</script>';
+            echo '<script>
+                alert("Erro: responsável não encontrado");
+                window.location.href = "/login";
+            </script>';
             return;
         }
 
@@ -44,7 +47,11 @@ class AlunoController
             header("Location: /");
             exit();
         } catch (PDOException $e) {
-            echo "<script>alert('Erro: " . $e->getMessage() . "');</script>";
+            echo "
+            <script>
+                alert('Erro: " . $e->getMessage() . "');
+                window.location.href = '/login';
+            </script>";
         }
 
         $stmt = null;
