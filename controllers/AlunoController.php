@@ -30,7 +30,7 @@ class AlunoController
         $sql = "INSERT INTO aluno (name, cpf, email, password, date_born, id_responsavel) 
                 VALUES (:name, :cpf, :email, :password, :date_born, :id_responsavel);";
         
-        $sql .= "INSERT INTO users (email, user_type) VALUES (:email, 'aluno')";
+        $sql .= "INSERT INTO users (email, cpf, user_type) VALUES (:email, :cpf 'aluno')";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":name", $name, PDO::PARAM_STR);
