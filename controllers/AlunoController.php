@@ -20,7 +20,8 @@ class AlunoController
         $id_responsavel = $responsavel ? $responsavel['id'] : null;
 
         if ($id_responsavel === null) {
-            echo '<script>
+            echo '
+            <script>
                 alert("Erro: responsável não encontrado");
                 window.location.href = "/login";
             </script>';
@@ -29,7 +30,7 @@ class AlunoController
 
         $sql = "INSERT INTO aluno (name, cpf, email, password, date_born, id_responsavel) 
                 VALUES (:name, :cpf, :email, :password, :date_born, :id_responsavel);";
-        
+
         $sql .= "INSERT INTO users (email, cpf, user_type) VALUES (:email, :cpf 'aluno')";
 
         $stmt = $this->conn->prepare($sql);
@@ -47,14 +48,27 @@ class AlunoController
             header("Location: /");
             exit();
         } catch (PDOException $e) {
+            $errorMessage = json_encode($e->getMessage());
             echo "
             <script>
-                alert('Erro: " . $e->getMessage() . "');
+                alert($errorMessage);
                 window.location.href = '/login';
             </script>";
         }
 
+
         $stmt = null;
+    }
+
+    
+    public function delete($id)
+    {
+
+    }
+
+    public function update($id, $data)
+    {
+
     }
 
 }

@@ -27,7 +27,9 @@ form .input-wrapper input[type="email"],
 form .input-wrapper input[type="password"],
 form .input-wrapper input[type="text"],
 form .input-wrapper input[type="number"],
-form .input-wrapper input[type="date"]
+form .input-wrapper input[type="date"],
+form .input-wrapper input[type="tel"],
+form .input-wrapper input[type="file"]
 {
     width: 100%;
     padding: 10px;

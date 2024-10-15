@@ -54,13 +54,31 @@ if (!isset($name) || !isset($email) || !isset($password) || !isset($usertype)) {
                     </div>
 
                     <div class="input-wrapper">
-                        <label for="cpf">Data de nascimento:</label>
+                        <label for="dateborn">Data de nascimento:</label>
                         <input type="date" name="dateborn" placeholder="Digite aqui" required>
-                    </div>
+                    </div>';
+
+                } else if ($usertype == 'responsavel') {
+                    echo '
+                        <div class="input-wrapper">
+                            <label for="telefone">Telefone:</label>
+                            <input type="tel" name="phone" placeholder="Digite aqui" required>
+                        </div>
+                    ';
+                } else if ($usertype == 'professor') {
+                    echo '
+                        <div class="input-wrapper">
+                            <label for="telefone">Telefone:</label>
+                            <input type="tel" name="telefone" placeholder="Digite aqui" required>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <label for="certificacao">Insira sua certificação:</label>
+                            <input type="file" name="cetificacao" required>
+                        </div>
                     ';
                 }
                 ?>
-
                 <button type="submit" style="margin-top: 50px;">Proximo</button>
 
                 <p>Ja possui conto? <a href="/login">Clique aqui</a></p>
