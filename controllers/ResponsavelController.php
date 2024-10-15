@@ -4,9 +4,13 @@ class ResponsavelController
 {
     private $conn;
 
-    public function __construct($conn)
+    public function __construct()
     {
         session_start();
+        
+        require_once '../database/connection.php';
+        $db = new Database;
+        $conn = $db->connect();
         $this->conn = $conn;
     }
 
@@ -40,12 +44,8 @@ class ResponsavelController
     }
 }
 
-require_once '../database/connection.php';
-$db = new Database();
-$conn = $db->connect();
-
 $crud_type = $_POST['crud_type'];
-$responsavel = new ResponsavelController($conn);
+$responsavel = new ResponsavelController();
 
 switch ($crud_type) {
     case 'create':

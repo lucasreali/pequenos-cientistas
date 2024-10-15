@@ -3,9 +3,17 @@ class AlunoController
 {
     private $conn;
 
-    public function __construct($conn)
+    public function __construct($conn = null)
     {
-        session_start();
+
+        try {
+            require_once 'database/connection.php';
+        } catch (Exception $e) {
+            require_once '../database/connection.php';
+        }
+
+        $db = new Database;
+        $conn = $db->connect();
         $this->conn = $conn;
     }
 
@@ -31,7 +39,7 @@ class AlunoController
         $sql = "INSERT INTO aluno (name, cpf, email, password, date_born, id_responsavel) 
                 VALUES (:name, :cpf, :email, :password, :date_born, :id_responsavel);";
 
-        $sql .= "INSERT INTO users (email, cpf, user_type) VALUES (:email, :cpf 'aluno')";
+        $sql .= "INSERT INTO users (email, cpf, user_type) VALUES (:email, :cpf, 'aluno')";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":name", $name, PDO::PARAM_STR);
@@ -60,7 +68,26 @@ class AlunoController
         $stmt = null;
     }
 
-    
+    public function getUser($id_user)
+    {
+        $sql = "SELECT * FROM aluno WHERE id=$id_user";
+        $stmt = $this->conn->prepare($sql);
+
+        try {
+            $stmt->execute();
+            $info = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            return $info;
+        } catch (PDOException $e) {
+            $errorMessage = json_encode($e->getMessage());
+            echo "
+            <script>
+                alert($errorMessage);
+                window.location.href = '/login';
+            </script>";
+        }
+    }
+
     public function delete($id)
     {
 
@@ -73,25 +100,25 @@ class AlunoController
 
 }
 
-require_once '../database/connection.php';
-$db = new Database();
-$conn = $db->connect();
-
 $crud_type = $_POST['crud_type'];
-$aluno = new AlunoController($conn);
 
-switch ($crud_type) {
-    case 'create':
-        $name = $_POST['name'];
-        $cpf = $_POST['cpf'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $date_born = $_POST['dateborn'];
-        $email_responsavel = $_POST['emailresponsavel'];
+if (isset($crud_type)) {
 
-        $aluno->create($name, $cpf, $email, $password, $date_born, $email_responsavel);
-        break;
+    $aluno = new AlunoController();
 
-    case 'login':
+    switch ($crud_type) {
+        case 'create':
+            $name = $_POST['name'];
+            $cpf = $_POST['cpf'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $date_born = $_POST['dateborn'];
+            $email_responsavel = $_POST['emailresponsavel'];
 
+            $aluno->create($name, $cpf, $email, $password, $date_born, $email_responsavel);
+            break;
+
+        case 'login':
+
+    }
 }

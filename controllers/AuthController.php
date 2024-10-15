@@ -3,9 +3,13 @@ class AuthController
 {
     private $conn;
 
-    public function __construct($conn)
+    public function __construct()
     {
         session_start();
+        
+        require_once '../database/connection.php';
+        $db = new Database;
+        $conn = $db->connect();
         $this->conn = $conn;
     }
 
@@ -25,6 +29,7 @@ class AuthController
                 $stmt->bindParam(":email", $email, PDO::PARAM_STR);
                 $stmt->execute();
                 $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
+                echo $user_data['password'];
 
                 if ($user_data && password_verify($password, $user_data['password'])) {
 
@@ -70,17 +75,17 @@ $db = new Database();
 $conn = $db->connect();
 
 $case = $_POST['case'];
-$authcontroller = new AuthController($conn);
+$authcontroller = new AuthController();
 
 switch ($case) {
     case 'login':
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $authcontroller->login($email, $password); // Passando a variável correta
+        $authcontroller->login($email, $password);
         break;
     case 'logout':
         $authcontroller->logout();
         break;
 }
-?>
+

@@ -1,4 +1,10 @@
 <?php
 session_start();
+include "controllers/AlunoController.php";
 
-echo '<h1>Você esta logado' . $_SESSION['user_id'] . '</h1>';
+
+$AlunoController = new AlunoController();
+$aluno = $AlunoController->getUser($_SESSION['user_id']);
+
+
+echo '<h1>' . $aluno['id'], $aluno['name'], $aluno['email'] . '</h1>';
