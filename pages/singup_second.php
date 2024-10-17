@@ -64,6 +64,18 @@ if (!isset($name) || !isset($email) || !isset($password) || !isset($usertype)) {
                             <label for="telefone">Telefone:</label>
                             <input type="tel" name="phone" placeholder="Digite aqui" required>
                         </div>
+                        
+                        <div class="input-wrapper">
+                        <label for="cpf">CPF:</label>
+                        <input type="cpf" name="cpf" placeholder="Digite aqui" required>
+                        </div>
+
+
+
+                        <div class="input-wrapper">
+                        <label for="phone">Telefone:</label>
+                        <input type="phone" name="phone" placeholder="Digite aqui" required>
+                        </div>
                     ';
                 } else if ($usertype == 'professor') {
                     echo '
@@ -77,24 +89,6 @@ if (!isset($name) || !isset($email) || !isset($password) || !isset($usertype)) {
                             <input type="file" name="cetificacao" required>
                         </div>
                     ';
-                }
-                if ($usertype == 'responsavel') {
-                    echo '
-                    
-
-                    <div class="input-wrapper">
-                        <label for="cpf">CPF:</label>
-                        <input type="cpf" name="cpf" placeholder="Digite aqui" required>
-                    </div>
-
-
-
-                    <div class="input-wrapper">
-                        <label for="phone">Telefone:</label>
-                        <input type="phone" name="phone" placeholder="Digite aqui" required>
-                    </div>
-                    ';
-        
                 }
                 ?>
                 <button type="submit" style="margin-top: 50px;">Proximo</button>
