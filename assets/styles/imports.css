@@ -5,13 +5,16 @@
     --dark-blue: #342E52;
     --black-txt: #232323;
     --white: #FFFCF6;
+    --green: #27BA9E;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Gabarito', sans-serif;    
+    font-family: gabarito, serif;
+    list-style: none;
+    text-decoration: none;
 }
 
 .container {

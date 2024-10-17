@@ -1,14 +1,17 @@
 <?php
-
 class ResponsavelController
 {
     private $conn;
 
-    public function __construct()
+    public function __construct($conn = null)
     {
-        session_start();
-        
-        require_once '../database/connection.php';
+
+        try {
+            require_once 'database/connection.php';
+        } catch (Exception $e) {
+            require_once '../database/connection.php';
+        }
+
         $db = new Database;
         $conn = $db->connect();
         $this->conn = $conn;
