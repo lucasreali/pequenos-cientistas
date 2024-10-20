@@ -8,7 +8,8 @@ if (!isset($name) || !isset($email) || !isset($password) || !isset($usertype)) {
     header('location: /quemevoce');
 }
 
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -23,7 +24,7 @@ if (!isset($name) || !isset($email) || !isset($password) || !isset($usertype)) {
 <body>
     <section>
         <div class="form-login">
-            <form name="form" method="post" action="controllers/<?= ucfirst($usertype) ?>Controller.php">
+            <form name="form" method="post" action="/teste">
                 <input type="hidden" name="crud_type" value="create">
                 <input type="hidden" name="usertype" value="<?= $usertype ?>">
                 <input type="hidden" name="name" value="<?= $name ?>">
@@ -40,11 +41,11 @@ if (!isset($name) || !isset($email) || !isset($password) || !isset($usertype)) {
                     <h1>Pequenos Cientistas!</h1>
                 </div>
 
-
                 <div class="input-wrapper">
-                        <label for="cpf">Cpf:</label>
-                        <input type="number" name="cpf" placeholder="Digite aqui" required>
-                    </div>
+                    <label for="cpf">Cpf:</label>
+                    <input type="number" name="cpf" placeholder="Digite aqui" required>
+                </div>
+
                 <?php
                 if ($usertype == 'aluno') {
                     echo '
@@ -56,8 +57,9 @@ if (!isset($name) || !isset($email) || !isset($password) || !isset($usertype)) {
                     <div class="input-wrapper">
                         <label for="dateborn">Data de nascimento:</label>
                         <input type="date" name="dateborn" placeholder="Digite aqui" required>
-                    </div>';
-
+                    </div>
+                    
+                    <button type="submit" style="margin-top: 50px;">Proximo</button>';
                 } else if ($usertype == 'responsavel') {
                     echo '
                         <div class="input-wrapper">
@@ -65,18 +67,7 @@ if (!isset($name) || !isset($email) || !isset($password) || !isset($usertype)) {
                             <input type="tel" name="phone" placeholder="Digite aqui" required>
                         </div>
                         
-                        <div class="input-wrapper">
-                        <label for="cpf">CPF:</label>
-                        <input type="cpf" name="cpf" placeholder="Digite aqui" required>
-                        </div>
-
-
-
-                        <div class="input-wrapper">
-                        <label for="phone">Telefone:</label>
-                        <input type="phone" name="phone" placeholder="Digite aqui" required>
-                        </div>
-                    ';
+                        <button type="submit" style="margin-top: 50px;">Proximo</button>';
                 } else if ($usertype == 'professor') {
                     echo '
                         <div class="input-wrapper">
@@ -84,16 +75,51 @@ if (!isset($name) || !isset($email) || !isset($password) || !isset($usertype)) {
                             <input type="tel" name="telefone" placeholder="Digite aqui" required>
                         </div>
 
-                        <div class="input-wrapper">
-                            <label for="certificacao">Insira sua certificação:</label>
-                            <input type="file" name="cetificacao" required>
+                         <div class="input-wrapper">
+                            <label for="subject">Qual seu tipo de conteúdo:</label>
+                            <div class="checkbox-teacher">
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="subject" value="biologia">
+                                    <span class="checkbox-label">Biologia</span>
+                                </label>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="subject" value="quimica">
+                                    <span class="checkbox-label">Química</span>
+                                </label>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="subject" value="fisica">
+                                    <span class="checkbox-label">Física</span>
+                                </label>
+                            </div>
                         </div>
-                    ';
+
+                        <button type="submit" onclick="return validateCheckbox()">Enviar</button>
+
+                        <script>
+                        function validateCheckbox() {
+                            const checkboxes = document.querySelectorAll(\'input[name="subject"]\');
+                            let isChecked = false;
+                            
+                            checkboxes.forEach((checkbox) => {
+                                if (checkbox.checked) {
+                                    isChecked = true;
+                                }
+                            });
+
+                            if (!isChecked) {
+                                alert("Por favor, selecione pelo menos um tipo de conteúdo.");
+                                return false;
+                            }
+
+                            return true;
+                        }
+                        </script>';
                 }
                 ?>
-                <button type="submit" style="margin-top: 50px;">Proximo</button>
 
-                <p>Ja possui conto? <a href="/login">Clique aqui</a></p>
+
+
+                <p>Ja possui conta? <a href="/login">Clique aqui</a></p>
 
             </form>
         </div>
@@ -102,4 +128,5 @@ if (!isset($name) || !isset($email) || !isset($password) || !isset($usertype)) {
         </div>
     </section>
 </body>
+
 </html>

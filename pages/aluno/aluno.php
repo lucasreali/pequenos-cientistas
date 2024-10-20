@@ -1,9 +1,16 @@
 <?php
 session_start();
-include "controllers/AlunoController.php";
+include "models/AlunoModel.php";
 
-$AlunoController = new AlunoController();
-$aluno = $AlunoController->getUser($_SESSION['user_id']);
+if ($_SESSION['user_type'] != 'aluno' || !isset($_SESSION['user_type'])) {
+    header('Location: /');
+    exit();
+}
+
+$user_id = $_SESSION['user_id'];
+
+$AlunoModel = new AlunoModel();
+$aluno = $AlunoModel->getUser();
 
 $aluno_rank = 700;
 ?><!DOCTYPE html>
@@ -44,20 +51,18 @@ $aluno_rank = 700;
                 </div>
             </div>
 
-            <a href="">
-                <div class="aluno-videos">
-                    <div class="video">
-                        <img src="assets/images/children01.png" alt="">
+            <div class="aluno-videos">
+                <div class="video">
+                    <a href="">
+                        <div class="video-img" style="background-image: url('assets/images/children01.png');">
+                            <img src="assets/images/play-ico.svg" alt="" class="play">
+                        </div>
                         <h2>Title video</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod cum illo atque, fugit
-                            voluptatibus suscipit, deleniti accusantium quasi dignissimos, nihil architecto amet.
-                            Molestiae assumenda ratione expedita facere eum? Doloremque, a.
-                        </p>
-                    </div>
-
+                        <h3>Prof.: Augusto Fagundes</h3>
+                    </a>
                 </div>
-            </a>
+
+            </div>
 
         </main>
     </header>

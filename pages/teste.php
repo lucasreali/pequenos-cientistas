@@ -1,5 +1,5 @@
 <?php
 
-$dateborn = $_POST['dateborn'];
+$subjects = $_POST['subject'];
 
-echo $dateborn;
+echo $subjects;

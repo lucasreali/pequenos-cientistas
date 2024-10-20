@@ -68,25 +68,7 @@ class AlunoController
         $stmt = null;
     }
 
-    public function getUser($id_user)
-    {
-        $sql = "SELECT * FROM aluno WHERE id=$id_user";
-        $stmt = $this->conn->prepare($sql);
-
-        try {
-            $stmt->execute();
-            $info = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            return $info;
-        } catch (PDOException $e) {
-            $errorMessage = json_encode($e->getMessage());
-            echo "
-            <script>
-                alert($errorMessage);
-                window.location.href = '/login';
-            </script>";
-        }
-    }
+    
 
     public function delete($id)
     {

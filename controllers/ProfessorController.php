@@ -4,14 +4,9 @@ class ProfessorController
 {
     private $conn;
 
-    public function __construct($conn = null)
+    public function __construct()
     {
-
-        try {
-            require_once 'database/connection.php';
-        } catch (Exception $e) {
-            require_once '../database/connection.php';
-        }
+        require_once '../database/connection.php';
 
         $db = new Database;
         $conn = $db->connect();
@@ -19,35 +14,46 @@ class ProfessorController
     }
 
 
-    // code
-        public function create($name, $email, $password, $cpf, $subject)
-        {
-            $sql = 'INSERT INTO professor (name, cpf, email, password, subject) VALUES (:name, :cpf, :email, : password, : subject);';
-            $sql .= "INSERT INTO users (email, cpf, user_type) VALUES (:email, :cpf, 'professor')";
+    public function create($name, $email, $password, $cpf, $subject)
+    {
+        $sql = 'INSERT INTO professor (name, cpf, email, password, subject) VALUES (:name, :cpf, :email, :password, :subject);';
+        $sql .= "INSERT INTO users (email, cpf, user_type) VALUES (:email, :cpf, 'professor')";
 
 
-             $stmt = $this->conn->prepare($sql);
-             $stmt->bindParam(":name", $name, PDO::PARAM_STR);
-             $stmt->bindParam(":cpf", $cpf, PDO::PARAM_STR);
-             $stmt->bindParam(":password", $password, PDO::PARAM_STR);
-             $stmt->bindParam(":email", $email, PDO::PARAM_STR);
 
-             try {
-                $stmt->execute();
-                header("Location: /");
-                exit();
-            } catch (PDOException $e) {
-                $errorMessage = json_encode($e->getMessage());
-                echo "
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(":name", $name, PDO::PARAM_STR);
+        $stmt->bindParam(":cpf", $cpf, PDO::PARAM_STR);
+        $stmt->bindParam(":password", $password, PDO::PARAM_STR);
+        $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+        $stmt->bindParam(":subject", $subject, PDO::PARAM_STR);
+
+        try {
+            $stmt->execute();
+            header("Location: /");
+            exit();
+        } catch (PDOException $e) {
+            $errorMessage = json_encode($e->getMessage());
+            echo "
                 <script>
                     alert($errorMessage);
                     window.location.href = '/login';
                 </script>";
-            }
-            $stmt = null;
-            
         }
+        $stmt = null;
+    }
+}
 
-    // code
+$crud_type = $_POST['crud_type'];
+$professor = new ProfessorController();
 
+switch ($crud_type) {
+    case 'create':
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $cpf = $_POST['cpf'];
+        $subject = 'biologia';
+
+        $professor->create($name, $email, $password, $cpf, $subject);
 }

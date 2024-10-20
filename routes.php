@@ -1,12 +1,13 @@
 <?php
 
 $routes = [
-    '/' => 'pages/home.php',
-    '/login' => 'pages/login.php',
-    '/sobre' => 'pages/sobre.php',
-    '/contato' => 'pages/contato.php',
-    '/quemevoce' => 'pages/usertype-page.html',
-    '/singup' => 'pages/singup.php',
-    '/informationsingup'=> 'pages/singup_second.php',
-    '/aluno_page'=> 'pages/aluno_page.php',
+    '/' => 'pages/geral/home.php',
+    '/login' => 'pages/geral/login.php',
+    '/sobre' => 'pages/geral/sobre.php',
+    '/contato' => 'pages/geral/contato.php',
+    '/quemevoce' => 'pages/geral/usertype-page.html',
+    '/singup' => 'pages/geral/singup.php',
+    '/informationsingup'=> 'pages/geral/singup_second.php',
+    '/aluno'=> 'pages/aluno/aluno.php',
+    '/teste' => 'pages/teste.php'
 ];

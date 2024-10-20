@@ -102,35 +102,45 @@ nav ul {
     border-radius: 10px;
 }
 
-.aluno-videos
+.video
 {   
     display: flex;
     flex-direction: column;
-    height: 425px;
+    height: auto;
     width: 300px;
     padding: 20px;
-    background: #afafaf;
-    gap: 10px;
     border-radius: 5px;
 }
 
-.aluno-videos img
+.video *
 {
-    width: 100%;
+    color: var(--black-txt);
 }
 
-.aluno-videos p
-{   
-    line-height: 1;
-    margin-top: 10px;
-    font-size: 18px;
-    text-align: justify;
+.video .video-img
+{
+    width: 272px;
+    height: 153px;
+    background-color: lightgray;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    filter: brightness(0.8);
+    box-shadow: 0 0 15px #00000080;
 }
 
-.aluno-videos h2
+.video h2
 {
     text-decoration: underline;
-    margin-top: 10px;
+    text-underline-offset: 6px;
+    margin-block: 5px;
+}
+
+.video h3
+{
+    font-weight: 300;
 }
 
 

@@ -6,18 +6,17 @@ class ResponsavelController
     public function __construct($conn = null)
     {
 
-        try {
-            require_once 'database/connection.php';
-        } catch (Exception $e) {
-            require_once '../database/connection.php';
-        }
+        
+        require_once '../database/connection.php';
+        
 
         $db = new Database;
         $conn = $db->connect();
         $this->conn = $conn;
     }
 
-    public function create($name, $email, $password, $cpf, $phone) {
+    public function create($name, $email, $password, $cpf, $phone)
+    {
         $sql = 'INSERT INTO responsavel (name, email, password, cpf, phone) VALUES (:name, :email, :password, :cpf, :phone);';
         $sql .= "INSERT INTO users (email, cpf, user_type) VALUES (:email, :cpf, 'responsavel');";
 
@@ -41,14 +40,14 @@ class ResponsavelController
                 window.location.href = '/login';
             </script>";
         }
-        
+
 
         $stmt = null;
     }
 }
 
 $crud_type = $_POST['crud_type'];
-$responsavel = new ResponsavelController();
+$professor = new ResponsavelController();
 
 switch ($crud_type) {
     case 'create':
@@ -58,6 +57,5 @@ switch ($crud_type) {
         $cpf = $_POST['cpf'];
         $phone = $_POST['phone'];
 
-        $responsavel->create($name, $email, $password, $cpf, $phone);
-        
+        $professor->create($name, $email, $password, $cpf, $phone);
 }
