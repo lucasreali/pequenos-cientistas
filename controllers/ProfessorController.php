@@ -24,13 +24,14 @@ class ProfessorController
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":name", $name, PDO::PARAM_STR);
         $stmt->bindParam(":cpf", $cpf, PDO::PARAM_STR);
-        $stmt->bindParam(":password", $password, PDO::PARAM_STR);
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $stmt->bindParam(":password", $hashed_password, PDO::PARAM_STR);
         $stmt->bindParam(":email", $email, PDO::PARAM_STR);
         $stmt->bindParam(":subject", $subject, PDO::PARAM_STR);
 
         try {
             $stmt->execute();
-            header("Location: /");
+            header("Location: /login");
             exit();
         } catch (PDOException $e) {
             $errorMessage = json_encode($e->getMessage());
@@ -40,7 +41,9 @@ class ProfessorController
                     window.location.href = '/login';
                 </script>";
         }
+
         $stmt = null;
+        exit();
     }
 }
 

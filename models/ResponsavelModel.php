@@ -1,7 +1,7 @@
 <?php
-class AlunoModel
-{
 
+class ResponsavelModel
+{
     private $user_id;
     private $conn;
 
@@ -19,14 +19,14 @@ class AlunoModel
 
     public function getUser()
     {
-        $sql = "SELECT * FROM aluno WHERE id=" . $this->user_id;
+        $sql = 'SELECT * FROM responsavel WHERE id=' . $this->user_id;
         $stmt = $this->conn->prepare($sql);
+
 
         try {
             $stmt->execute();
             $info = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            return $info;
         } catch (PDOException $e) {
             $errorMessage = json_encode($e->getMessage());
             echo "
@@ -37,44 +37,24 @@ class AlunoModel
         }
     }
 
-    public function getUserById($user_id)
+    public function getDependentes()
     {
-        $sql = "SELECT * FROM aluno WHERE id=" . $user_id;
+        $sql = "SELECT * FROM alunos WHERE id_responsavel=". $this->user_id;
         $stmt = $this->conn->prepare($sql);
 
         try {
             $stmt->execute();
-            $info = $stmt->fetch(PDO::FETCH_ASSOC);
+            $dependentes = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            return $info;
+            return $dependentes;
         } catch (PDOException $e) {
             $errorMessage = json_encode($e->getMessage());
             echo "
             <script>
                 alert($errorMessage);
-                window.location.href = '/';
+                window.location.href = '/login';
             </script>";
         }
     }
 
-    public function getAllUsers()
-    {
-        $sql = "SELECT id FROM users";
-        $stmt = $this->conn->prepare($sql);
-
-        try {
-            $stmt->execute();
-            $info = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            return $info;
-        } catch (PDOException $e) {
-            $errorMessage = json_encode($e->getMessage());
-            echo "
-            <script>
-                alert($errorMessage);
-                window.location.href = '/';
-            </script>";
-        }
-
-    }
 }

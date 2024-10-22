@@ -85,8 +85,6 @@
                         <p>Email: rafaeldias@gmail.com</p>
                     </li>
 
-
-
                 </ul>
             </div>
         </div>

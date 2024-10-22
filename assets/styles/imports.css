@@ -34,6 +34,7 @@ form .input-wrapper input[type="date"],
 form .input-wrapper input[type="tel"],
 form .input-wrapper input[type="file"]
 {
+    outline: 0;
     width: 100%;
     height: 45px;
     padding: 10px;

@@ -7,7 +7,8 @@ $routes = [
     '/contato' => 'pages/geral/contato.php',
     '/quemevoce' => 'pages/geral/usertype-page.html',
     '/singup' => 'pages/geral/singup.php',
-    '/informationsingup'=> 'pages/geral/singup_second.php',
-    '/aluno'=> 'pages/aluno/aluno.php',
-    '/teste' => 'pages/teste.php'
+    '/informationsingup' => 'pages/geral/singup_second.php',
+    '/aluno' => 'pages/aluno/aluno.php',
+    '/admin' => 'pages/admin/admin.php',
+    '/teste' => 'pages/teste.php',
 ];

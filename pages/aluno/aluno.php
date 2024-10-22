@@ -38,34 +38,34 @@ $aluno_rank = 700;
                 <li><a href="/sobre">Sobre nós</a></li>
             </ul>
         </nav>
-
-        <main>
-            <div class="aluno-rank">
-                <img src="assets/images/aluno-ico.svg" alt="">
-                <div class="xp-aluno">
-                    <div style="width: 500px;">
-                        <h3>Level <?= (int) ($aluno_rank / 500) ?></h3>
-                        <p><?= $aluno_rank % 500 ?>/500xp</p>
-                        <div style="width: <?= $aluno_rank % 500 ?>px;"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="aluno-videos">
-                <div class="video">
-                    <a href="">
-                        <div class="video-img" style="background-image: url('assets/images/children01.png');">
-                            <img src="assets/images/play-ico.svg" alt="" class="play">
-                        </div>
-                        <h2>Title video</h2>
-                        <h3>Prof.: Augusto Fagundes</h3>
-                    </a>
-                </div>
-
-            </div>
-
-        </main>
     </header>
+
+    <main>
+        <div class="aluno-rank">
+            <img src="assets/images/aluno-ico.svg" alt="">
+            <div class="xp-aluno">
+                <div style="width: 500px;">
+                    <h3>Level <?= (int) ($aluno_rank / 500) ?></h3>
+                    <p><?= $aluno_rank % 500 ?>/500xp</p>
+                    <div style="width: <?= $aluno_rank % 500 ?>px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="aluno-videos">
+            <div class="video">
+                <a href="">
+                    <div class="video-img" style="background-image: url('assets/images/children01.png');">
+                        <img src="assets/images/play-ico.svg" alt="" class="play">
+                    </div>
+                    <h2>Title video</h2>
+                    <h3>Prof.: Augusto Fagundes</h3>
+                </a>
+            </div>
+
+        </div>
+
+    </main>
 </body>
 
 </html>

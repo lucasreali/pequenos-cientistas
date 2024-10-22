@@ -168,6 +168,66 @@ create table if not exists users
 (
     id        int auto_increment primary key,
     email     varchar(255) unique                                  not null,
-    cpf       char(11) unique,                                     not null,
+    cpf       char(11) unique                                      not null,
     user_type enum ('professor', 'aluno', 'responsavel', 'adimin') not null
-)
+);
+
+delimiter $$
+
+create trigger after_insert_aluno
+    after insert
+    on aluno
+    for each row
+begin
+    if not exists (select 1 from users where email = new.email or cpf = new.cpf) then
+        insert into users (email, cpf, user_type)
+        values (new.email, new.cpf, 'aluno');
+    end if;
+end $$
+
+delimiter ;
+
+delimiter $$
+
+create trigger after_insert_responsavel
+    after insert
+    on responsavel
+    for each row
+begin
+    if not exists (select 1 from users where email = new.email or cpf = new.cpf) then
+        insert into users (email, cpf, user_type)
+        values (new.email, new.cpf, 'responsavel');
+    end if;
+end $$
+
+delimiter ;
+
+delimiter $$
+
+create trigger after_insert_professor
+    after insert
+    on professor
+    for each row
+begin
+    if not exists (select 1 from users where email = new.email or cpf = new.cpf) then
+        insert into users (email, cpf, user_type)
+        values (new.email, new.cpf, 'professor');
+    end if;
+end $$
+
+delimiter ;
+
+delimiter $$
+
+create trigger after_insert_admin
+    after insert
+    on admin
+    for each row
+begin
+    if not exists (select 1 from users where email = new.email or cpf = new.cpf) then
+        insert into users (email, cpf, user_type)
+        values (new.email, new.cpf, 'admin');
+    end if;
+end $$
+
+delimiter ;

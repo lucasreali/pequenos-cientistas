@@ -6,11 +6,9 @@ class AlunoController
     public function __construct($conn = null)
     {
 
-        try {
-            require_once 'database/connection.php';
-        } catch (Exception $e) {
-            require_once '../database/connection.php';
-        }
+        
+        require_once '../database/connection.php';
+
 
         $db = new Database;
         $conn = $db->connect();
@@ -39,7 +37,7 @@ class AlunoController
         $sql = "INSERT INTO aluno (name, cpf, email, password, date_born, id_responsavel) 
                 VALUES (:name, :cpf, :email, :password, :date_born, :id_responsavel);";
 
-        $sql .= "INSERT INTO users (email, cpf, user_type) VALUES (:email, :cpf, 'aluno')";
+        // $sql .= "INSERT INTO users (email, cpf, user_type) VALUES (:email, :cpf, 'aluno')";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":name", $name, PDO::PARAM_STR);
