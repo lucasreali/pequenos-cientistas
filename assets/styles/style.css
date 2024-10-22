@@ -14,10 +14,6 @@
     text-decoration: none;
 }
 
-section {
-    height: 100vh;
-}
-
 header {
     z-index: 999;
     top: 0;
