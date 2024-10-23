@@ -53,12 +53,12 @@ if (!isset($name) || !isset($email) || !isset($password) || !isset($usertype)) {
                         <input type="email" name="emailresponsavel" placeholder="Digite aqui" required>
                     </div>
 
-                    <div class="input-wrapper">
+                    <div class="input-wrapper" >
                         <label for="dateborn">Data de nascimento:</label>
                         <input type="date" name="dateborn" placeholder="Digite aqui" required>
                     </div>
                     
-                    <button type="submit" style="margin-top: 50px;">Proximo</button>';
+                    <button type="submit" onlick="validateDate() "style="margin-top: 50px;">Proximo</button>';
                 } else if ($usertype == 'responsavel') {
                     echo '
                         <div class="input-wrapper">
@@ -126,6 +126,7 @@ if (!isset($name) || !isset($email) || !isset($password) || !isset($usertype)) {
             <img src="assets/images/logo-completa.svg" alt="">
         </div>
     </section>
+    <script src="/assets/scripts/singup.js" type="text/javascript" defer></script>
 </body>
 
 </html>

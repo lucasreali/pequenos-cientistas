@@ -47,7 +47,7 @@
 
 
 
-            <a class="buttom" href="/quemevoce"><button>Faça parte desse projeto</button></a>
+            <a class="buttom" href="/singup/quemevoce"><button>Faça parte desse projeto</button></a>
 
         </div>
     </section>

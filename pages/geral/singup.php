@@ -17,16 +17,17 @@ if (!isset($usertype))
     <link rel="shortcut icon" href="assets/images/logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="assets/styles/imports.css">
     <link rel="stylesheet" href="assets/styles/login.css">
+    
     <title>SingUp</title>
 </head>
 <body>
 <section>
     <div class="form-login">
-        <form name="form" action="/informationsingup"  method="post">
+        <form name="form" action="/informationsingup"  method="post" onsubmit="return validateForm()">
             <input type="hidden" name="usertype" value="<?= $usertype ?>">
 
             <div class="box-size">
-                <a href="/singup/quemevoce"><img src="assets/images/arrow-left-circle.svg" alt="voltar para a pagina inicial"></a>
+                <a href="/login"><img src="assets/images/arrow-left-circle.svg" alt="voltar para a pagina inicial"></a>
             </div>
                 <div class="header">
                     <img src="assets/images/<?= $usertype ?>-ico.svg" alt="<?= $usertype ?> icone">
@@ -52,7 +53,8 @@ if (!isset($usertype))
 
             <button type="submit" style="margin-top: 50px;">Proximo</button>
 
-            <p>Ja possui conto? <a href="/login">Clique aqui</a></p>
+            <p>Ja possui conta? <a href="/login">Clique aqui</a></p>
+            
 
         </form>
     </div>
@@ -60,5 +62,8 @@ if (!isset($usertype))
         <img src="../assets/images/logo-completa.svg" alt="">
     </div>
 </section>
+<script src="/assets/scripts/singup.js" type="text/javascript" defer></script>
 </body>
 </html>
+
+
