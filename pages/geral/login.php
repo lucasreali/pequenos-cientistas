@@ -36,7 +36,7 @@
 
             <button type="submit">Entrar</button>
 
-            <p>Não tem conta? <a href="/quemevoce">Clique aqui</a></p>
+            <p>Não tem conta? <a href="/singup/quemevoce">Clique aqui</a></p>
 
         </form>
     </div>

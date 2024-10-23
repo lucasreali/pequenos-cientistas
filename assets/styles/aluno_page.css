@@ -58,6 +58,7 @@ nav ul a:hover::after {
 }
 
 nav ul {
+    translate: -50px 0;
     width: 100%;
     display: flex;
     align-items: center;

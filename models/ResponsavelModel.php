@@ -27,6 +27,8 @@ class ResponsavelModel
             $stmt->execute();
             $info = $stmt->fetch(PDO::FETCH_ASSOC);
 
+            return $info;
+
         } catch (PDOException $e) {
             $errorMessage = json_encode($e->getMessage());
             echo "
@@ -37,9 +39,30 @@ class ResponsavelModel
         }
     }
 
+    public function getUserById($user_id)
+    {
+        $sql = "SELECT * FROM responsavel WHERE id=" . $user_id;
+        $stmt = $this->conn->prepare($sql);
+
+        try {
+            $stmt->execute();
+
+            $info = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $info;
+        } catch (PDOException $e) {
+            $errorMessage = json_encode($e->getMessage());
+            echo "
+            <script>
+                alert($errorMessage);
+                window.location.href = '/login';
+            </script>";
+        }
+    }
+
+
     public function getDependentes()
     {
-        $sql = "SELECT * FROM alunos WHERE id_responsavel=". $this->user_id;
+        $sql = "SELECT * FROM alunos WHERE id_responsavel=" . $this->user_id;
         $stmt = $this->conn->prepare($sql);
 
         try {
@@ -56,5 +79,4 @@ class ResponsavelModel
             </script>";
         }
     }
-
 }

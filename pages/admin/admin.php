@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+<?php
+
+include "models/AdminModel.php";
+include "models/ProfessornModel.php";
+session_start();
+
+$AdminModel = new AdminModel();
+
+
+
+?><!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -25,7 +35,7 @@
 
 <section>
 
-    
+
 
 </section>
 
