@@ -26,7 +26,7 @@ if (!isset($usertype))
             <input type="hidden" name="usertype" value="<?= $usertype ?>">
 
             <div class="box-size">
-                <a href="/quemevoce"><img src="assets/images/arrow-left-circle.svg" alt="voltar para a pagina inicial"></a>
+                <a href="/singup/quemevoce"><img src="assets/images/arrow-left-circle.svg" alt="voltar para a pagina inicial"></a>
             </div>
                 <div class="header">
                     <img src="assets/images/<?= $usertype ?>-ico.svg" alt="<?= $usertype ?> icone">

@@ -1,28 +1,31 @@
 <?php
-
 class ResponsavelController
 {
     private $conn;
 
-    public function __construct()
+    public function __construct($conn = null)
     {
-        session_start();
+
         
         require_once '../database/connection.php';
+        
+
         $db = new Database;
         $conn = $db->connect();
         $this->conn = $conn;
     }
 
-    public function create($name, $email, $password, $cpf, $phone) {
+    public function create($name, $email, $password, $cpf, $phone)
+    {
         $sql = 'INSERT INTO responsavel (name, email, password, cpf, phone) VALUES (:name, :email, :password, :cpf, :phone);';
-        $sql .= "INSERT INTO users (email, cpf, user_type) VALUES (:email, :cpf, 'responsavel');";
+        // $sql .= "INSERT INTO users (email, cpf, user_type) VALUES (:email, :cpf, 'responsavel');";
 
         $stmt = $this->conn->prepare($sql);
 
         $stmt->bindParam(':name', $name, PDO::PARAM_STR);
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-        $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $stmt->bindParam(":password", $hashed_password, PDO::PARAM_STR);
         $stmt->bindParam(':cpf', $cpf, PDO::PARAM_STR);
         $stmt->bindParam(':phone', $phone, PDO::PARAM_STR);
 
@@ -38,14 +41,14 @@ class ResponsavelController
                 window.location.href = '/login';
             </script>";
         }
-        
+
 
         $stmt = null;
     }
 }
 
 $crud_type = $_POST['crud_type'];
-$responsavel = new ResponsavelController();
+$professor = new ResponsavelController();
 
 switch ($crud_type) {
     case 'create':
@@ -55,6 +58,5 @@ switch ($crud_type) {
         $cpf = $_POST['cpf'];
         $phone = $_POST['phone'];
 
-        $responsavel->create($name, $email, $password, $cpf, $phone);
-        
+        $professor->create($name, $email, $password, $cpf, $phone);
 }

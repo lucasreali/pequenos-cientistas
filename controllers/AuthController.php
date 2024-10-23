@@ -38,16 +38,16 @@ class AuthController
 
                     switch ($user['user_type']) {
                         case 'professor':
-                            header("Location: /professor_page");
+                            header("Location: /professor");
                             break;
                         case 'aluno':
-                            header("Location: /aluno_page");
+                            header("Location: /aluno");
                             break;
                         case 'responsavel':
-                            header("Location: /responsavel_page");
+                            header("Location: /responsavel");
                             break;
                         case 'admin':
-                            header("Location: /admin_page");
+                            header("Location: /admin");
                             break;
                     }
                     exit();

@@ -5,13 +5,16 @@
     --dark-blue: #342E52;
     --black-txt: #232323;
     --white: #FFFCF6;
+    --green: #27BA9E;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Gabarito', sans-serif;    
+    font-family: 'gabarito', serif;
+    list-style: none;
+    text-decoration: none;
 }
 
 .container {
@@ -31,7 +34,9 @@ form .input-wrapper input[type="date"],
 form .input-wrapper input[type="tel"],
 form .input-wrapper input[type="file"]
 {
+    outline: 0;
     width: 100%;
+    height: 45px;
     padding: 10px;
     font-size: 18px;
     border-radius: 5px;
