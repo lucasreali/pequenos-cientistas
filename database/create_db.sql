@@ -167,9 +167,11 @@ create table if not exists chat
 create table if not exists users
 (
     id        int auto_increment primary key,
+    name      varchar(255),
     email     varchar(255) unique                                  not null,
     cpf       char(11) unique                                      not null,
-    user_type enum ('professor', 'aluno', 'responsavel', 'adimin') not null
+    user_type enum ('professor', 'aluno', 'responsavel', 'admin') not null,
+    user_id   int
 );
 
 delimiter $$
@@ -180,8 +182,8 @@ create trigger after_insert_aluno
     for each row
 begin
     if not exists (select 1 from users where email = new.email or cpf = new.cpf) then
-        insert into users (email, cpf, user_type)
-        values (new.email, new.cpf, 'aluno');
+        insert into users (name, email, cpf, user_type)
+        values (new.name, new.email, new.cpf, 'aluno');
     end if;
 end $$
 
@@ -195,8 +197,8 @@ create trigger after_insert_responsavel
     for each row
 begin
     if not exists (select 1 from users where email = new.email or cpf = new.cpf) then
-        insert into users (email, cpf, user_type)
-        values (new.email, new.cpf, 'responsavel');
+        insert into users (name, email, cpf, user_type)
+        values (new.name, new.email, new.cpf, 'responsavel');
     end if;
 end $$
 
@@ -210,8 +212,8 @@ create trigger after_insert_professor
     for each row
 begin
     if not exists (select 1 from users where email = new.email or cpf = new.cpf) then
-        insert into users (email, cpf, user_type)
-        values (new.email, new.cpf, 'professor');
+        insert into users (name, email, cpf, user_type)
+        values (new.name, new.email, new.cpf, 'professor');
     end if;
 end $$
 
@@ -225,8 +227,8 @@ create trigger after_insert_admin
     for each row
 begin
     if not exists (select 1 from users where email = new.email or cpf = new.cpf) then
-        insert into users (email, cpf, user_type)
-        values (new.email, new.cpf, 'admin');
+        insert into users (name, email, cpf, user_type)
+        values (new.name, new.email, new.cpf, 'admin');
     end if;
 end $$
 

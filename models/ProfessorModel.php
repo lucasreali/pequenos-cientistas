@@ -17,20 +17,20 @@ class ProfessorModel
 
     public function getUser()
     {
-        $sql = "SELECT * FROM aluno WHERE id=" . $this->user_id;
+        $sql = "SELECT * FROM professor WHERE id=" . $this->user_id; // Corrigido para 'professor'
         $stmt = $this->conn->prepare($sql);
 
         try {
             $stmt->execute();
             $info = $stmt->fetch(PDO::FETCH_ASSOC);
-
             return $info;
         } catch (PDOException $e) {
             $errorMessage = json_encode($e->getMessage());
+            $redirectUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/login';
             echo "
             <script>
                 alert($errorMessage);
-                window.location.href = '/login';
+                window.location.href = '$redirectUrl';
             </script>";
         }
     }
