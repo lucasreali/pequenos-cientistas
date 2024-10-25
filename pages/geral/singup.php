@@ -52,7 +52,7 @@ if (!isset($usertype))
 
             <button type="submit" style="margin-top: 50px;">Proximo</button>
 
-            <p>Ja possui conto? <a href="/login">Clique aqui</a></p>
+            <p>Ja possui conta? <a href="/login">Clique aqui</a></p>
 
         </form>
     </div>
@@ -60,5 +60,6 @@ if (!isset($usertype))
         <img src="../assets/images/logo-completa.svg" alt="">
     </div>
 </section>
+<script src="/singup.js"></script>
 </body>
 </html>
