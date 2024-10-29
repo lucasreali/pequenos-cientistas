@@ -45,6 +45,10 @@ form .input-wrapper input[type="file"]
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
+input[type='checkbox'] {
+    cursor: pointer;
+}
+
 form .input-wrapper {
     display: flex;
     flex-direction: column;

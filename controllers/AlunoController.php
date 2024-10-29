@@ -69,9 +69,24 @@ class AlunoController
     
 
     public function delete($id)
-    {
+{
+    $sql = 'DELETE FROM aluno WHERE id=:id';
+    $stmt = $this->conn->prepare($sql);
 
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+    try {
+        $stmt->execute();
+        echo '
+        <script>
+            window.history.back();
+        </script>
+        ';
+    } catch (PDOException $e) {
+        echo "Erro ao deletar: " . $e->getMessage();
     }
+}
+
 
     public function update($id, $data)
     {

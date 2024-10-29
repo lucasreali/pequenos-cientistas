@@ -7,7 +7,6 @@ class ResponsavelModel
 
     public function __construct()
     {
-
         require_once "database/connection.php";
 
         $db = new Database();
@@ -22,19 +21,17 @@ class ResponsavelModel
         $sql = 'SELECT * FROM responsavel WHERE id=' . $this->user_id;
         $stmt = $this->conn->prepare($sql);
 
-
         try {
             $stmt->execute();
             $info = $stmt->fetch(PDO::FETCH_ASSOC);
-
             return $info;
-
         } catch (PDOException $e) {
             $errorMessage = json_encode($e->getMessage());
+            $redirectUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/login';
             echo "
             <script>
                 alert($errorMessage);
-                window.location.href = '/login';
+                window.location.href = '$redirectUrl';
             </script>";
         }
     }
@@ -46,19 +43,18 @@ class ResponsavelModel
 
         try {
             $stmt->execute();
-
             $info = $stmt->fetch(PDO::FETCH_ASSOC);
             return $info;
         } catch (PDOException $e) {
             $errorMessage = json_encode($e->getMessage());
+            $redirectUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/login';
             echo "
             <script>
                 alert($errorMessage);
-                window.location.href = '/login';
+                window.location.href = '$redirectUrl';
             </script>";
         }
     }
-
 
     public function getDependentes()
     {
@@ -68,14 +64,14 @@ class ResponsavelModel
         try {
             $stmt->execute();
             $dependentes = $stmt->fetch(PDO::FETCH_ASSOC);
-
             return $dependentes;
         } catch (PDOException $e) {
             $errorMessage = json_encode($e->getMessage());
+            $redirectUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/login';
             echo "
             <script>
                 alert($errorMessage);
-                window.location.href = '/login';
+                window.location.href = '$redirectUrl';
             </script>";
         }
     }

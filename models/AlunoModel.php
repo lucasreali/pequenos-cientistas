@@ -1,13 +1,11 @@
 <?php
 class AlunoModel
 {
-
     private $user_id;
     private $conn;
 
     public function __construct()
     {
-
         require_once "database/connection.php";
 
         $db = new Database();
@@ -25,14 +23,14 @@ class AlunoModel
         try {
             $stmt->execute();
             $info = $stmt->fetch(PDO::FETCH_ASSOC);
-
             return $info;
         } catch (PDOException $e) {
             $errorMessage = json_encode($e->getMessage());
+            $redirectUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/login';
             echo "
             <script>
                 alert($errorMessage);
-                window.location.href = '/login';
+                window.location.href = '$redirectUrl';
             </script>";
         }
     }
@@ -45,14 +43,14 @@ class AlunoModel
         try {
             $stmt->execute();
             $info = $stmt->fetch(PDO::FETCH_ASSOC);
-
             return $info;
         } catch (PDOException $e) {
             $errorMessage = json_encode($e->getMessage());
+            $redirectUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/';
             echo "
             <script>
                 alert($errorMessage);
-                window.location.href = '/';
+                window.location.href = '$redirectUrl';
             </script>";
         }
     }
@@ -65,16 +63,15 @@ class AlunoModel
         try {
             $stmt->execute();
             $info = $stmt->fetch(PDO::FETCH_ASSOC);
-
             return $info;
         } catch (PDOException $e) {
             $errorMessage = json_encode($e->getMessage());
+            $redirectUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/';
             echo "
             <script>
                 alert($errorMessage);
-                window.location.href = '/';
+                window.location.href = '$redirectUrl';
             </script>";
         }
-
     }
 }

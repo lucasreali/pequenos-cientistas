@@ -19,14 +19,11 @@ $routes = [
     // admin
 
     '/admin' => 'pages/admin/admin.php',
+    '/admin/infoUser'=> 'pages/admin/infoUser.php',
 
     // outros
     
     '/teste' => 'pages/teste.php',
 
     // MODELS
-    '/ResponsavelModel'=> 'models/ResponsavelModel.php',
-    '/AlunoModel'=> 'models/AlunoModel.php',
-    '/ProfessorModel'=> 'models/ProfessorModel.php',
-    '/ModelAdmin'=> 'models/AdminModel.php',
 ];

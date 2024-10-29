@@ -1,7 +1,4 @@
 
-section {
-    height: 100vh;
-}
 
 header {
     z-index: 999;
@@ -59,4 +56,36 @@ nav ul a:hover::after {
     width: 100%;
     left: 50%;
 }
+
+section {
+    height: 100vh;
+    padding-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 1000px;
+}
+
+table th {
+    text-align: start;
+    background: var(--dark-blue);
+    color: white;
+}
+
+table td, table th {
+    padding: 5px;
+    border-left: 1px solid var(--dark-blue);
+    border-right: 1px solid var(--dark-blue);
+}
+
+
+tbody tr:nth-child(odd) {
+    background-color: #acacac9f;
+}
+
 

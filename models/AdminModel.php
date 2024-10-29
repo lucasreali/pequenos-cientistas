@@ -3,7 +3,7 @@
 class AdminModel
 {
     private $conn;
-    public function __construct() 
+    public function __construct()
     {
         require_once "database/connection.php";
 
@@ -15,18 +15,20 @@ class AdminModel
     {
         $sql = "SELECT * FROM users";
         $stmt = $this->conn->prepare($sql);
-        
+
         try {
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         } catch (PDOException $e) {
             $errorMessage = json_encode($e->getMessage());
+            $redirectUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/login';
+
             echo "
-            <script>
-                alert($errorMessage);
-                window.location.href = '/login';
-            </script>";
+        <script>
+            alert($errorMessage);
+            window.location.href = '$redirectUrl';
+        </script>";
         }
     }
 
@@ -42,12 +44,35 @@ class AdminModel
             return $result;
         } catch (PDOException $e) {
             $errorMessage = json_encode($e->getMessage());
-            echo "
-            <script>
-                alert($errorMessage);
-                window.location.href = '/login';
-            </script>";
-        }
+            $redirectUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/login';
 
+            echo "
+        <script>
+            alert($errorMessage);
+            window.location.href = '$redirectUrl';
+        </script>";
+        }
+    }
+
+    public function getUserTypeById($id)
+    {
+        $sql = "SELECT usertype FROM users WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+        try {
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (PDOException $e) {
+            $errorMessage = json_encode($e->getMessage());
+            $redirectUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/login';
+
+            echo "
+        <script>
+            alert($errorMessage);
+            window.location.href = '$redirectUrl';
+        </script>";
+        }
     }
 }
