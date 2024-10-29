@@ -21,6 +21,11 @@ $routes = [
     '/admin' => 'pages/admin/admin.php',
     '/admin/infoUser'=> 'pages/admin/infoUser.php',
 
+
+    // responsavel
+
+    '/responsavel'=> 'pages/resposavel/responsavel.php',
+
     // outros
     
     '/teste' => 'pages/teste.php',
