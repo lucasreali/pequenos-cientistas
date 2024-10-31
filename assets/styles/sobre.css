@@ -1,0 +1,41 @@
+section {
+    padding-top: 100px;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    align-content: center;
+    height: 100vh;
+    justify-items: center;
+}
+
+
+
+section > * {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 80%;
+}
+
+section img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+section ul li {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+section p {
+    font-size: 20px;
+    text-align: justify;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+
