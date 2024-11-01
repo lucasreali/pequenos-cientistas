@@ -24,7 +24,7 @@ $routes = [
 
     // responsavel
 
-    '/responsavel'=> 'pages/resposavel/responsavel.php',
+    '/responsavel'=> 'pages/responsavel/responsavel.php',
 
     // outros
     
