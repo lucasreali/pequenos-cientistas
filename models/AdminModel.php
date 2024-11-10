@@ -3,6 +3,7 @@
 class AdminModel
 {
     private $conn;
+    
     public function __construct()
     {
         require_once "database/connection.php";
@@ -18,17 +19,9 @@ class AdminModel
 
         try {
             $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $result;
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            $errorMessage = json_encode($e->getMessage());
-            $redirectUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/login';
-
-            echo "
-        <script>
-            alert($errorMessage);
-            window.location.href = '$redirectUrl';
-        </script>";
+            $this->handleError($e);
         }
     }
 
@@ -40,17 +33,9 @@ class AdminModel
 
         try {
             $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $result;
+            return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            $errorMessage = json_encode($e->getMessage());
-            $redirectUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/login';
-
-            echo "
-        <script>
-            alert($errorMessage);
-            window.location.href = '$redirectUrl';
-        </script>";
+            $this->handleError($e);
         }
     }
 
@@ -62,17 +47,35 @@ class AdminModel
 
         try {
             $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $result;
+            return $stmt->fetchColumn();
         } catch (PDOException $e) {
-            $errorMessage = json_encode($e->getMessage());
-            $redirectUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/login';
+            $this->handleError($e);
+        }
+    }
 
-            echo "
+    public function getTeachersWithNotPermission()
+    {
+        $sql = 'SELECT * FROM professor WHERE permission_assigned=0';
+        $stmt = $this->conn->prepare($sql);
+
+        try {
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            $this->handleError($e);
+        }
+    }
+
+    private function handleError($e)
+    {
+        $errorMessage = json_encode($e->getMessage());
+        $redirectUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/login';
+
+        echo "
         <script>
             alert($errorMessage);
             window.location.href = '$redirectUrl';
         </script>";
-        }
+        exit;
     }
 }

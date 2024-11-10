@@ -20,6 +20,7 @@ $routes = [
 
     '/admin' => 'pages/admin/admin.php',
     '/admin/infoUser'=> 'pages/admin/infoUser.php',
+    '/admin/allUsers'=> 'pages/admin/allUsers.php',
 
 
     // responsavel
@@ -31,4 +32,8 @@ $routes = [
     '/teste' => 'pages/teste.php',
 
     // MODELS
+
+    // API
+    '/permission' => 'api/permission.php'
+    
 ];

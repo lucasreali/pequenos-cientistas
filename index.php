@@ -1,3 +1,7 @@
+<html lang="pt-br">
+
+
+
 <?php
 require_once "routes.php";
 
@@ -8,3 +12,6 @@ if (array_key_exists($url, $routes)) {
 } else {
     require "pages/404.php";
 };
+?>
+
+</html>

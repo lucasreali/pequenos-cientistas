@@ -60,32 +60,54 @@ nav ul a:hover::after {
 section {
     height: 100vh;
     padding-top: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    justify-items: center;
+}
+
+.permissions {
+    padding-top: 100px;
+}
+
+.permissions h1 {
+    font-size: 40px;
+}
+
+.permissions ul {
+    width: 600px;
+    height: 700px;
+    overflow: scroll;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.permissions ul li {
+    height: 50px;
+    min-height: 50px;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: var(--light-blue);
 }
 
-table {
-    border: 1px solid black;
-    border-collapse: collapse;
-    width: 1000px;
+.rigth-li {
+    display: flex;
+    gap: 20px;
 }
 
-table th {
-    text-align: start;
-    background: var(--dark-blue);
-    color: white;
+.permissions form button {
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-table td, table th {
-    padding: 5px;
-    border-left: 1px solid var(--dark-blue);
-    border-right: 1px solid var(--dark-blue);
+.permissions form button img {
+    height: 20px;
 }
-
-
-tbody tr:nth-child(odd) {
-    background-color: #acacac9f;
-}
-
-

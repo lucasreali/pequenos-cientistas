@@ -32,7 +32,9 @@ create table if not exists professor
     email      varchar(50)  not null unique,
     password   varchar(255) not null,
     subject    varchar(50)  not null,
-    experience text
+    experience text,
+    permission boolean default false,
+    permission_assigned boolean default false
 );
 
 create table if not exists aula
@@ -69,7 +71,13 @@ create table if not exists experimento
 
 create table if not exists desafios
 (
-    id int primary key
+    id int primary key,
+    id_teacher int,
+    resp_1 varchar(100),
+    resp_2 varchar(100),
+    resp_3 varchar(100),
+    resp_4 varchar(100),
+    foreign key (id_teacher) references professor (id)
 );
 
 create table if not exists noticia
@@ -177,37 +185,58 @@ create table if not exists users
 
 # PROCEDURE
 
-delimiter $$
 
-create procedure if not exists new_aluno(in new_name varchar(50),
-                                         in new_cpf char(11),
-                                         in new_email varchar(50),
-                                         in new_password varchar(50),
-                                         in new_id_responsavel int,
-                                         in new_date_born date)
-begin
-    declare aluno_id int default null;
-    if new_name is not null
-    and new_cpf is not null
-    and new_email is not null
-    and new_password is not null
-    and new_id_responsavel is not null
-    and new_date_born is not null
-    then
-        insert into aluno (name, cpf, email, password, id_responsavel, date_born)
-        values (new_name, new_cpf, new_email, new_password, new_id_responsavel, new_date_born);
-        set aluno_id := (select last_insert_id());
-        insert into ranking (student_id, xp, level, position)
-        values (aluno_id, 0, 1, 0);
+DELIMITER $$
+CREATE PROCEDURE IF NOT EXISTS new_aluno(IN new_name VARCHAR(50),
+        IN new_cpf CHAR(11),
+        IN new_email VARCHAR(200),
+        IN new_password VARCHAR(10),
+        IN new_email_resp VARCHAR(50),
+        IN new_date_born DATE)
+BEGIN
+    DECLARE new_id_resp INT DEFAULT NULL;
+	DECLARE new_aluno_id INT DEFAULT NULL;
+	SET new_id_resp := (SELECT id FROM responsavel WHERE email = new_email_resp);
+    IF new_name IS NOT NULL AND new_cpf IS NOT NULL AND new_email IS NOT NULL
+		AND new_password IS NOT NULL AND new_email_resp IS NOT NULL
+		AND new_date_born IS NOT NULL AND new_id_resp IS NOT NULL
+		THEN
+		INSERT INTO aluno (name, cpf, email, password, id_responsavel, date_born)
+		VALUES (new_name, new_cpf, new_email, new_password, new_id_resp, new_date_born);
 
-    end if;
-
-end $$
-
-delimiter ;
+		SET new_aluno_id := (SELECT LAST_INSERT_ID());
+		INSERT INTO ranking (student_id, xp) VALUES (new_aluno_id, 0);
+    END IF;
+END $$
+DELIMITER ;
 
 
+# FUNCTION
 
+DELIMITER $$
+CREATE FUNCTION IF NOT EXISTS new_permission_adm(new_permission VARCHAR(50), admin_id INT)
+RETURNS BOOLEAN DETERMINISTIC
+BEGIN
+	DECLARE EXIT HANDLER FOR SQLEXCEPTION
+	BEGIN
+		ROLLBACK;
+		RETURN FALSE;
+	END;
+	DECLARE new_permission_id INT DEFAULT NULL;
+	START TRANSACTION;
+	IF new_permission IS NOT NULL AND new_permission = 'Permitido'
+		THEN
+		INSERT INTO permissao_admin (admin_id, permission) VALUES (admin_id,new_permission);
+		SET new_permission_id := (SELECT LAST_INSERT_ID());
+		COMMIT;
+		RETURN TRUE;
+	ELSE
+		ROLLBACK;
+		RETURN FALSE;
+	END IF;
+END $$
+DELIMITER ;
+:
 # VIEWS
 
 create or replace view progresso_aula as
@@ -241,10 +270,12 @@ create trigger after_insert_aluno
     for each row
 begin
     if not exists (select 1 from users where email = new.email or cpf = new.cpf) then
+
         insert into users (name, email, cpf, user_type, user_id)
         values (new.name, new.email, new.cpf, 'aluno', new.id);
         insert into ranking (student_id)
         values (new.id);
+
     end if;
 end $$
 
