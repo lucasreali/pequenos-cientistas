@@ -58,7 +58,7 @@ class ResponsavelModel
 
     public function getDependentes()
     {
-        $sql = "SELECT * FROM alunos WHERE id_responsavel=" . $this->user_id;
+        $sql = "SELECT * FROM aluno WHERE id_responsavel=" . $this->user_id;
         $stmt = $this->conn->prepare($sql);
 
         try {
