@@ -23,9 +23,8 @@ $teachersWithNotPermission = $AdminModel->getTeachersWithNotPermission();
     <nav>
         <a href="/admin"><img src="assets/images/logo.svg" alt=""></a>
         <ul class="container">
-            <li><a href="">Lorem</a></li>
-            <li><a href="">Lorem</a></li>
-            <li><a href="">Lorem</a></li>
+            <li><a href="/admin">Inicio</a></li>
+            <li><a href="/admin/newadmin">Novo Admin</a></li>
         </ul>
     </nav>
 </header>

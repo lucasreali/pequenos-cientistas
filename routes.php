@@ -21,6 +21,7 @@ $routes = [
     '/admin' => 'pages/admin/admin.php',
     '/admin/infoUser'=> 'pages/admin/infoUser.php',
     '/admin/allUsers'=> 'pages/admin/allUsers.php',
+    '/admin/newadmin'=> 'pages/admin/newadmin.php',
 
 
     // responsavel

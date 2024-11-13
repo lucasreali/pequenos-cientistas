@@ -34,4 +34,35 @@ class ProfessorModel
             </script>";
         }
     }
+
+    private function getPermission() {
+        $id = $_SESSION['user_id'];
+
+        $sql = "SELECT permission_asingned FROM professor WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+
+        try {
+            $stmt->execute();
+            $permission = $stmt->fetchAll();
+
+            return $permission;
+        } catch (PDOException $e) {
+            $this->handleError($e);
+        }
+    }
+
+    private function handleError($e)
+    {
+        $errorMessage = json_encode($e->getMessage());
+        $redirectUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/login';
+
+        echo "
+        <script>
+            alert($errorMessage);
+            window.location.href = '$redirectUrl';
+        </script>";
+        exit;
+    }
 }

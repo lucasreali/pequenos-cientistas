@@ -55,10 +55,18 @@ class AuthController
                     echo "<script>alert('Email ou senha incorretos');</script>";
                 }
             } else {
-                echo "<script>alert('Usuário não encontrado');</script>";
+                echo "
+                <script>
+                    alert('Usuário não encontrado');
+                    window.location.href = '/login';
+                </script>";
             }
         } catch (PDOException $e) {
-            echo "<script>alert('Erro: " . $e->getMessage() . "');</script>";
+            echo "
+            <script>
+                alert('Erro: " . $e->getMessage() . "');
+                window.location.href = '/login';
+            </script>";
         }
     }
 
