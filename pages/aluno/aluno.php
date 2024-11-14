@@ -19,7 +19,7 @@ $aluno_rank = 700;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/styles/aluno_page.css">
+    <link rel="stylesheet" href="assets/styles/aluno.css">
     <link rel="stylesheet" href="assets/styles/imports.css">
     <title>Aluno</title>
 </head>
@@ -60,8 +60,34 @@ $aluno_rank = 700;
                     </div>
                     <h2>Title video</h2>
                     <h3>Prof.: Augusto Fagundes</h3>
+
+                    <div class="video-img" style="background-image: url('assets/images/children01.png');">
+                        <img src="assets/images/play-ico.svg" alt="" class="play">
+                    </div>
+                    <h2>Title video</h2>
+                    <h3>Prof.: Maicris Fernandes</h3>
+
+                    <div class="video-img" style="background-image: url('assets/images/children01.png');">
+                        <img src="assets/images/play-ico.svg" alt="" class="play">
+                    </div>
+                    <h2>Title video</h2>
+                    <h3>Prof.: Guilherme Burgerl</h3>
+
+
+                    <div class="video-img" style="background-image: url('assets/images/children01.png');">
+                        <img src="assets/images/play-ico.svg" alt="" class="play">
+                    </div>
+                    <h2>Title video</h2>
+                    <h3>Prof.: Sheila Guimarães</h3>
+
+
+                    <div class="video-img" style="background-image: url('assets/images/children01.png');">
+                        <img src="assets/images/play-ico.svg" alt="" class="play">
+                    </div>
+                    <h2>Title video</h2>
+                    <h3>Prof.: Kelly Siva</h3>
                 </a>
-            </div>
+            </div> 
 
         </div>
 
