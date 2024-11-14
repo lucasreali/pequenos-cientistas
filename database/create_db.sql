@@ -37,6 +37,7 @@ create table if not exists professor
     permission_assigned boolean default false
 );
 
+
 create table if not exists aula
 (
     id          int auto_increment primary key,
@@ -51,12 +52,15 @@ create table if not exists video
 (
     id              int auto_increment primary key,
     url             varchar(255) not null,
-    title           varchar(100) not null,
-    description     text,
-    restriction_age int          not null,
     aula_id         int          not null,
     foreign key (aula_id) references aula (id)
 );
+
+create view vw_video_aula as
+select v.url as url, a.title as title, a.description as description, p.name as professor
+from video as v
+join aula as a on v.aula_id = a.id
+join professor p on a.create_by = p.id;
 
 create table if not exists experimento
 (
@@ -71,12 +75,12 @@ create table if not exists experimento
 
 create table if not exists desafios
 (
-    id int primary key,
+    id         int primary key,
     id_teacher int,
-    resp_1 varchar(100),
-    resp_2 varchar(100),
-    resp_3 varchar(100),
-    resp_4 varchar(100),
+    resp_1     varchar(100),
+    resp_2     varchar(100),
+    resp_3     varchar(100),
+    resp_4     varchar(100),
     foreign key (id_teacher) references professor (id)
 );
 
@@ -129,7 +133,7 @@ create table if not exists permissao_admin
     admin_id   int         not null,
     permission varchar(50) not null,
     granted_at timestamp default current_timestamp,
-    primary key (admin_id, permission),
+    primary key (admin_id),
     foreign key (admin_id) references admin (id)
 );
 
@@ -188,30 +192,30 @@ create table if not exists users
 
 DELIMITER $$
 CREATE PROCEDURE IF NOT EXISTS new_aluno(IN new_name VARCHAR(50),
-        IN new_cpf CHAR(11),
-        IN new_email VARCHAR(200),
-        IN new_password VARCHAR(10),
-        IN new_email_resp VARCHAR(50),
-        IN new_date_born DATE)
+                                         IN new_cpf CHAR(11),
+                                         IN new_email VARCHAR(200),
+                                         IN new_password VARCHAR(10),
+                                         IN new_email_resp VARCHAR(50),
+                                         IN new_date_born DATE)
 BEGIN
     DECLARE new_id_resp INT DEFAULT NULL;
-	DECLARE new_aluno_id INT DEFAULT NULL;
-	SET new_id_resp := (SELECT id FROM responsavel WHERE email = new_email_resp);
+    DECLARE new_aluno_id INT DEFAULT NULL;
+    SET new_id_resp := (SELECT id FROM responsavel WHERE email = new_email_resp);
     IF new_name IS NOT NULL AND new_cpf IS NOT NULL AND new_email IS NOT NULL
-		AND new_password IS NOT NULL AND new_email_resp IS NOT NULL
-		AND new_date_born IS NOT NULL AND new_id_resp IS NOT NULL
-		THEN
-		INSERT INTO aluno (name, cpf, email, password, id_responsavel, date_born)
-		VALUES (new_name, new_cpf, new_email, new_password, new_id_resp, new_date_born);
+        AND new_password IS NOT NULL AND new_email_resp IS NOT NULL
+        AND new_date_born IS NOT NULL AND new_id_resp IS NOT NULL
+    THEN
+        INSERT INTO aluno (name, cpf, email, password, id_responsavel, date_born)
+        VALUES (new_name, new_cpf, new_email, new_password, new_id_resp, new_date_born);
 
-		SET new_aluno_id := (SELECT LAST_INSERT_ID());
-		INSERT INTO ranking (student_id, xp) VALUES (new_aluno_id, 0);
+        SET new_aluno_id := (SELECT LAST_INSERT_ID());
+        INSERT INTO ranking (student_id, xp) VALUES (new_aluno_id, 0);
     END IF;
 END $$
 DELIMITER ;
 
-# VIEWS
 
+# VIEWS
 create or replace view progresso_aula as
 select pa.student_id,
        al.name  as name_aluno,
@@ -224,8 +228,6 @@ from progresso_aluno as pa
          join professor as pf on au.create_by = pf.id
          join aluno as al on pa.student_id = al.id;
 
-select *
-from progresso_aluno;
 
 create or replace view aluno_responsavel as
 select al.id as aluno_id, al.name as aulo_name, re.name as responsavel_name, re.email
@@ -279,6 +281,7 @@ begin
     if not exists (select 1 from users where email = new.email or cpf = new.cpf) then
         insert into users (name, email, cpf, user_type, user_id)
         values (new.name, new.email, new.cpf, 'professor', new.id);
+
     end if;
 end $$
 
@@ -299,6 +302,28 @@ end $$
 
 delimiter ;
 
+
+# FUNCTIONS
+
+DELIMITER $$
+CREATE FUNCTION IF NOT EXISTS new_permission_adm(new_permission VARCHAR(50), admin_id INT)
+    RETURNS BOOLEAN
+    DETERMINISTIC
+BEGIN
+    DECLARE new_id_adm INT;
+    SELECT id INTO new_id_adm
+    FROM admin
+    WHERE id=admin_id;
+
+    IF new_permission IS NOT NULL AND new_permission = 'permitido' AND new_id_adm IS NOT NULL THEN
+        INSERT INTO permissao_admin (admin_id, permission) VALUES (admin_id, new_permission);
+        RETURN TRUE;
+    ELSE
+        RETURN FALSE;
+    end if;
+
+end $$
+DELIMITER ;
 
 # INSERTS
 
@@ -387,23 +412,3 @@ insert into admin (name, cpf, email, password, phone, created_by)
 values ('Eduardo Lima', '01234987654', 'eduardo.lima@email.com',
         '$2y$10$pKBORQ6xIJ/9YP2JvLic9.ZcO5i/jI7bN.OF0VVV7ZCV4fW.RUiq6', '41900000000', null);
 
-
-# AULAS
-insert into aula (title, description, create_by)
-values ('Introdução à Matemática', 'Conceitos básicos de matemática', 1),
-       ('Explorando o Mundo dos Animais', 'Aula sobre a diversidade dos animais', 2),
-       ('História Antiga', 'Introdução à história das primeiras civilizações', 3),
-       ('Geografia do Brasil', 'Características geográficas do Brasil', 4),
-       ('Gramática Básica', 'Aula sobre gramática e escrita correta', 5);
-
-# Progresso dos alunos
-insert into progresso_aluno (student_id, lesson_id, completed, start_date, end_date)
-values (1, 1, true, '2024-01-10', '2024-01-15'),
-       (2, 1, false, '2024-01-11', null),
-       (3, 2, true, '2024-01-12', '2024-01-20'),
-       (4, 2, false, '2024-01-13', null),
-       (5, 3, false, '2024-01-14', null),
-       (1, 4, true, '2024-02-01', '2024-02-10'),
-       (2, 4, false, '2024-02-02', null),
-       (3, 5, true, '2024-02-03', '2024-02-10'),
-       (4, 5, true, '2024-02-04', '2024-02-11');
