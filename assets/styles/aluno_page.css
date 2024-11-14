@@ -113,20 +113,6 @@ nav ul {
     color: var(--black-txt);
 }
 
-.video .video-img
-{
-    width: 272px;
-    height: 153px;
-    background-color: lightgray;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    filter: brightness(0.8);
-    box-shadow: 0 0 15px #00000080;
-}
-
 .video h2
 {
     text-decoration: underline;

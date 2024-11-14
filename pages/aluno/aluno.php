@@ -12,6 +12,8 @@ $user_id = $_SESSION['user_id'];
 $AlunoModel = new AlunoModel();
 $aluno = $AlunoModel->getUser();
 
+$aulas = $AlunoModel->getAulas();
+
 $aluno_rank = 700;
 ?><!DOCTYPE html>
 <html lang="pt-br">
@@ -52,15 +54,33 @@ $aluno_rank = 700;
             </div>
         </div>
 
-        <div class="aluno-videos">
-            <div class="video">
-                <a href="">
-                    <video src=""></video>
-                    <h2>Title video</h2>
-                    <h3>Prof.: Augusto Fagundes</h3>
-                </a>
+        <?php foreach ($aulas as $a) {
+            $url = $a['url'];
+
+            if (strpos($url, 'youtu.be') !== false) {
+                $video_id = explode("/", parse_url($url, PHP_URL_PATH))[1];
+                $url = "https://www.youtube.com/embed/$video_id";
+            } else {
+                $url = str_replace("watch?v=", "embed/", $url);
+            }
+        ?> 
+            <div class="aluno-videos">
+                <div class="video">
+                    <iframe 
+                        width="304" 
+                        height="171" 
+                        src="<?= $url ?>" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                    <h2><?= $a['title'] ?></h2>
+                    <h3>Prof.: <?= $a['professor'] ?></h3>
+                </div>
             </div>
-        </div>
+        <?php } ?>
+        
 
     </main>
 </body>

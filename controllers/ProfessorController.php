@@ -69,6 +69,8 @@ class ProfessorController
 
             $stmt->execute();
 
+            header('Location: /professor');
+
         } catch (PDOException $e) {
             $this->handleError($e);
         }

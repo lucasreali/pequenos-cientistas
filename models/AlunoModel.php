@@ -74,4 +74,21 @@ class AlunoModel
             </script>";
         }
     }
+
+    public function getAulas() 
+    {
+        $sql = "SELECT * FROM vw_video_aula;";
+        
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $aulas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
+            return $aulas;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+            return [];
+        }
+    }
+    
 }
