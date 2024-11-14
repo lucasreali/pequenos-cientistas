@@ -122,16 +122,26 @@ nav ul {
 
 .lista_videos {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
-
+    width: 100%;
+    margin-top: 20px;
 }
 
-
+.videoli-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .card 
 {
     width: 50%;
+    background-color: var(--light-blue);
+    padding: 10px;
+    border-radius: 5px;
+    width: 45%;
 }
 
 .card a {

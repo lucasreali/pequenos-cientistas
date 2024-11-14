@@ -74,11 +74,11 @@ $dependentes = $ResponsavelModel->getDependentes();
                     </a>
                 </div>
 
-
             <?php endforeach; ?>
         </div>
     </section>
 
 </body>
-
 </html>
+
+

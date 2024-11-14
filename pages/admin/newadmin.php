@@ -18,7 +18,8 @@
         <a href="/admin"><img src="assets/images/logo.svg" alt=""></a>
         <ul class="container">
             <li><a href="/admin">Inicio</a></li>
-            <li><a href="/admin/newadmin">Novo Admin</a></li>
+            <li><a href="/admin/content">Conteúdo</a></li>
+            <li><a href="/admin/newadmin" style="color: white">Novo Admin</a></li>
         </ul>
     </nav>
 </header>

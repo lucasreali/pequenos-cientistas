@@ -1,9 +1,105 @@
 @import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap');
 
-:root {
-    --light-blue: #78B5CD;
-    --dark-blue: #342E52;
-    --black-txt: #232323;
-    --white: #FFF9EC;
-
+header {
+    z-index: 999;
+    top: 0;
+    position: fixed;
+    background-color: var(--light-blue);
+    width: 100%;
+    height: 100px;
+    box-shadow: 0 0 15px #00000080;
 }
+
+nav {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+nav > a {
+    height: 60px;
+    width: 60px;
+    margin-left: 20px;
+}
+
+nav ul a {
+    font-size: 18px;
+    position: relative;
+    color: var(--black-txt);
+    text-decoration: none;
+    padding: 5px 0;
+}
+
+nav ul {
+    translate: -70px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+nav ul a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    height: 2px;
+    background-color: black;
+    transform: translateX(-50%);
+    transition: all 0.3s ease, left 0.3s ease;
+    width: 0;
+}
+
+nav ul a:hover::after {
+    width: 100%;
+    left: 50%;
+}
+
+section {
+    height: 100vh;
+    padding-top: 100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.lista_videos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.videoli-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card 
+{
+    width: 50%;
+    background-color: var(--light-blue);
+    padding: 10px;
+    border-radius: 5px;
+    width: 45%;
+}
+
+.card a {
+    color: var(--black-txt);
+    display: flex;
+    gap: 10px;
+}
+
+
+
+.card .videoli-img {
+    background-size: cover;
+    width: 120px;
+    height: 60px;
+}
+

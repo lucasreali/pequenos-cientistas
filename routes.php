@@ -16,6 +16,9 @@ $routes = [
 
     '/aluno' => 'pages/aluno/aluno.php',
 
+    // professor
+    '/professor' => 'pages/professor/professor_page.php',
+
     // admin
 
     '/admin' => 'pages/admin/admin.php',
