@@ -22,7 +22,7 @@
             <li><a href="/professor/desafios">Desafios</a></li>
             <li><a href="/professor/agenda">Agenda</a></li>
             <li><a href="/professor/library">Biblioteca</a></li>
-            <li><a href="/geral/sobre">Sobre nós</a></li>
+            <li><a href="/sobre">Sobre nós</a></li>
         </ul>
     </nav>
 </header>
@@ -61,8 +61,8 @@
                 </div>
                 <?php endforeach; ?>
             </div>
-           <button class="adc_cont">Adicionar conteúdo <i>+</i></button>
-           <form action="controllers/ProfessorController.php" method="post">
+           <button class="adc_cont" onclick="toggleAdcVid()">Adicionar conteúdo <i>+</i></button>
+           <form class="formAula hidden" action="controllers/ProfessorController.php" id="formContent" method="post">
                 <input type="hidden" value="create_aula" name="crud_type">
                 <label>URL do vídeo<input type="text" name="url"></label>
                 <label>Titulo do Video<input type="text" name="title"></label>
@@ -71,7 +71,7 @@
            </form>
     </div>
     <div>
-        <h2>Mais populares</h2>
+        <h2 style="margin-top: 20px">Mais populares</h2>
         <div class="most_popular_vids">
             <?php foreach (range(1, 30) as $i): ?>
 
@@ -106,6 +106,10 @@
         exps.forEach(exp => {
             exp.classList.toggle('hidden'); 
         });
+    }
+    function toggleAdcVid() {
+        const adcs = document.getElementById('formContent')
+            formContent.classList.toggle('hidden');
     }
 </script>
 
