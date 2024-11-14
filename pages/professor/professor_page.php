@@ -28,29 +28,79 @@
 </header>
 
 <section>
-    <div class="lista_videos">
-        <button class=onclick="toggleVideos()">Esconder/Mostrar</button>
-        <?php foreach (range(1, 30) as $i): ?>
-            <div class="card video">
-                <a href="#">
-                    <div class="videoli-img" style="background-image: url('assets/images/children01.png');">
-                        <img src="assets/images/play-ico.svg" alt="" class="play">
-                    </div>
-                    <div class="inf-video">
-                        <h2>Title video</h2>
-                        <h3>Prof.: Augusto Fagundes</h3>
-                    </div>
-                </a>
+    <div class="">
+        <div class="lista_videos">
+            <button onclick="toggleVideos()">Esconder/Mostrar <i>VÍDEOS</i></button>
+            <?php foreach (range(1, 30) as $i): ?>
+                <div class="card video1 hidden">
+                    <a href="#">
+                        <div class="videoli-img" style="background-image: url('assets/images/children01.png');">
+                            <img src="assets/images/play-ico.svg" alt="" class="play">
+                        </div>
+                        <div class="inf-video">
+                            <h2>Title video</h2>
+                            <h3>Prof.: Augusto Fagundes</h3>
+                        </div>
+                    </a>
+                </div>
+            <?php endforeach; ?>
+        </div>
+        <div class="lista_exp">
+            <button onclick="toggleExp()">Esconder/Mostrar <i>EXPERIÊNCIAS</i></button>
+            <?php foreach (range(1, 30) as $i): ?>
+                <div class="card exp hidden">
+                    <a href="#">
+                        <div class="expli-img" style="background-image: url('assets/images/children01.png');">
+                            <img src="assets/images/play-ico.svg" alt="" class="play">
+                        </div>
+                        <div class="inf-exp">
+                            <h2>Title exp</h2>
+                            <h3>Prof.: Augusto Fagundes</h3>
+                        </div>
+                    </a>
+                </div>
+                <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
+           <button class="adc_cont">Adicionar conteúdo <i>+</i></button>
+           <form>
+                <label>URL do vídeo<input type="text"></label>
+           </form>
+    </div>
+    <div>
+        <h2>Mais populares</h2>
+        <div class="most_popular_vids">
+            <?php foreach (range(1, 30) as $i): ?>
+
+                <div class="videos">
+                    <div class="video">
+                        <a href="">
+                            <div class="video-img" style="background-image: url('assets/images/children01.png');">
+                                <img src="assets/images/play-ico.svg" alt="" class="play">
+                            </div>
+                            <h2>Title video</h2>
+                            <h3>Prof.: Augusto Fagundes</h3>
+                        </a>
+                    </div>
+
+
+                </div>
+
+            <?php endforeach; ?>
+        </div>
     </div>
 </section>
 
 <script>
     function toggleVideos() {
-        const videos = document.querySelectorAll('.video'); // Seleciona todos os elementos com a classe "video"
+        const videos = document.querySelectorAll('.video1');
         videos.forEach(video => {
-            video.classList.toggle('hidden'); // Alterna a classe "hidden" em cada vídeo
+            video.classList.toggle('hidden');
+        });
+    }
+    function toggleExp() {
+        const exps = document.querySelectorAll('.exp');
+        exps.forEach(exp => {
+            exp.classList.toggle('hidden'); 
         });
     }
 </script>

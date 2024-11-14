@@ -40,7 +40,7 @@ $aluno_rank = 700;
         </nav>
     </header>
 
-    <main>
+    <main style="padding-top: 100px;">
         <div class="aluno-rank">
             <img src="assets/images/aluno-ico.svg" alt="">
             <div class="xp-aluno">
@@ -55,14 +55,11 @@ $aluno_rank = 700;
         <div class="aluno-videos">
             <div class="video">
                 <a href="">
-                    <div class="video-img" style="background-image: url('assets/images/children01.png');">
-                        <img src="assets/images/play-ico.svg" alt="" class="play">
-                    </div>
+                    <video src=""></video>
                     <h2>Title video</h2>
                     <h3>Prof.: Augusto Fagundes</h3>
                 </a>
             </div>
-
         </div>
 
     </main>

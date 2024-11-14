@@ -210,33 +210,6 @@ BEGIN
 END $$
 DELIMITER ;
 
-
-# FUNCTION
-
-DELIMITER $$
-CREATE FUNCTION IF NOT EXISTS new_permission_adm(new_permission VARCHAR(50), admin_id INT)
-RETURNS BOOLEAN DETERMINISTIC
-BEGIN
-	DECLARE EXIT HANDLER FOR SQLEXCEPTION
-	BEGIN
-		ROLLBACK;
-		RETURN FALSE;
-	END;
-	DECLARE new_permission_id INT DEFAULT NULL;
-	START TRANSACTION;
-	IF new_permission IS NOT NULL AND new_permission = 'Permitido'
-		THEN
-		INSERT INTO permissao_admin (admin_id, permission) VALUES (admin_id,new_permission);
-		SET new_permission_id := (SELECT LAST_INSERT_ID());
-		COMMIT;
-		RETURN TRUE;
-	ELSE
-		ROLLBACK;
-		RETURN FALSE;
-	END IF;
-END $$
-DELIMITER ;
-:
 # VIEWS
 
 create or replace view progresso_aula as
