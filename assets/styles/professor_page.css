@@ -218,5 +218,5 @@ label input {
     width: 70%;
     border: 1px solid var(--light-blue);
     border-radius: 5px;
-    height: 20px;
+    padding: 5px;
 }

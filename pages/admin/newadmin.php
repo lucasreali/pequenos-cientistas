@@ -39,6 +39,7 @@
             </div>
 
             <div class="input-wrapper">
+                <input type="hidden" value="add-video" name="crud_type">
                 <label for="password">Password:</label>
                 <input type="password" name="password" placeholder="Digite aqui" required>
             </div>

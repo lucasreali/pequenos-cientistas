@@ -62,8 +62,12 @@
                 <?php endforeach; ?>
             </div>
            <button class="adc_cont">Adicionar conteúdo <i>+</i></button>
-           <form>
-                <label>URL do vídeo<input type="text"></label>
+           <form action="controllers/ProfessorController.php" method="post">
+                <input type="hidden" value="create_aula" name="crud_type">
+                <label>URL do vídeo<input type="text" name="url"></label>
+                <label>Titulo do Video<input type="text" name="title"></label>
+                <label>Descrição do video<input type="text" name="description"></label>
+                <button type="submit">Enviar</button>
            </form>
     </div>
     <div>
