@@ -19,13 +19,14 @@ $routes = [
 
     // professor
     '/professor' => 'pages/professor/professor_page.php',
+    '/desafios_prof' => 'pages/professor/desafios_prof.php',
 
     // admin
 
     '/admin' => 'pages/admin/admin.php',
-    '/admin/infoUser'=> 'pages/admin/infoUser.php',
-    '/admin/allUsers'=> 'pages/admin/allUsers.php',
-    '/admin/newadmin'=> 'pages/admin/newadmin.php',
+    '/infoUser'=> 'pages/admin/infoUser.php',
+    '/allUsers'=> 'pages/admin/allUsers.php',
+    '/newadmin'=> 'pages/admin/newadmin.php',
 
 
     // responsavel

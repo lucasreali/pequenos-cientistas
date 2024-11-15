@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/styles/professor_page.css">
-    <link rel="stylesheet" href="../../assets/styles/style.css">
-    <link rel="stylesheet" href="../../assets/styles/imports.css">
+    <link rel="stylesheet" href="assets/styles/professor_page.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="assets/styles/imports.css">
     <title>Professor</title>
     <style>
         .hidden {
@@ -19,7 +19,7 @@
         <a href="/professor_page"><img src="assets/images/logo.svg" alt=""></a>
         <ul class="container">
             <li><a href="/professor_page" style="color: white">Conteúdos</a></li>
-            <li><a href="/professor/desafios">Desafios</a></li>
+            <li><a href="/desafios_prof">Desafios</a></li>
             <li><a href="/professor/agenda">Agenda</a></li>
             <li><a href="/professor/library">Biblioteca</a></li>
             <li><a href="/sobre">Sobre nós</a></li>
@@ -71,7 +71,7 @@
            </form>
     </div>
     <div>
-        <h2 style="margin-top: 20px">Mais populares</h2>
+        <h2 style="margin: 20px">Mais populares</h2>
         <div class="most_popular_vids">
             <?php foreach (range(1, 30) as $i): ?>
 
