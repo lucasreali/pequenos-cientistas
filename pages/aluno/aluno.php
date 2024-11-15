@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "models/AlunoModel.php";
+include "models/AulaModel.php";
 
 if ($_SESSION['user_type'] != 'aluno' || !isset($_SESSION['user_type'])) {
     header('Location: /');
@@ -12,7 +13,8 @@ $user_id = $_SESSION['user_id'];
 $AlunoModel = new AlunoModel();
 $aluno = $AlunoModel->getUser();
 
-$aulas = $AlunoModel->getAulas();
+$AulasModel = new AulaModel();
+$aulas = $AulasModel->getAulas();
 
 $aluno_rank = 700;
 ?><!DOCTYPE html>
@@ -54,32 +56,25 @@ $aluno_rank = 700;
             </div>
         </div>
 
-        <?php foreach ($aulas as $a) {
-            $url = $a['url'];
-
-            if (strpos($url, 'youtu.be') !== false) {
-                $video_id = explode("/", parse_url($url, PHP_URL_PATH))[1];
-                $url = "https://www.youtube.com/embed/$video_id";
-            } else {
-                $url = str_replace("watch?v=", "embed/", $url);
-            }
-        ?> 
+        <?php foreach ($aulas as $a): ?> 
             <div class="aluno-videos">
                 <div class="video">
-                    <iframe 
-                        width="304" 
-                        height="171" 
-                        src="<?= $url ?>" 
-                        title="YouTube video player" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                    <h2><?= $a['title'] ?></h2>
-                    <h3>Prof.: <?= $a['professor'] ?></h3>
-                </div>
+                    <a href="<?= $a['url'] ?>">
+                    <iframe
+                            width="304"
+                            height="171"
+                            src="<?= $a['url'] ?>"
+                            frameborder="-1"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </a>
+                        <h2><?= $a['title'] ?></h2>
+                        <h3><?= substr($a['description'], 0, 25) ?>...</h3>
+                        <h3>Prof.: <?= $a['professor'] ?></h3>
+                    </div>
             </div>
-        <?php } ?>
+        <?php endforeach; ?>
         
 
     </main>

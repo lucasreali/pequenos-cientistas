@@ -46,35 +46,6 @@ class ProfessorController
         exit();
     }
 
-    public function addVideo($url, $description, $title)
-    {
-        session_start();
-        $id = $_SESSION['user_id'];
-
-        $sql = 'INSERT INTO aula (title, description, create_by) VALUES (:title, :description, :id)';
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':title', $title, PDO::PARAM_STR);
-        $stmt->bindParam(':description', $description, PDO::PARAM_STR);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-
-        try {
-            $stmt->execute();
-
-            $aula_id = $this->conn->lastInsertId();
-
-            $sql = 'INSERT INTO video (url, aula_id) VALUES (:url, :aula_id)';
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':url', $url, PDO::PARAM_STR);
-            $stmt->bindParam(':aula_id', $aula_id, PDO::PARAM_INT);
-
-            $stmt->execute();
-
-            header('Location: /professor');
-
-        } catch (PDOException $e) {
-            $this->handleError($e);
-        }
-    }
 
     private function handleError($e)
     {
@@ -102,11 +73,6 @@ switch ($crud_type) {
         $subject = 'biologia';
 
         $professor->create($name, $email, $password, $cpf, $subject);
+        return;
         
-    case 'create_aula':
-        $url = $_POST['url'];
-        $description = $_POST['description'];
-        $title = $_POST['title'];
-
-        $professor->addVideo($url, $description, $title);
-    }
+}

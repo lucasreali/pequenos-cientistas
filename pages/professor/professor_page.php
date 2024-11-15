@@ -1,4 +1,26 @@
-<!DOCTYPE html>
+<?php
+session_start();
+include "models/ProfessorModel.php";
+include "models/AulaModel.php";
+
+if ($_SESSION['user_type'] != 'professor' || !isset($_SESSION['user_type'])) {
+    header('Location: /');
+    exit();
+}
+
+$user_id = $_SESSION['user_id'];
+
+$ProfessorModel = new ProfessorModel();
+
+$ProfessorModel->getPermission();
+
+$professor = $ProfessorModel->getUser();
+
+$AulasModel = new AulaModel();
+$aulas = $AulasModel->getAulas();
+
+$aluno_rank = 700;
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +38,7 @@
 <body>
 <header>
     <nav>
-        <a href="/professor_page"><img src="assets/images/logo.svg" alt=""></a>
+        <a href="/"><img src="assets/images/logo.svg" alt=""></a>
         <ul class="container">
             <li><a href="/professor_page" style="color: white">Conteúdos</a></li>
             <li><a href="/professor/desafios">Desafios</a></li>
@@ -62,7 +84,7 @@
                 <?php endforeach; ?>
             </div>
            <button class="adc_cont" onclick="toggleAdcVid()">Adicionar conteúdo <i>+</i></button>
-           <form class="formAula hidden" action="controllers/ProfessorController.php" id="formContent" method="post">
+           <form class="formAula hidden" action="controllers/AulaController.php" id="formContent" method="post">
                 <input type="hidden" value="create_aula" name="crud_type">
                 <label>URL do vídeo<input type="text" name="url"></label>
                 <label>Titulo do Video<input type="text" name="title"></label>

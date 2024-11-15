@@ -9,8 +9,7 @@ class AuthController
         
         require_once '../database/connection.php';
         $db = new Database;
-        $conn = $db->connect();
-        $this->conn = $conn;
+        $this->conn = $db->connect(); // Corrigido
     }
 
     public function login($email, $password)
@@ -29,10 +28,8 @@ class AuthController
                 $stmt->bindParam(":email", $email, PDO::PARAM_STR);
                 $stmt->execute();
                 $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
-                echo $user_data['password'];
 
                 if ($user_data && password_verify($password, $user_data['password'])) {
-
                     $_SESSION['user_id'] = $user_data['id'];
                     $_SESSION['user_type'] = $user['user_type'];
 
@@ -78,10 +75,6 @@ class AuthController
     }
 }
 
-require_once '../database/connection.php';
-$db = new Database();
-$conn = $db->connect();
-
 $case = $_POST['case'];
 $authcontroller = new AuthController();
 
@@ -96,4 +89,3 @@ switch ($case) {
         $authcontroller->logout();
         break;
 }
-
