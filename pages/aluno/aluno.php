@@ -34,7 +34,7 @@ $aluno_rank = 700;
             <a href="/"><img src="assets/images/logo.svg" alt=""></a>
             <ul class="container">
                 <li><a href="/">Aulas</a></li>
-                <li><a href="/contato">Desafios</a></li>
+                <li><a href="/desafios_aluno">Desafios</a></li>
                 <li><a href="/sobre">Sobre nós</a></li>
             </ul>
         </nav>
@@ -98,6 +98,13 @@ $aluno_rank = 700;
                     </div>
                     <h2>Title video</h2>
                     <h3>Prof.: Kelly Siva</h3>
+
+
+                    <div class="video-img" style="background-image: url('assets/images/children01.png');">
+                        <img src="assets/images/play-ico.svg" alt="" class="play">
+                    </div>
+                    <h2>Title video</h2>
+                    <h3>Prof.: Maria Roveredo</h3>
                 </a>
             </div> 
 
@@ -111,3 +118,4 @@ $aluno_rank = 700;
 </body>
 
 </html>
+
