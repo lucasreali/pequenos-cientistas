@@ -31,7 +31,7 @@ class ProfessorModel
 
     public function getPermission()
 {
-    $id = $_SESSION['user_id'];
+    $id = $this->user_id;
 
     $sql = "SELECT permission_assigned, permission FROM professor WHERE id = :id";
     $stmt = $this->conn->prepare($sql);

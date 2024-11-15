@@ -56,7 +56,7 @@ $aluno_rank = 700;
             <div class="aluno-videos">
                 <div class="video">
                     <a href="<?= $a['url'] ?>">
-                    <iframe
+                        <iframe
                             width="304"
                             height="171"
                             src="<?= $a['url'] ?>"
