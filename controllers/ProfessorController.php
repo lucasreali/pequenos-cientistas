@@ -45,6 +45,20 @@ class ProfessorController
         $stmt = null;
         exit();
     }
+
+
+    private function handleError($e)
+    {
+        $errorMessage = json_encode($e->getMessage());
+        $redirectUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/login';
+
+        echo "
+        <script>
+            alert($errorMessage);
+            window.location.href = '$redirectUrl';
+        </script>";
+        exit;
+    }
 }
 
 $crud_type = $_POST['crud_type'];
@@ -59,4 +73,6 @@ switch ($crud_type) {
         $subject = 'biologia';
 
         $professor->create($name, $email, $password, $cpf, $subject);
+        break;
+        
 }

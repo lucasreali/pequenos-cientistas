@@ -1,4 +1,3 @@
-
 section {
     height: 100vh;
     padding-top: 100px;
@@ -61,79 +60,55 @@ nav ul {
     gap: 50px;
 }
 
-.aluno-rank
-{
+section {
+    padding-top: 100px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 50px;
+    justify-items: center;
+}
+
+.left-page {
     display: flex;
     align-items: center;
+    flex-direction: column;
 }
 
-.aluno-rank img{
-    height: 80px;
+
+video {
+    --tamanho-video: 75;
+    width: calc(16px * var(--tamanho-video));
+    height: calc(9px * var(--tamanho-video));
+    background: #000;
 }
 
-.xp-aluno > div {
-    position: relative;
-    height: 30px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
-    overflow: hidden;
-    background: #d5d5d5;
-}
-
-.xp-aluno h3, .xp-aluno p
-{
-    z-index: 1;
-}
-
-.xp-aluno div > div
-{
-    position: absolute;
-    background: #ffffffa7;
-    height: 100%;
-    left: 0;
-    background-color: var(--green);
-    border-radius: 10px;
-}
-
-.video
-{   
+.info-video {
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
-    height: auto;
-    width: 300px;
-    padding: 20px;
-    border-radius: 5px;
+    gap: 10px;
+    width: calc(16px * 75);
 }
 
-.video *
-{
-    color: var(--black-txt);
+.left-page button {
+    height: 50px;
 }
 
-.video h2
-{
-    text-decoration: underline;
-    text-underline-offset: 6px;
-    margin-block: 5px;
-}
-
-.video h3
-{
-    font-weight: 300;
-}
-
-.aluno-video {
+.right-page {
+    padding-right: 30px;
     display: flex;
-    flex-wrap: wrap;
-    overflow-x: auto;
-    max-width: 400px;
+    align-items: center;
+    justify-content: center;
 }
 
-.aluno-videos {
-    flex: 1 1 50%;
-    box-sizing: border-box;
+.chat {
+    border-radius: 5px;
+    background: #a3a3a3;
+    width: 600px;
+    height: 800px;
     padding: 10px;
+}
+
+.chat p {
+    width: 100%;
 }

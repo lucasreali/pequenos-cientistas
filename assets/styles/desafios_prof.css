@@ -1,21 +1,4 @@
-
-/*
-
-    TUDO QUE FOR EM COMUM COM OUTRAS PAGINAS ESCREVER AQUI
-
-*/
-
-section {
-    height: 100vh;
-    padding-top: 100px;
-    overflow: hidden;
-}
-
-section > h2 {
-    font-size: 30px;
-    margin-block: 20px;
-    margin-left: 30px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap');
 
 header {
     z-index: 999;
@@ -48,6 +31,15 @@ nav ul a {
     padding: 5px 0;
 }
 
+nav ul {
+    translate: -70px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
 nav ul a::after {
     content: '';
     position: absolute;
@@ -56,7 +48,7 @@ nav ul a::after {
     height: 2px;
     background-color: black;
     transform: translateX(-50%);
-    transition: width 0.3s ease, left 0.3s ease;
+    transition: all 0.3s ease, left 0.3s ease;
     width: 0;
 }
 
@@ -65,71 +57,17 @@ nav ul a:hover::after {
     left: 50%;
 }
 
-nav ul {
-    translate: -50px 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-}
-
-.video
-{   
+.lista_desafio {
+    margin-left: 10px;
     display: flex;
     flex-direction: column;
-    height: auto;
-    width: 300px;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-.video *
-{
-    color: var(--black-txt);
-}
-
-.video .video-img
-{
-    width: 272px;
-    height: 153px;
-    background-color: lightgray;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    background-size: cover;
-    filter: brightness(0.8);
-    box-shadow: 0 0 15px #00000080;
-}
-
-.video h2
-{
-    text-decoration: underline;
-    text-underline-offset: 6px;
-    margin-block: 5px;
-}
-
-.video h3
-{
-    font-weight: 300;
-}
-
-.videos_resp {
-    display: flex;
-    overflow-x: scroll;
-}
-
-.lista_videos {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
     gap: 20px;
     width: 100%;
     margin-top: 20px;
 }
 
-.videoli-img {
+.desafioli-img {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -137,19 +75,22 @@ nav ul {
 
 .card 
 {
+    margin-left: 10px;
+    margin-top: 10px;
     width: 50%;
     background-color: var(--light-blue);
     padding: 10px;
     border-radius: 5px;
-    width: 45%;
+    width: 70%;
 }
 
 .card a {
+    color: var(--black-txt);
     display: flex;
     gap: 10px;
 }
 
-.card .videoli-img {
+.card .desafioli-img {
     background-size: cover;
     width: 120px;
     height: 60px;

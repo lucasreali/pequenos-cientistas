@@ -53,8 +53,6 @@ $dependentes = $ResponsavelModel->getDependentes();
                             <h3>Prof.: Augusto Fagundes</h3>
                         </a>
                     </div>
-
-
                 </div>
 
             <?php endforeach; ?>
@@ -74,11 +72,11 @@ $dependentes = $ResponsavelModel->getDependentes();
                     </a>
                 </div>
 
-
             <?php endforeach; ?>
         </div>
     </section>
 
 </body>
-
 </html>
+
+

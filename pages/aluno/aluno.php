@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "models/AlunoModel.php";
+include "models/AulaModel.php";
 
 if ($_SESSION['user_type'] != 'aluno' || !isset($_SESSION['user_type'])) {
     header('Location: /');
@@ -11,6 +12,9 @@ $user_id = $_SESSION['user_id'];
 
 $AlunoModel = new AlunoModel();
 $aluno = $AlunoModel->getUser();
+
+$AulasModel = new AulaModel();
+$aulas = $AulasModel->getAulas();
 
 $aluno_rank = 700;
 ?><!DOCTYPE html>
@@ -31,16 +35,12 @@ $aluno_rank = 700;
             <ul class="container">
                 <li><a href="/">Aulas</a></li>
                 <li><a href="/contato">Desafios</a></li>
-                <li><a href="/agenda">Agenda</a></li>
-                <li><a href="/grupos">Grupos</a></li>
-                <li><a href="/biblioteca">Biblioteca</a></li>
-                <li><a href="/ranking">Ranking</a></li>
                 <li><a href="/sobre">Sobre nós</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main style="padding-top: 100px;">
         <div class="aluno-rank">
             <img src="assets/images/aluno-ico.svg" alt="">
             <div class="xp-aluno">
@@ -51,13 +51,25 @@ $aluno_rank = 700;
                 </div>
             </div>
         </div>
-
-        <div class="aluno-videos">
-            <div class="video">
-                <a href="">
-                    <div class="video-img" style="background-image: url('assets/images/children01.png');">
-                        <img src="assets/images/play-ico.svg" alt="" class="play">
+        <div class="videos_aluno">
+        <?php foreach ($aulas as $a): ?> 
+            <div class="aluno-videos">
+                <div class="video">
+                    <a href="<?= $a['url'] ?>">
+                        <iframe
+                            width="304"
+                            height="171"
+                            src="<?= $a['url'] ?>"
+                            frameborder="-1"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </a>
+                        <h2><?= $a['title'] ?></h2>
+                        <h3><?= substr($a['description'], 0, 25) ?>...</h3>
+                        <h3>Prof.: <?= $a['professor'] ?></h3>
                     </div>
+
                     <h2>Title video</h2>
                     <h3>Prof.: Augusto Fagundes</h3>
 
@@ -88,6 +100,10 @@ $aluno_rank = 700;
                     <h3>Prof.: Kelly Siva</h3>
                 </a>
             </div> 
+
+
+            </div>
+        <?php endforeach; ?>
 
         </div>
 

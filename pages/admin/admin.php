@@ -1,7 +1,15 @@
 <?php
 
-include "models/AdminModel.php";
 session_start();
+include "models/AlunoModel.php";
+include "models/AulaModel.php";
+
+if ($_SESSION['user_type'] != 'admin' || !isset($_SESSION['user_type'])) {
+    header('Location: /');
+    exit();
+}
+
+include "models/AdminModel.php";
 
 $AdminModel = new AdminModel();
 
@@ -23,7 +31,8 @@ $teachersWithNotPermission = $AdminModel->getTeachersWithNotPermission();
     <nav>
         <a href="/admin"><img src="assets/images/logo.svg" alt=""></a>
         <ul class="container">
-            <li><a href="/admin">Inicio</a></li>
+            <li><a href="/admin" style="color: white">Inicio</a></li>
+            <li><a href="/admin">Conteúdo</a></li>
             <li><a href="/admin/newadmin">Novo Admin</a></li>
         </ul>
     </nav>
@@ -58,12 +67,45 @@ $teachersWithNotPermission = $AdminModel->getTeachersWithNotPermission();
                 <?php endforeach; ?>
             </ul>
         </div>
-        <div class=""></div>
+        <div class="table">
+        <table>
+                <thead>
+                    <tr>
+                        <th>Nome:</th>
+                        <th>Email:</th>
+                        <th>CPF:</th>
+                        <th>Tipo de Usuario:</th>
+                        <th>ID na tabela:</th>
+                        <th style="text-align: center;"> <input type="checkbox" onclick="toggleCheckboxes(this)"> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($users as $u): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($u['email']) ?></td>
+                            <td><?= htmlspecialchars($u['cpf']) ?></td>
+                            <td><a href="/admin/infoUser?id=<?= $u['id'] ?>"><?= htmlspecialchars($u['name']) ?></a></td>
+                            <td><?= htmlspecialchars($u['user_type']) ?></td>
+                            <td><?= htmlspecialchars($u['user_id']) ?></td>
+                            <td style="text-align: center;"> <input type="checkbox" name="select" value="<?= $u['id'] ?>"></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+
+            </table>
+        </div>
     </section>
 </main>
 
 
 
-<script src="assets/scripts/asyncAdmin.js"></script>
+<script>
+        function toggleCheckboxes(source) {
+            const checkboxes = document.querySelectorAll('input[name="select"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = source.checked;
+            });
+        }
+    </script>
 </body>
 </html>

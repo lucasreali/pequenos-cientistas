@@ -1,4 +1,6 @@
-
+* {
+    color: var(--black-txt);
+}
 
 header {
     z-index: 999;
@@ -72,10 +74,11 @@ section {
 
 .permissions h1 {
     font-size: 40px;
+    margin-left: 20px;
 }
 
 .permissions ul {
-    width: 600px;
+    width: 900px;
     height: 700px;
     overflow: scroll;
     padding: 20px;
@@ -111,3 +114,35 @@ section {
 .permissions form button img {
     height: 20px;
 }
+
+.table {
+    display: flex;
+    justify-content: center;
+    margin: 16px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0; 
+}
+
+table tr:nth-child(even) {
+    background-color: #d7d7d7;
+}
+
+table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+th {
+    background-color: var(--light-blue);
+}
+
+th, td{
+    border: 1px solid;
+    padding: 5px;
+    
+}
+input[type='checkbox'] {
+    scale: 1.2;
+ }
