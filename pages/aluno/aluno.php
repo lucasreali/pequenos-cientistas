@@ -51,7 +51,7 @@ $aluno_rank = 700;
                 </div>
             </div>
         </div>
-
+        <div class="videos_aluno">
         <?php foreach ($aulas as $a): ?> 
             <div class="aluno-videos">
                 <div class="video">
@@ -71,7 +71,7 @@ $aluno_rank = 700;
                     </div>
             </div>
         <?php endforeach; ?>
-        
+        </div>
 
     </main>
 </body>
