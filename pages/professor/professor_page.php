@@ -25,9 +25,9 @@ $aluno_rank = 700;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/styles/professor_page.css">
-    <link rel="stylesheet" href="assets/styles/style.css">
-    <link rel="stylesheet" href="assets/styles/imports.css">
+    <link rel="stylesheet" href="../../assets/styles/professor_page.css">
+    <link rel="stylesheet" href="../../assets/styles/style.css">
+    <link rel="stylesheet" href="../../assets/styles/imports.css">
     <title>Professor</title>
     <style>
         .hidden {
@@ -41,7 +41,7 @@ $aluno_rank = 700;
         <a href="/"><img src="assets/images/logo.svg" alt=""></a>
         <ul class="container">
             <li><a href="/professor_page" style="color: white">Conteúdos</a></li>
-            <li><a href="/desafios_prof">Desafios</a></li>
+            <li><a href="/professor/desafios">Desafios</a></li>
             <li><a href="/professor/agenda">Agenda</a></li>
             <li><a href="/professor/library">Biblioteca</a></li>
             <li><a href="/sobre">Sobre nós</a></li>
@@ -100,7 +100,7 @@ $aluno_rank = 700;
            </form>
     </div>
     <div>
-        <h2 style="margin: 20px">Mais populares</h2>
+        <h2 style="margin-top: 20px">Mais populares</h2>
         <div class="most_popular_vids">
         <?php foreach ($aulas as $a): ?> 
             <div class="aluno-videos">
@@ -143,18 +143,15 @@ $aluno_rank = 700;
     }
 
     function validateForm(event) {
-        event.preventDefault(); // Impede o envio do formulário se houver erro
-
-        // Obtendo os valores dos campos
+        event.preventDefault(); 
         const url = document.querySelector('input[name="url"]').value;
         const title = document.querySelector('input[name="title"]').value;
         const description = document.querySelector('input[name="description"]').value;
         
         let valid = true;
 
-        const urlPattern = /^(https?:\/\/(?:www\.)?youtube\.com\/(?:[^\/\n\s]+\/\S+|\S+))/i;
-        if (!urlPattern.test(url)) {
-            alert("Por favor, insira uma URL válida do YouTube.");
+        if (url.trim() === "") {
+            alert("O título do vídeo é obrigatório.");
             valid = false;
         }
 
@@ -172,7 +169,7 @@ $aluno_rank = 700;
             document.getElementById("formContent").submit();
         }
     }
-    
+
     document.getElementById("formContent").addEventListener("submit", validateForm);
 </script>
 
