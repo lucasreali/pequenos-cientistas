@@ -153,14 +153,10 @@ $aluno_rank = 700;
         if (url.trim() === "") {
             alert("O título do vídeo é obrigatório.");
             valid = false;
-        }
-
-        if (title.trim() === "") {
+        } else if (title.trim() === "") {
             alert("O título do vídeo é obrigatório.");
             valid = false;
-        }
-
-        if (description.trim().length < 10) {
+        } else if (description.trim().length < 10) {
             alert("A descrição do vídeo deve ter pelo menos 10 caracteres.");
             valid = false;
         }
@@ -170,7 +166,6 @@ $aluno_rank = 700;
         }
     }
 
-    document.getElementById("formContent").addEventListener("submit", validateForm);
 </script>
 
 </body>
