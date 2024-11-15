@@ -95,23 +95,25 @@ $aluno_rank = 700;
     <div>
         <h2 style="margin-top: 20px">Mais populares</h2>
         <div class="most_popular_vids">
-            <?php foreach (range(1, 30) as $i): ?>
-
-                <div class="videos">
-                    <div class="video">
-                        <a href="">
-                            <div class="video-img" style="background-image: url('assets/images/children01.png');">
-                                <img src="assets/images/play-ico.svg" alt="" class="play">
-                            </div>
-                            <h2>Title video</h2>
-                            <h3>Prof.: Augusto Fagundes</h3>
-                        </a>
+        <?php foreach ($aulas as $a): ?> 
+            <div class="aluno-videos">
+                <div class="video">
+                    <a href="<?= $a['url'] ?>">
+                        <iframe
+                            width="304"
+                            height="171"
+                            src="<?= $a['url'] ?>"
+                            frameborder="-1"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </a>
+                        <h2><?= $a['title'] ?></h2>
+                        <h3><?= substr($a['description'], 0, 25) ?>...</h3>
+                        <h3>Prof.: <?= $a['professor'] ?></h3>
                     </div>
-
-
-                </div>
-
-            <?php endforeach; ?>
+            </div>
+        <?php endforeach; ?>
         </div>
     </div>
 </section>
