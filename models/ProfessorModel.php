@@ -39,7 +39,7 @@ class ProfessorModel
 
     try {
         $stmt->execute();
-        $permission = $stmt->fetch(PDO::FETCH_ASSOC); // Alterado para fetch
+        $permission = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($permission['permission_assigned'] == false) {
             echo "

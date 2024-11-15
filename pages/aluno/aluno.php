@@ -35,10 +35,6 @@ $aluno_rank = 700;
             <ul class="container">
                 <li><a href="/">Aulas</a></li>
                 <li><a href="/contato">Desafios</a></li>
-                <li><a href="/agenda">Agenda</a></li>
-                <li><a href="/grupos">Grupos</a></li>
-                <li><a href="/biblioteca">Biblioteca</a></li>
-                <li><a href="/ranking">Ranking</a></li>
                 <li><a href="/sobre">Sobre nós</a></li>
             </ul>
         </nav>

@@ -50,6 +50,34 @@ class AulaController
         }
     }
 
+    public function createDesafio($title, $question, $resp1, $resp2, $resp3, $resp4) {
+        session_start();
+        $id = $_SESSION['user_id'];
+
+        $sql = "INSERT INTO desafios (title, question, id_teacher) VALUES (:title, :question, :id);";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':title', $title, PDO::PARAM_STR);
+        $stmt->bindParam(':question', $question, PDO::PARAM_STR);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+        try {
+            $stmt->execute();
+            
+            $desafio_id = $this->conn->lastInsertId();
+            $sql = "INSERT (resp_1, resp_2, resp_3, resp_4, desafio_id) INTO VALUES (:resp1, :resp2, :resp3, :resp4, $desafio_id);";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':resp1', $resp1, PDO::PARAM_STR);
+            $stmt->bindParam(':resp2', $resp2, PDO::PARAM_STR);
+            $stmt->bindParam(':resp3', $resp3, PDO::PARAM_STR);
+            $stmt->bindParam(':resp4', $resp4, PDO::PARAM_STR);
+
+            $stmt->execute();
+        } catch (PDOException $e) {
+            $this->handleError($e);
+        }
+
+    }
+
     private function handleError($e)
     {
         $errorMessage = json_encode($e->getMessage());
