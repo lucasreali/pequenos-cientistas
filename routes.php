@@ -16,10 +16,12 @@ $routes = [
 
     '/aluno' => 'pages/aluno/aluno.php',
     '/video' => 'pages/aluno/video.php',
+    '/desafios_aluno' => 'pages/aluno/desafios_aluno',
 
     // professor
     '/professor' => 'pages/professor/professor_page.php',
     '/desafios_prof' => 'pages/professor/desafios_prof.php',
+    '/new_desafio' => 'pages/professor/new_desafio.php',
 
     // admin
 

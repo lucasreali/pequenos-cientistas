@@ -3,24 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/styles/desafios_prof.css">
+    <link rel="stylesheet" href="assets/styles/desafios_aluno.css">
     <link rel="stylesheet" href="assets/styles/style.css">
     <link rel="stylesheet" href="assets/styles/imports.css">
     <title>Desafios</title>
 </head>
 <body>
-<header>
-    <nav>
-        <a href="/professor"><img src="assets/images/logo.svg" alt=""></a>
-        <ul class="container">
-            <li><a href="/professor">Conteúdos</a></li>
-            <li><a href="/desafios_prof" style="color: white">Desafios</a></li>
-            <li><a href="/professor/agenda">Agenda</a></li>
-            <li><a href="/professor/library">Biblioteca</a></li>
-            <li><a href="/sobre">Sobre nós</a></li>
-        </ul>
-    </nav>
-</header>
+<body>
+    <header>
+        <nav>
+            <a href="/"><img src="assets/images/logo.svg" alt=""></a>
+            <ul class="container">
+                <li><a href="/">Aulas</a></li>
+                <li><a href="/desafios_aluno">Desafios</a></li>
+                <li><a href="/sobre">Sobre nós</a></li>
+            </ul>
+        </nav>
+    </header>
 
 <section style="padding-top: 100px;">
     <h2 style="margin: 10px 0 0 10px">Desafios</h2>
@@ -28,7 +27,7 @@
         <?php foreach (range(1, 30) as $i): ?>
             <div class="card desafios">
                 <a href="#">
-                    <div class="desafioli-img" style="background-image: url('assets/images/children01.png');">
+                    <div class="desafioli-img">
                         <img src="assets/images/play-ico.svg" alt="" class="play">
                     </div>
                     <div class="inf-desafio">
@@ -38,9 +37,6 @@
                 </a>
             </div>
         <?php endforeach; ?>
-    </div>
-    <div class="new_desafio">
-    <a href="/new_desafio"><button class="adc_desafio" onclick="">Adicionar desafio <i>+</i></button></a>
     </div>
 </section>
 

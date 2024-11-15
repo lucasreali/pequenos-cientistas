@@ -46,7 +46,7 @@ $aluno_rank = 700;
         <a href="/"><img src="assets/images/logo.svg" alt=""></a>
         <ul class="container">
             <li><a href="/professor_page" style="color: white">Conteúdos</a></li>
-            <li><a href="/professor/desafios">Desafios</a></li>
+            <li><a href="/desafios_prof">Desafios</a></li>
             <li><a href="/professor/agenda">Agenda</a></li>
             <li><a href="/professor/library">Biblioteca</a></li>
             <li><a href="/sobre">Sobre nós</a></li>
