@@ -91,7 +91,7 @@ $aluno_rank = 700;
                 <?php endforeach; ?>
             </div>
            <button class="adc_cont" onclick="toggleAdcVid()">Adicionar conteúdo <i>+</i></button>
-           <form class="formAula hidden" action="controllers/AulaController.php" id="formContent" method="post">
+           <form class="formAula hidden" action="controllers/AulaController.php" id="formContent" method="post" onsubmit="return validateForm()">
                 <input type="hidden" value="create_aula" name="crud_type">
                 <label>URL do vídeo<input type="text" name="url"></label>
                 <label>Titulo do Video<input type="text" name="title"></label>
@@ -141,6 +141,44 @@ $aluno_rank = 700;
         const adcs = document.getElementById('formContent')
             formContent.classList.toggle('hidden');
     }
+
+    function validateForm(event) {
+        event.preventDefault(); // Impede o envio do formulário se houver erro
+
+        // Obtendo os valores dos campos
+        const url = document.querySelector('input[name="url"]').value;
+        const title = document.querySelector('input[name="title"]').value;
+        const description = document.querySelector('input[name="description"]').value;
+        
+        let valid = true; // Flag de validação
+
+        // Validação da URL
+        const urlPattern = /^(https?:\/\/(?:www\.)?youtube\.com\/(?:[^\/\n\s]+\/\S+|\S+))/i;
+        if (!urlPattern.test(url)) {
+            alert("Por favor, insira uma URL válida do YouTube.");
+            valid = false;
+        }
+
+        // Validação do título
+        if (title.trim() === "") {
+            alert("O título do vídeo é obrigatório.");
+            valid = false;
+        }
+
+        // Validação da descrição (mínimo de 10 caracteres, por exemplo)
+        if (description.trim().length < 10) {
+            alert("A descrição do vídeo deve ter pelo menos 10 caracteres.");
+            valid = false;
+        }
+
+        // Se tudo estiver válido, envia o formulário
+        if (valid) {
+            document.getElementById("formContent").submit();
+        }
+    }
+
+    // Associando a validação ao evento de submissão do formulário
+    document.getElementById("formContent").addEventListener("submit", validateForm);
 </script>
 
 </body>
