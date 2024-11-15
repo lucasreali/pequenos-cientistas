@@ -69,17 +69,9 @@ $aluno_rank = 700;
                         <h3><?= substr($a['description'], 0, 25) ?>...</h3>
                         <h3>Prof.: <?= $a['professor'] ?></h3>
                     </div>
-<<<<<<< HEAD
+
             </div>
         <?php endforeach; ?>
-=======
-                    <h2>Title video</h2>
-                    <h3>Prof.: Augusto Fagundes</h3>
-                </a>
-            </div>
-
->>>>>>> parent of 8db9a53 (adicionei aula na pagina aluno)
-        </div>
 
     </main>
 </body>

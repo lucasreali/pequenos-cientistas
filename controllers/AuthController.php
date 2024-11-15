@@ -9,7 +9,7 @@ class AuthController
         
         require_once '../database/connection.php';
         $db = new Database;
-        $this->conn = $db->connect(); // Corrigido
+        $this->conn = $db->connect();
     }
 
     public function login($email, $password)
