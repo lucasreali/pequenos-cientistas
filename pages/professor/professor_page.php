@@ -53,18 +53,25 @@ $aluno_rank = 700;
     <div class="">
         <div class="lista_videos">
             <button onclick="toggleVideos()">Esconder/Mostrar <i>VÍDEOS</i></button>
-            <?php foreach (range(1, 30) as $i): ?>
+            <?php foreach ($aulas as $a): ?> 
+                <?php if ($a['professor'] == $professor['name']): ?>
                 <div class="card video1 hidden">
                     <a href="#">
-                        <div class="videoli-img" style="background-image: url('assets/images/children01.png');">
-                            <img src="assets/images/play-ico.svg" alt="" class="play">
-                        </div>
+                    <iframe
+                            width="112"
+                            height="63"
+                            src="<?= $a['url'] ?>"
+                            frameborder="-1"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
                         <div class="inf-video">
-                            <h2>Title video</h2>
-                            <h3>Prof.: Augusto Fagundes</h3>
+                            <h2><?= $a['title'] ?></h2>
+                            <h3>Prof.: <?= $a['professor'] ?></h3>
                         </div>
                     </a>
                 </div>
+                <?php endif; ?>
             <?php endforeach; ?>
         </div>
         <div class="lista_exp">
@@ -98,7 +105,6 @@ $aluno_rank = 700;
         <?php foreach ($aulas as $a): ?> 
             <div class="aluno-videos">
                 <div class="video">
-                    <a href="<?= $a['url'] ?>">
                         <iframe
                             width="304"
                             height="171"
@@ -107,7 +113,7 @@ $aluno_rank = 700;
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen>
                         </iframe>
-                    </a>
+                    
                         <h2><?= $a['title'] ?></h2>
                         <h3><?= substr($a['description'], 0, 25) ?>...</h3>
                         <h3>Prof.: <?= $a['professor'] ?></h3>
