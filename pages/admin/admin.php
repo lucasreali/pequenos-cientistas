@@ -1,7 +1,15 @@
 <?php
 
-include "models/AdminModel.php";
 session_start();
+include "models/AlunoModel.php";
+include "models/AulaModel.php";
+
+if ($_SESSION['user_type'] != 'admin' || !isset($_SESSION['user_type'])) {
+    header('Location: /');
+    exit();
+}
+
+include "models/AdminModel.php";
 
 $AdminModel = new AdminModel();
 

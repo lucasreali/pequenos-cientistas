@@ -16,6 +16,29 @@ class AdminController
         $this->conn = $conn;
     }
 
+    public function newAdmin($name, $email, $password)
+    {
+        
+        session_start();
+        $user_id = $_SESSION['user_id'];
+
+        $sql = "INSERT INTO admin (name, email, password, created_by) VALUES (:name, :email, :password, :created_by);";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(":name", $name, PDO::PARAM_STR);
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $stmt->bindParam(":password", $hashed_password, PDO::PARAM_STR);
+        $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+        $stmt->bindParam(':created_by', $user_id, PDO::PARAM_INT);
+
+        try {
+            $stmt->execute();
+            header("Location: /newadmin");
+            exit();
+        } catch (PDOException $e) {
+            $this->handleError($e);
+        }
+    }
+
     public function aproveProfessor($id)
     {
         $sql = "UPDATE professor SET permission=1, permission_assigned=1 WHERE id=:id";
@@ -55,10 +78,6 @@ class AdminController
         </script>";
         exit;
     }
-
-
-
-
 }
 
 $crud_type = $_POST['crud_type'];
@@ -76,5 +95,11 @@ if (isset($crud_type)) {
             $id = $_POST['id'];
             $admin->blockProfessor($id);
             break;
+        case 'new_admin':
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            $admin->newAdmin($name, $email, $password);
     }
 }

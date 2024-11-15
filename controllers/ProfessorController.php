@@ -73,6 +73,6 @@ switch ($crud_type) {
         $subject = 'biologia';
 
         $professor->create($name, $email, $password, $cpf, $subject);
-        return;
+        break;
         
 }

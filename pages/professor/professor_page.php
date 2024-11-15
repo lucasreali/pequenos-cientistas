@@ -53,18 +53,25 @@ $aluno_rank = 700;
     <div class="">
         <div class="lista_videos">
             <button onclick="toggleVideos()">Esconder/Mostrar <i>VÍDEOS</i></button>
-            <?php foreach (range(1, 30) as $i): ?>
+            <?php foreach ($aulas as $a): ?> 
+                <?php if ($a['professor'] == $professor['name']): ?>
                 <div class="card video1 hidden">
                     <a href="#">
-                        <div class="videoli-img" style="background-image: url('assets/images/children01.png');">
-                            <img src="assets/images/play-ico.svg" alt="" class="play">
-                        </div>
+                    <iframe
+                            width="112"
+                            height="63"
+                            src="<?= $a['url'] ?>"
+                            frameborder="-1"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
                         <div class="inf-video">
-                            <h2>Title video</h2>
-                            <h3>Prof.: Augusto Fagundes</h3>
+                            <h2><?= $a['title'] ?></h2>
+                            <h3>Prof.: <?= $a['professor'] ?></h3>
                         </div>
                     </a>
                 </div>
+                <?php endif; ?>
             <?php endforeach; ?>
         </div>
         <div class="lista_exp">
@@ -84,7 +91,7 @@ $aluno_rank = 700;
                 <?php endforeach; ?>
             </div>
            <button class="adc_cont" onclick="toggleAdcVid()">Adicionar conteúdo <i>+</i></button>
-           <form class="formAula hidden" action="controllers/AulaController.php" id="formContent" method="post">
+           <form class="formAula hidden" action="controllers/AulaController.php" id="formContent" method="post" onsubmit="return validateForm()">
                 <input type="hidden" value="create_aula" name="crud_type">
                 <label>URL do vídeo<input type="text" name="url"></label>
                 <label>Titulo do Video<input type="text" name="title"></label>
@@ -98,7 +105,6 @@ $aluno_rank = 700;
         <?php foreach ($aulas as $a): ?> 
             <div class="aluno-videos">
                 <div class="video">
-                    <a href="<?= $a['url'] ?>">
                         <iframe
                             width="304"
                             height="171"
@@ -107,7 +113,7 @@ $aluno_rank = 700;
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen>
                         </iframe>
-                    </a>
+                    
                         <h2><?= $a['title'] ?></h2>
                         <h3><?= substr($a['description'], 0, 25) ?>...</h3>
                         <h3>Prof.: <?= $a['professor'] ?></h3>
@@ -135,6 +141,39 @@ $aluno_rank = 700;
         const adcs = document.getElementById('formContent')
             formContent.classList.toggle('hidden');
     }
+
+    function validateForm(event) {
+        event.preventDefault(); // Impede o envio do formulário se houver erro
+
+        // Obtendo os valores dos campos
+        const url = document.querySelector('input[name="url"]').value;
+        const title = document.querySelector('input[name="title"]').value;
+        const description = document.querySelector('input[name="description"]').value;
+        
+        let valid = true;
+
+        const urlPattern = /^(https?:\/\/(?:www\.)?youtube\.com\/(?:[^\/\n\s]+\/\S+|\S+))/i;
+        if (!urlPattern.test(url)) {
+            alert("Por favor, insira uma URL válida do YouTube.");
+            valid = false;
+        }
+
+        if (title.trim() === "") {
+            alert("O título do vídeo é obrigatório.");
+            valid = false;
+        }
+
+        if (description.trim().length < 10) {
+            alert("A descrição do vídeo deve ter pelo menos 10 caracteres.");
+            valid = false;
+        }
+
+        if (valid) {
+            document.getElementById("formContent").submit();
+        }
+    }
+    
+    document.getElementById("formContent").addEventListener("submit", validateForm);
 </script>
 
 </body>
