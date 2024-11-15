@@ -1,5 +1,9 @@
 <?php
-session_start();
+// Verifique se a sessão já foi iniciada
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 include "models/ProfessorModel.php";
 include "models/AulaModel.php";
 
@@ -20,7 +24,8 @@ $AulasModel = new AulaModel();
 $aulas = $AulasModel->getAulas();
 
 $aluno_rank = 700;
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

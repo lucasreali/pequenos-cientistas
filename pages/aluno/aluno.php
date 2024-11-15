@@ -1,5 +1,9 @@
 <?php
-session_start();
+// Verifique se a sessão já foi iniciada
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 include "models/AlunoModel.php";
 include "models/AulaModel.php";
 
@@ -17,7 +21,8 @@ $AulasModel = new AulaModel();
 $aulas = $AulasModel->getAulas();
 
 $aluno_rank = 700;
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -69,9 +74,9 @@ $aluno_rank = 700;
                         <h3><?= substr($a['description'], 0, 25) ?>...</h3>
                         <h3>Prof.: <?= $a['professor'] ?></h3>
                     </div>
-
             </div>
         <?php endforeach; ?>
+        </div>
 
     </main>
 </body>

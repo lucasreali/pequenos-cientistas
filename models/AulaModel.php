@@ -9,9 +9,13 @@ class AulaModel
         require_once "database/connection.php";
 
         $db = new Database();
-        $this->conn = $db->connect(); 
+        $this->conn = $db->connect();
 
-        session_start();
+        // Verifique se a sessão já foi iniciada
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
         $this->user_id = $_SESSION['user_id'];
     }
 
@@ -30,5 +34,4 @@ class AulaModel
             return [];
         }
     }
-    
 }
