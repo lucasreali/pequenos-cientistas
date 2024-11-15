@@ -11,7 +11,7 @@ class AlunoModel
         $db = new Database();
         $this->conn = $db->connect();
 
-        session_start();
+
         $this->user_id = $_SESSION['user_id'];
     }
 
