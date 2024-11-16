@@ -22,8 +22,8 @@ $professor = $ProfessorModel->getUser();
 
 $AulasModel = new AulaModel();
 $aulas = $AulasModel->getAulas();
+$desafios = $AulasModel->getDesafios();
 
-$aluno_rank = 700;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,15 +79,14 @@ $aluno_rank = 700;
         </div>
         <div class="lista_exp">
             <button onclick="toggleExp()">Esconder/Mostrar <i>EXPERIÊNCIAS</i></button>
-            <?php foreach (range(1, 30) as $i): ?>
+            <?php foreach ($desafios as $d): ?>
                 <div class="card exp hidden">
-                    <a href="#">
-                        <div class="expli-img" style="background-image: url('assets/images/children01.png');">
+                    <a href="/desafio?id=<?= $d['id'] ?>">
+                        <div class="desafioli-img">
                             <img src="assets/images/play-ico.svg" alt="" class="play">
                         </div>
-                        <div class="inf-exp">
-                            <h2>Title exp</h2>
-                            <h3>Prof.: Augusto Fagundes</h3>
+                        <div class="inf-desafio">
+                            <h2><?= $d['title'] ?></h2>
                         </div>
                     </a>
                 </div>
