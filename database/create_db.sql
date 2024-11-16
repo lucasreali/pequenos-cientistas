@@ -431,3 +431,9 @@ insert into admin (name, cpf, email, password, phone, created_by)
 values ('Eduardo Lima', '01234987654', 'eduardo.lima@email.com',
         '$2y$10$pKBORQ6xIJ/9YP2JvLic9.ZcO5i/jI7bN.OF0VVV7ZCV4fW.RUiq6', '41900000000', null);
 
+
+
+
+
+
+

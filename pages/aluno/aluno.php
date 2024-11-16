@@ -41,6 +41,7 @@ $aluno_rank = 700;
 
                 <li><a href="/">Aulas</a></li>
 
+                
                 <li><a href="/aulas">Aulas</a></li>
 
                 <li><a href="/desafios_aluno">Desafios</a></li>
