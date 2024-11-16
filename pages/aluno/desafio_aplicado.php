@@ -17,12 +17,12 @@ $user_id = $_SESSION['user_id'];
 $AlunoModel = new AlunoModel();
 $aluno = $AlunoModel->getUser();
 
-$id = 1;
+$id = $_GET['id'];
 
 $AulasModel = new AulaModel();
 $desafio = $AulasModel->getDesafioById($id);
 
-$questions = $AulasModel->getQuestions($id);
+$question = $AulasModel->getQuestions($id);
 
 
 ?><!DOCTYPE html>
@@ -33,6 +33,7 @@ $questions = $AulasModel->getQuestions($id);
     <link rel="stylesheet" href="assets/styles/desafios_aluno.css">
     <link rel="stylesheet" href="assets/styles/style.css">
     <link rel="stylesheet" href="assets/styles/imports.css">
+    <link rel="stylesheet" href="assets/styles/desafios.css">
     <title>Desafio Aplicado</title>
     
  <body>
@@ -49,13 +50,10 @@ $questions = $AulasModel->getQuestions($id);
         </nav>
     </header>
 
-    <section style="padding-top: 400px;">
+    <section>
 
 
         <h1><?= $desafio['title'] ?></h1>
-
-        <?= $id ?>
-        <?= var_dump($question) ?>
 
         <p><?= $desafio['question'] ?></p>
         <div class="options">
@@ -63,7 +61,6 @@ $questions = $AulasModel->getQuestions($id);
             <a href="/resposta-certa"><?= $question['resp_2'] ?></a>
             <a href="/resposta-certa"><?= $question['resp_3'] ?></a>
             <a href="/resposta-certa"><?= $question['resp_4'] ?></a>
-
         </div>
 
     </section> 

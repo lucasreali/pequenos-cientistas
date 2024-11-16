@@ -69,15 +69,15 @@ class AulaModel
 
     public function getQuestions($id)
     {
-        $sql = "SELECT * FROM question WHERE desafio_id = 1;";
+        $sql = "SELECT * FROM question WHERE desafio_id = :id;";
 
         try {
             $stmt = $this->conn->prepare($sql);
-            // $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
-            $questions = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $question = $stmt->fetch(PDO::FETCH_ASSOC);
             
-            return $questions;
+            return $question;
         } catch (PDOException $e) {
             error_log("Erro ao buscar questões: " . $e->getMessage());
         }

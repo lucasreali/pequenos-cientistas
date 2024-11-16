@@ -1,0 +1,43 @@
+section {
+    padding-top: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+p {
+    margin-top: 30px;
+    font-size: 20px;
+    text-align: justify;
+    max-width: 1000px;
+}
+
+.options {
+    margin-top: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    width: 1800px;
+    align-content: center;
+    justify-items: center;
+}
+
+.options a {
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 20px;
+    background: #cdcdcd;
+    width: 100%;
+    height: 100%;
+    height: 180px;
+    border-radius: 5px;
+}
+
