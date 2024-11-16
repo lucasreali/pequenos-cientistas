@@ -16,7 +16,7 @@ $routes = [
 
     '/aluno' => 'pages/aluno/aluno.php',
     '/video' => 'pages/aluno/video.php',
-    '/desafios_aluno' => 'pages/aluno/desafios_aluno',
+    '/desafios_aluno' => 'pages/aluno/desafios_aluno.php',
 
     // professor
     '/professor' => 'pages/professor/professor_page.php',
