@@ -78,6 +78,12 @@ class AulaController
 
     }
 
+
+    public function addDesafio($title, $question, $resp1, $resp2, $resp3, $resp4) 
+    {
+        $sql = "INSERT INTO desafios (id_teacher, title, )";
+    }
+
     private function handleError($e)
     {
         $errorMessage = json_encode($e->getMessage());
@@ -102,4 +108,17 @@ switch ($crud_type) {
         $title = $_POST['title'];
 
         $aula->addVideo($url, $description, $title);
-    }
+        break ;
+    
+    case 'create_desafio':
+        $title = $_POST['title'];
+        $question = $_POST['question'];
+        $resp1 = $_POST['resp1'];
+        $resp2 = $_POST['resp2'];
+        $resp3 = $_POST['resp3'];
+        $resp4 = $_POST['resp4'];
+
+        $aula->addDesafio($title, $question, $resp1, $resp2, $resp3, $resp4);
+
+}
+

@@ -38,11 +38,7 @@ $aluno_rank = 700;
         <nav>
             <a href="/"><img src="assets/images/logo.svg" alt=""></a>
             <ul class="container">
-
                 <li><a href="/">Aulas</a></li>
-
-                <li><a href="/aulas">Aulas</a></li>
-
                 <li><a href="/desafios_aluno">Desafios</a></li>
                 <li><a href="/sobre">Sobre nós</a></li>
             </ul>
@@ -78,53 +74,11 @@ $aluno_rank = 700;
                         <h3><?= substr($a['description'], 0, 25) ?>...</h3>
                         <h3>Prof.: <?= $a['professor'] ?></h3>
                     </div>
-
-                    <h2>Title video</h2>
-                    <h3>Prof.: Augusto Fagundes</h3>
-
-                    <div class="video-img" style="background-image: url('assets/images/children01.png');">
-                        <img src="assets/images/play-ico.svg" alt="" class="play">
-                    </div>
-                    <h2>Title video</h2>
-                    <h3>Prof.: Maicris Fernandes</h3>
-
-                    <div class="video-img" style="background-image: url('assets/images/children01.png');">
-                        <img src="assets/images/play-ico.svg" alt="" class="play">
-                    </div>
-                    <h2>Title video</h2>
-                    <h3>Prof.: Guilherme Burgerl</h3>
-
-
-                    <div class="video-img" style="background-image: url('assets/images/children01.png');">
-                        <img src="assets/images/play-ico.svg" alt="" class="play">
-                    </div>
-                    <h2>Title video</h2>
-                    <h3>Prof.: Sheila Guimarães</h3>
-
-
-                    <div class="video-img" style="background-image: url('assets/images/children01.png');">
-                        <img src="assets/images/play-ico.svg" alt="" class="play">
-                    </div>
-                    <h2>Title video</h2>
-                    <h3>Prof.: Kelly Siva</h3>
-
-
-                    <div class="video-img" style="background-image: url('assets/images/children01.png');">
-                        <img src="assets/images/play-ico.svg" alt="" class="play">
-                    </div>
-                    <h2>Title video</h2>
-                    <h3>Prof.: Maria Roveredo</h3>
-                </a>
-            </div> 
-
-
             </div>
         <?php endforeach; ?>
-
         </div>
 
     </main>
 </body>
 
 </html>
-

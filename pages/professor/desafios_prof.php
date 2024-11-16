@@ -97,8 +97,8 @@ $aluno_rank = 700;
     <div>
         <h2 style="margin-top: 20px">Novo exercicio</h2>
         <div class="new-desafio">
-            <form action="#" onsubmit="return validadeForm()">
-
+            <form action="controllers/AulaController.php" onsubmit="return validadeForm()">
+                <input type="hidden" value="create_desafio" name="crud_type">
                 <label for="title">
                     Titulo:
                     <input type="text" name="title">
