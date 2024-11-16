@@ -26,14 +26,14 @@ create table if not exists aluno
 
 create table if not exists professor
 (
-    id         int auto_increment primary key,
-    name       varchar(50)  not null,
-    cpf        char(11)     not null unique,
-    email      varchar(50)  not null unique,
-    password   varchar(255) not null,
-    subject    varchar(50)  not null,
-    experience text,
-    permission boolean default false,
+    id                  int auto_increment primary key,
+    name                varchar(50)  not null,
+    cpf                 char(11)     not null unique,
+    email               varchar(50)  not null unique,
+    password            varchar(255) not null,
+    subject             varchar(50)  not null,
+    experience          text,
+    permission          boolean default false,
     permission_assigned boolean default false
 );
 
@@ -42,7 +42,7 @@ create table if not exists aula
 (
     id          int auto_increment primary key,
     title       varchar(100) not null,
-    description text,
+    description text         not null,
     create_by   int          not null,
     created_at  timestamp default current_timestamp,
     foreign key (create_by) references professor (id)
@@ -50,17 +50,17 @@ create table if not exists aula
 
 create table if not exists video
 (
-    id              int auto_increment primary key,
-    url             varchar(255) not null,
-    aula_id         int          not null,
+    id      int auto_increment primary key,
+    url     varchar(255) not null,
+    aula_id int          not null,
     foreign key (aula_id) references aula (id)
 );
 
 create view vw_video_aula as
 select v.url as url, a.title as title, a.description as description, p.name as professor
 from video as v
-join aula as a on v.aula_id = a.id
-join professor p on a.create_by = p.id;
+         join aula as a on v.aula_id = a.id
+         join professor p on a.create_by = p.id;
 
 create table if not exists experimento
 (
@@ -77,11 +77,19 @@ create table if not exists desafios
 (
     id         int primary key,
     id_teacher int,
-    resp_1     varchar(100),
-    resp_2     varchar(100),
-    resp_3     varchar(100),
-    resp_4     varchar(100),
+    title      varchar(20),
+    question   varchar(255),
     foreign key (id_teacher) references professor (id)
+);
+
+create table if not exists question
+(
+    desafio_id int primary key,
+    resp_1     varchar(50),
+    resp_2     varchar(50),
+    resp_3     varchar(50),
+    resp_4     varchar(50),
+    foreign key (desafio_id) references desafios (id)
 );
 
 create table if not exists noticia
@@ -103,6 +111,16 @@ create table if not exists progresso_aluno
     end_date   date,
     foreign key (student_id) references aluno (id),
     foreign key (lesson_id) references aula (id)
+);
+
+create table if not exists desafio_aluno
+(
+    id_aluno int not null,
+    id_desafio int not null,
+    completed boolean,
+    primary key( id_aluno, id_desafio ),
+    foreign key (id_aluno) references aluno(id),
+    foreign key (id_desafio) references desafios(id)
 );
 
 create table if not exists filtro_conteudo
@@ -311,9 +329,10 @@ CREATE FUNCTION IF NOT EXISTS new_permission_adm(new_permission VARCHAR(50), adm
     DETERMINISTIC
 BEGIN
     DECLARE new_id_adm INT;
-    SELECT id INTO new_id_adm
+    SELECT id
+    INTO new_id_adm
     FROM admin
-    WHERE id=admin_id;
+    WHERE id = admin_id;
 
     IF new_permission IS NOT NULL AND new_permission = 'permitido' AND new_id_adm IS NOT NULL THEN
         INSERT INTO permissao_admin (admin_id, permission) VALUES (admin_id, new_permission);

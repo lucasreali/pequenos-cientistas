@@ -12,6 +12,12 @@ class AlunoModel
         $this->conn = $db->connect();
 
 
+        // Verifique se a sessão já foi iniciada
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+
         $this->user_id = $_SESSION['user_id'];
     }
 
@@ -74,5 +80,4 @@ class AlunoModel
             </script>";
         }
     }
-    
 }

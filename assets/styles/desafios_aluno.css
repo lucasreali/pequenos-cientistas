@@ -96,17 +96,3 @@ nav ul a:hover::after {
     height: 60px;
 }
 
-.adc_desafio {
-    margin-left: 10px;
-    border-radius: 5px;
-    width: 100%;
-    height: 30px;
-    margin-top: 10px;
-    border: 1px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 15px;
-    margin-top: 20px;
-}

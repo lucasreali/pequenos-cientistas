@@ -1,5 +1,9 @@
 <?php
-session_start();
+// Verifique se a sessão já foi iniciada
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 include "models/AlunoModel.php";
 include "models/AulaModel.php";
 
@@ -17,7 +21,8 @@ $AulasModel = new AulaModel();
 $aulas = $AulasModel->getAulas();
 
 $aluno_rank = 700;
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -33,7 +38,11 @@ $aluno_rank = 700;
         <nav>
             <a href="/"><img src="assets/images/logo.svg" alt=""></a>
             <ul class="container">
+
                 <li><a href="/">Aulas</a></li>
+
+                <li><a href="/aulas">Aulas</a></li>
+
                 <li><a href="/desafios_aluno">Desafios</a></li>
                 <li><a href="/sobre">Sobre nós</a></li>
             </ul>

@@ -11,6 +11,13 @@ class ProfessorModel
         $db = new Database();
         $this->conn = $db->connect();
 
+
+        // Verifique se a sessão já foi iniciada
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+
         $this->user_id = $_SESSION['user_id'];
     }
 
@@ -29,42 +36,41 @@ class ProfessorModel
     }
 
     public function getPermission()
-{
-    $id = $this->user_id;
+    {
+        $id = $this->user_id;
 
-    $sql = "SELECT permission_assigned, permission FROM professor WHERE id = :id";
-    $stmt = $this->conn->prepare($sql);
-    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $sql = "SELECT permission_assigned, permission FROM professor WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
-    try {
-        $stmt->execute();
-        $permission = $stmt->fetch(PDO::FETCH_ASSOC);
+        try {
+            $stmt->execute();
+            $permission = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($permission['permission_assigned'] == false) {
-            echo "
-                <script>
-                    alert('Sua permissão ainda não foi atribuída, aguarde os administradores confirmá-la');
-                    window.location.href = '/';
-                </script>
-            ";
+            if ($permission['permission_assigned'] == false) {
+                echo "
+                    <script>
+                        alert('Sua permissão ainda não foi atribuída, aguarde os administradores confirmá-la');
+                        window.location.href = '/';
+                    </script>
+                ";
 
-            return false;
-        } else if ($permission['permission_assigned'] == true && $permission['permission'] == false) {
-            echo "
-                <script>
-                    alert('Lamentamos, mas sua permissão não pode ser aprovada');
-                    window.location.href = '/';
-                </script>
-            ";
-            return false;
+                return false;
+            } else if ($permission['permission_assigned'] == true && $permission['permission'] == false) {
+                echo "
+                    <script>
+                        alert('Lamentamos, mas sua permissão não pode ser aprovada');
+                        window.location.href = '/';
+                    </script>
+                ";
+                return false;
+            }
+
+            return true;
+        } catch (PDOException $e) {
+            $this->handleError($e);
         }
-
-        return true;
-    } catch (PDOException $e) {
-        $this->handleError($e);
     }
-}
-
 
     private function handleError($e)
     {
