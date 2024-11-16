@@ -62,70 +62,25 @@ $aluno_rank = 700;
             </div>
         </div>
         <div class="videos_aluno">
-        <?php foreach ($aulas as $a): ?> 
-            <div class="aluno-videos">
-                <div class="video">
-                    <a href="<?= $a['url'] ?>">
-                        <iframe
-                            width="304"
-                            height="171"
-                            src="<?= $a['url'] ?>"
-                            frameborder="-1"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                    </a>
+            <?php foreach ($aulas as $a): ?>
+                <div class="aluno-videos">
+                    <div class="video">
+                        <a href="<?= $a['url'] ?>">
+                            <iframe width="304" height="171" src="<?= $a['url'] ?>" frameborder="-1"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </a>
                         <h2><?= $a['title'] ?></h2>
-                        <h3><?= substr($a['description'], 0, 25) ?>...</h3>
+                        <h3 style="font-size: 10px"><?= $a['description'] ?></h3>
                         <h3>Prof.: <?= $a['professor'] ?></h3>
                     </div>
-
-                    <h2>Title video</h2>
-                    <h3>Prof.: Augusto Fagundes</h3>
-
-                    <div class="video-img" style="background-image: url('assets/images/children01.png');">
-                        <img src="assets/images/play-ico.svg" alt="" class="play">
-                    </div>
-                    <h2>Title video</h2>
-                    <h3>Prof.: Maicris Fernandes</h3>
-
-                    <div class="video-img" style="background-image: url('assets/images/children01.png');">
-                        <img src="assets/images/play-ico.svg" alt="" class="play">
-                    </div>
-                    <h2>Title video</h2>
-                    <h3>Prof.: Guilherme Burgerl</h3>
-
-
-                    <div class="video-img" style="background-image: url('assets/images/children01.png');">
-                        <img src="assets/images/play-ico.svg" alt="" class="play">
-                    </div>
-                    <h2>Title video</h2>
-                    <h3>Prof.: Sheila Guimarães</h3>
-
-
-                    <div class="video-img" style="background-image: url('assets/images/children01.png');">
-                        <img src="assets/images/play-ico.svg" alt="" class="play">
-                    </div>
-                    <h2>Title video</h2>
-                    <h3>Prof.: Kelly Siva</h3>
-
-
-                    <div class="video-img" style="background-image: url('assets/images/children01.png');">
-                        <img src="assets/images/play-ico.svg" alt="" class="play">
-                    </div>
-                    <h2>Title video</h2>
-                    <h3>Prof.: Maria Roveredo</h3>
-                </a>
-            </div> 
-
-
-            </div>
-        <?php endforeach; ?>
-
+                </div>
+            <?php endforeach; ?>
         </div>
+
 
     </main>
 </body>
 
 </html>
-

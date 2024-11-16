@@ -125,15 +125,19 @@ nav ul {
     font-weight: 300;
 }
 
-.aluno-video {
-    display: flex;
-    flex-wrap: wrap;
+.videos_aluno {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    grid-auto-flow: column;
+    gap: 10px;
     overflow-x: auto;
-    max-width: 400px;
+    padding: 10px;
 }
 
 .aluno-videos {
-    flex: 1 1 50%;
+    width: 300px;
     box-sizing: border-box;
-    padding: 10px;
+    margin: 0;
+    padding: 5px;
 }
+
