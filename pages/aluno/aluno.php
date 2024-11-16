@@ -37,11 +37,7 @@ $aluno_rank = 700;
     <header>
         <nav>
             <a href="/"><img src="assets/images/logo.svg" alt=""></a>
-            <ul class="container">
-
-                <li><a href="/">Aulas</a></li>
-
-                
+            <ul class="container">    
                 <li><a href="/aulas">Aulas</a></li>
 
                 <li><a href="/desafios_aluno">Desafios</a></li>
