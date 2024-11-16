@@ -30,9 +30,9 @@ $aluno_rank = 700;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/styles/professor_page.css">
-    <link rel="stylesheet" href="../../assets/styles/style.css">
-    <link rel="stylesheet" href="../../assets/styles/imports.css">
+    <link rel="stylesheet" href="assets/styles/professor_page.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="assets/styles/imports.css">
     <title>Professor</title>
     <style>
         .hidden {
@@ -47,8 +47,6 @@ $aluno_rank = 700;
         <ul class="container">
             <li><a href="/professor_page" style="color: white">Conteúdos</a></li>
             <li><a href="/desafios_prof">Desafios</a></li>
-            <li><a href="/professor/agenda">Agenda</a></li>
-            <li><a href="/professor/library">Biblioteca</a></li>
             <li><a href="/sobre">Sobre nós</a></li>
         </ul>
     </nav>

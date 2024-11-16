@@ -217,16 +217,17 @@ label input {
     padding: 5px;
 }
 
-.formAula button {
+form button {
     margin-left: 10px;
     padding: 10px 46px;
     transition: all 0.2ms ease;
     background-color: var(--light-blue);
     border: none;
     color: white;
+    cursor: pointer;
 }
 
-.formAula button:hover {
+form button:hover {
     border: 1px solid var(--light-blue);
     border-radius: 5px;
     color: var(--light-blue);
