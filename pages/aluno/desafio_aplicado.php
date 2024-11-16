@@ -1,110 +1,73 @@
 <?php
-// Simula um banco de dados de desafios
-$desafios = [
-    1 => [
 
-    ],
-    2 => [
-
-    ],
-    // Adicione mais desafios conforme necessário
-];
-
-// Obtém o ID do desafio pela URL
-$id = isset($_GET['id']) ? (int) $_GET['id'] : null;
-
-// Verifica se o desafio existe
-if (!$id || !isset($desafios[$id])) {
-    echo "Desafio não encontrado.";
-    exit;
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
 }
 
-$desafio = $desafios[$id];
-?>
+include "models/AlunoModel.php";
+include "models/AulaModel.php";
+
+if ($_SESSION['user_type'] != 'aluno' || !isset($_SESSION['user_type'])) {
+    header('Location: /');
+    exit();
+}
+
+$user_id = $_SESSION['user_id'];
+
+$AlunoModel = new AlunoModel();
+$aluno = $AlunoModel->getUser();
+
+$id = 1;
+
+$AulasModel = new AulaModel();
+$desafio = $AulasModel->getDesafioById($id);
+
+$questions = $AulasModel->getQuestions($id);
 
 
-
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles/desafios_aluno.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="assets/styles/imports.css">
     <title>Desafio Aplicado</title>
-
-
-
-<!-- PHP DA PÁGINA, NÃO SEI SE TA CERTO, ENTÃO FIZ A OUTRA PARTE IGUAL NO FIGMA PRA GARANTIR 
- <body>
-    <section style="padding-top: 50px;">
-        <h2>Desafio <?= $id ?></h2>
-        <div class="card">
-            <h3><?= $desafio['pergunta'] ?></h3>
-            <form action="desafio_correct.php" method="POST">
-                <?php foreach ($desafio['alternativas'] as $index => $alternativa): ?>
-                    <div class="alternativa">
-                        <label>
-                            <input type="radio" name="resposta" value="<?= $index ?>" required>
-                            <?= $alternativa ?>
-                        </label>
-                    </div>
-                <?php endforeach; ?>
-                <input type="hidden" name="id" value="<?= $id ?>">
-                <button type="submit">Enviar Resposta</button>
-            </form>
-        </div>
-    </section>
-</body>
-</html>
- -->
     
  <body>
 
-    <!-- Barra de navegação -->
-    <div class="navbar">
-        <a href="#">Aulas</a>
-        <a href="#">Desafios</a>
-        <a href="#">Experimentos</a>
-        <a href="#">Agenda</a>
-        <a href="#">Grupos</a>
-        <a href="#">Biblioteca</a>
-        <a href="#">Ranking</a>
-        <a href="#">Sobre nós</a>
-    </div>
 
-    <!-- Conteúdo principal -->
-    <div class="main">
-        <!-- Pergunta do desafio -->
-        <div class="question">
-            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate neque eu metus placerat?</h2>
-        </div>
-
-        <!-- Alternativas -->
-        <div class="alternatives">
-            <div class="alternative">A. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-            <div class="alternative">B. Proin vulputate neque eu metus placerat, eu consectetur tortor.</div>
-            <div class="alternative">C. Morbi at accumsan est, duis nec placerat sapien.</div>
-            <div class="alternative">D. Pellentesque consequat viverra lacus.</div>
-        </div>
-
-        <!-- Ranking -->
-        <div class="ranking">
-            <h3>TOP 3</h3>
-            <ul>
-                <li>
-                    <span>João</span>
-                    <span>Level 100</span>
-                </li>
-                <li>
-                    <span>Roberta</span>
-                    <span>Level 98</span>
-                </li>
-                <li>
-                    <span>Mário</span>
-                    <span>Level 82</span>
-                </li>
+    <header>
+        <nav>
+            <a href="/"><img src="assets/images/logo.svg" alt=""></a>
+            <ul class="container">                
+                <li><a href="/aulas">Aulas</a></li>
+                <li><a href="/desafios_aluno">Desafios</a></li>
+                <li><a href="/sobre">Sobre nós</a></li>
             </ul>
+        </nav>
+    </header>
+
+    <section style="padding-top: 400px;">
+
+
+        <h1><?= $desafio['title'] ?></h1>
+
+        <?= $id ?>
+        <?= var_dump($question) ?>
+
+        <p><?= $desafio['question'] ?></p>
+        <div class="options">
+            <a href="/resposta-certa"><?= $question['resp_1'] ?></a>
+            <a href="/resposta-certa"><?= $question['resp_2'] ?></a>
+            <a href="/resposta-certa"><?= $question['resp_3'] ?></a>
+            <a href="/resposta-certa"><?= $question['resp_4'] ?></a>
+
         </div>
-    </div>
+
+    </section> 
+
 
 </body>
 </html>

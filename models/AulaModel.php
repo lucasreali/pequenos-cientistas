@@ -11,8 +11,6 @@ class AulaModel
         $db = new Database();
         $this->conn = $db->connect();
 
-
-        // Verifique se a sessão já foi iniciada
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
@@ -35,4 +33,54 @@ class AulaModel
             return [];
         }
     }
+
+    public function getDesafios() 
+    {
+        $sql = "SELECT * FROM desafios;";
+        
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $desafios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
+            return $desafios;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+            return [];
+        }
+    }
+
+    public function getDesafioById($id) 
+    {
+        $sql = "SELECT * FROM desafios WHERE id = :id;";
+        
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $desafio = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            return $desafio;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+            return [];
+        }
+    }
+
+    public function getQuestions($id)
+    {
+        $sql = "SELECT * FROM question WHERE desafio_id = 1;";
+
+        try {
+            $stmt = $this->conn->prepare($sql);
+            // $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $questions = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
+            return $questions;
+        } catch (PDOException $e) {
+            error_log("Erro ao buscar questões: " . $e->getMessage());
+        }
+    }
+
 }

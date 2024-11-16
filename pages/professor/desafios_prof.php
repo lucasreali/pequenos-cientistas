@@ -45,7 +45,7 @@ $aluno_rank = 700;
     <nav>
         <a href="/"><img src="assets/images/logo.svg" alt=""></a>
         <ul class="container">
-            <li><a href="/professor_page">Conteúdos</a></li>
+            <li><a href="/professor">Conteúdos</a></li>
             <li><a href="/desafios_prof"  style="color: white">Desafios</a></li>
             <li><a href="/sobre">Sobre nós</a></li>
         </ul>
@@ -100,7 +100,7 @@ $aluno_rank = 700;
             <form action="controllers/AulaController.php" method="post" onsubmit="return validadeForm()">
 
                 <input type="hidden" value="create_desafio" name="crud_type">
-                
+
                 <label for="title">
                     Titulo:
                     <input type="text" name="title">

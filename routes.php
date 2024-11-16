@@ -18,6 +18,7 @@ $routes = [
     '/video' => 'pages/aluno/video.php',
     '/desafios_aluno' => 'pages/aluno/desafios_aluno.php',
     '/desafio_correct' => 'pages/aluno/desafio_correct.php',
+    '/desafio' => 'pages/aluno/desafio_aplicado.php',
 
     // professor
     '/professor' => 'pages/professor/professor_page.php',

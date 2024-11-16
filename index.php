@@ -1,5 +1,5 @@
 <html lang="pt-br">
-
+<link rel="shortcut icon" href="assets/images/logo.svg" type="image/x-icon">
 
 
 <?php
