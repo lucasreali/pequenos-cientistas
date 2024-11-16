@@ -38,7 +38,11 @@ $aluno_rank = 700;
         <nav>
             <a href="/"><img src="assets/images/logo.svg" alt=""></a>
             <ul class="container">
+
                 <li><a href="/">Aulas</a></li>
+
+                <li><a href="/aulas">Aulas</a></li>
+
                 <li><a href="/desafios_aluno">Desafios</a></li>
                 <li><a href="/sobre">Sobre nós</a></li>
             </ul>
@@ -57,26 +61,23 @@ $aluno_rank = 700;
             </div>
         </div>
         <div class="videos_aluno">
-        <?php foreach ($aulas as $a): ?> 
-            <div class="aluno-videos">
-                <div class="video">
-                    <a href="<?= $a['url'] ?>">
-                        <iframe
-                            width="304"
-                            height="171"
-                            src="<?= $a['url'] ?>"
-                            frameborder="-1"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                    </a>
+            <?php foreach ($aulas as $a): ?>
+                <div class="aluno-videos">
+                    <div class="video">
+                        <a href="<?= $a['url'] ?>">
+                            <iframe width="304" height="171" src="<?= $a['url'] ?>" frameborder="-1"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </a>
                         <h2><?= $a['title'] ?></h2>
-                        <h3><?= substr($a['description'], 0, 25) ?>...</h3>
+                        <h3 style="font-size: 10px"><?= $a['description'] ?></h3>
                         <h3>Prof.: <?= $a['professor'] ?></h3>
                     </div>
-            </div>
-        <?php endforeach; ?>
+                </div>
+            <?php endforeach; ?>
         </div>
+
 
     </main>
 </body>
