@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/styles/imports.css">
-    <title>Desafios</title>
-</head>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,11 +13,9 @@
         <nav>
             <a href="/"><img src="assets/images/logo.svg" alt=""></a>
             <ul class="container">
-
                 <li><a href="/">Aulas</a></li>
-
                 <li><a href="/desafios_aluno" style="color: white">Desafios</a></li>
-                <li><a href="/desafio_correct">Sobre nós</a></li>
+                <li><a href="/sobre">Sobre nós</a></li>
             </ul>
         </nav>
     </header>
@@ -41,10 +29,34 @@
     <div class="lista_desafios">
         <?php foreach (range(1, 30) as $i): ?>
             <div class="card desafios">
-                <a href="#">
+                <a href="">
                     <div class="desafioli-img">
                         <img src="assets/images/play-ico.svg" alt="" class="play">
                     </div>
+                    <div class="inf-desafio">
+                        <h2>Title desafio</h2>
+                        <h3>Descrição: </h3>
+                    </div>
+
+
+                    <div class="inf-desafio">
+                        <h2>Title desafio</h2>
+                        <h3>Descrição: </h3>
+                    </div>
+
+
+                    <div class="inf-desafio">
+                        <h2>Title desafio</h2>
+                        <h3>Descrição: </h3>
+                    </div>
+
+
+                    <div class="inf-desafio">
+                        <h2>Title desafio</h2>
+                        <h3>Descrição: </h3>
+                    </div>
+
+
                     <div class="inf-desafio">
                         <h2>Title desafio</h2>
                         <h3>Descrição: </h3>

@@ -1,0 +1,96 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* Barra de navegação */
+.navbar {
+    background-color: #00bfff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Seção principal */
+.main {
+    padding: 20px;
+}
+
+.question {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.question h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+/* Alternativas */
+.alternatives {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.alternative {
+    flex: 1 1 calc(50% - 20px); /* Dois itens por linha */
+    background-color: #e6f7ff;
+    border: 2px solid #00bfff;
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.alternative:hover {
+    background-color: #00bfff;
+    color: #fff;
+}
+
+/* Ranking ao lado */
+.ranking {
+    margin-top: 20px;
+}
+
+.ranking h3 {
+    font-size: 18px;
+    color: #333;
+}
+
+.ranking ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ranking li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+}
