@@ -50,9 +50,11 @@ class AulaController
         }
     }
 
-    public function createDesafio($title, $question, $resp1, $resp2, $resp3, $resp4) {
+    public function addDesafio($title, $question, $resp1, $resp2, $resp3, $resp4) {
+
         session_start();
         $id = $_SESSION['user_id'];
+
 
         $sql = "INSERT INTO desafios (title, question, id_teacher) VALUES (:title, :question, :id);";
         $stmt = $this->conn->prepare($sql);
@@ -64,24 +66,24 @@ class AulaController
             $stmt->execute();
             
             $desafio_id = $this->conn->lastInsertId();
-            $sql = "INSERT (resp_1, resp_2, resp_3, resp_4, desafio_id) INTO VALUES (:resp1, :resp2, :resp3, :resp4, $desafio_id);";
+
+
+            $sql = "INSERT INTO question (resp_1, resp_2, resp_3, resp_4, desafio_id) VALUES (:resp1, :resp2, :resp3, :resp4, :id);";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':resp1', $resp1, PDO::PARAM_STR);
             $stmt->bindParam(':resp2', $resp2, PDO::PARAM_STR);
             $stmt->bindParam(':resp3', $resp3, PDO::PARAM_STR);
             $stmt->bindParam(':resp4', $resp4, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $desafio_id, PDO::PARAM_INT);
 
             $stmt->execute();
+
+            header('Location: /desafios_prof');
+
         } catch (PDOException $e) {
             $this->handleError($e);
         }
 
-    }
-
-
-    public function addDesafio($title, $question, $resp1, $resp2, $resp3, $resp4) 
-    {
-        $sql = "INSERT INTO desafios (id_teacher, title, )";
     }
 
     private function handleError($e)
@@ -90,7 +92,7 @@ class AulaController
         $redirectUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/login';
 
         echo "
-        <script>
+         <script>
             alert($errorMessage);
             window.location.href = '$redirectUrl';
         </script>";
