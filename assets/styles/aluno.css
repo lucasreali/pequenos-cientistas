@@ -69,6 +69,11 @@ nav ul {
 
 .aluno-rank img{
     height: 80px;
+    margin: 10px 0 0 10px;
+}
+
+.xp-aluno {
+    margin-top: 10px;
 }
 
 .xp-aluno > div {
