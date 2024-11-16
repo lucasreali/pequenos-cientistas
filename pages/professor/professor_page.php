@@ -94,7 +94,7 @@ $aluno_rank = 700;
                 <?php endforeach; ?>
             </div>
            <button class="adc_cont" onclick="toggleAdcVid()">Adicionar conteúdo <i>+</i></button>
-           <form class="formAula hidden" action="controllers/AulaController.php" id="formContent" method="post" onsubmit="return validateForm()">
+           <form class="formAula hidden" action="controllers/AulaController.php" method="post" id="formContent" onsubmit="return validateForm()">
                 <input type="hidden" value="create_aula" name="crud_type">
                 <label>URL do vídeo<input type="text" name="url"></label>
                 <label>Titulo do Video<input type="text" name="title"></label>
