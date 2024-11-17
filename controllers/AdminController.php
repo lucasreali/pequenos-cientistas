@@ -16,23 +16,31 @@ class AdminController
         $this->conn = $conn;
     }
 
-    public function newAdmin($name, $email, $password)
+    public function newAdmin($name, $email, $password, $cpf)
     {
-        
         session_start();
         $user_id = $_SESSION['user_id'];
 
-        $sql = "INSERT INTO admin (name, email, password, created_by) VALUES (:name, :email, :password, :created_by);";
+        echo 1;
+
+        $sql = "INSERT INTO admin (name, email, password, cpf, created_by) VALUES (:name, :email, :password, :cpf, :created_by);";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":name", $name, PDO::PARAM_STR);
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         $stmt->bindParam(":password", $hashed_password, PDO::PARAM_STR);
         $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+        $stmt->bindParam(":cpf", $cpf, PDO::PARAM_INT);
         $stmt->bindParam(':created_by', $user_id, PDO::PARAM_INT);
 
+        echo 2;
+
+
         try {
+            echo 3;
+
             $stmt->execute();
             header("Location: /newadmin");
+            echo 4;
             exit();
         } catch (PDOException $e) {
             $this->handleError($e);
@@ -99,7 +107,9 @@ if (isset($crud_type)) {
             $name = $_POST['name'];
             $email = $_POST['email'];
             $password = $_POST['password'];
+            $cpf = $_POST['cpf'];
 
-            $admin->newAdmin($name, $email, $password);
+            $admin->newAdmin($name, $email, $password, $cpf);
+            break;
     }
 }

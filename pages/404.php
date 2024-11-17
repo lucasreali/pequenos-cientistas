@@ -1,2 +1,7 @@
 <?php
-header('Location: /');
+echo "
+    <script>
+        alert('Página não encontrada');
+        window.location.href = '/';
+    </script>
+";
