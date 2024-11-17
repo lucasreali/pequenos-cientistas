@@ -45,6 +45,8 @@ class ProfessorController
         $stmt = null;
         exit();
     }
+    
+
 
 
     private function handleError($e)

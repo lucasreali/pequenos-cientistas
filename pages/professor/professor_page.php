@@ -49,7 +49,6 @@ $desafios = $AulasModel->getDesafios();
         <ul class="container">
             <li><a href="/professor_page" style="color: white">Conteúdos</a></li>
             <li><a href="/desafios_prof">Desafios</a></li>
-            <li><a href="/sobre">Sobre nós</a></li>
         </ul>
     </nav>
 </header>

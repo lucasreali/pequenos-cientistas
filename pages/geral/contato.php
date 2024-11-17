@@ -20,7 +20,6 @@
                 <ul>
                     <li><a href="/">Inicio</a></li>
                     <li><a href="/contato">Contato</a></li>
-                    <li><a href="/sobre">Sobre nós</a></li>
                 </ul>
 
                 <a href="/login">Login</a>

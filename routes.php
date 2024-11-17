@@ -6,7 +6,6 @@ $routes = [
     // geral
     '/' => 'pages/geral/home.php',
     '/login' => 'pages/geral/login.php',
-    '/sobre' => 'pages/geral/sobre.php',
     '/contato' => 'pages/geral/contato.php',
     '/singup/quemevoce' => 'pages/geral/usertype-page.html',
     '/singup' => 'pages/geral/singup.php',
@@ -19,7 +18,6 @@ $routes = [
     '/desafios_aluno' => 'pages/aluno/desafios_aluno.php',
     '/desafio_correct' => 'pages/aluno/desafio_correct.php',
     '/desafio' => 'pages/aluno/desafio_aplicado.php',
-    '/desafio_incorreto' => 'pages/aluno/desafio_incorreto.php',
 
     // professor
     '/professor' => 'pages/professor/professor_page.php',

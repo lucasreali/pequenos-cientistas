@@ -27,7 +27,6 @@
                 <li><a href="/aluno">Aulas</a></li>
 
                 <li><a href="/desafios_aluno" style="color: white">Desafios</a></li>
-                <li><a href="/desafio_correct">Sobre nós</a></li>
             </ul>
         </nav>
     </header>
